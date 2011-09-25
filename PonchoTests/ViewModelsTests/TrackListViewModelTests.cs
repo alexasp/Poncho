@@ -1,0 +1,120 @@
+﻿using System.Collections.Generic;
+using NUnit.Framework;
+using Poncho.Models;
+using Poncho.Models.Cargo;
+using Poncho.Models.Enums;
+using Poncho.Models.Interfaces;
+using Poncho.ViewModels;
+using Rhino.Mocks;
+
+namespace PonchoTests.ViewModelsTests
+{
+    [TestFixture]
+    public class TrackListViewModelTests
+    {
+        private TrackListViewModel _trackListViewModel;
+        private ITrackHandler _trackHandler;
+        private IUserFeedbackHandler _userFeedbackHandler;
+        private IPlaylistManager _playListManager;
+
+        [SetUp]
+        public void Init()
+        {
+            _trackHandler = MockRepository.GenerateMock<ITrackHandler>();
+            _playListManager = MockRepository.GenerateMock<IPlaylistManager>();
+            _userFeedbackHandler = MockRepository.GenerateMock<IUserFeedbackHandler>();
+            _trackListViewModel = new TrackListViewModel(_trackHandler, _userFeedbackHandler, _playListManager);
+        }
+
+
+
+        [Test]
+        public void PlayTrack_TrackPlayable_SendsTrackToTrackManager()
+        {
+            //playabletrack
+            var track = new Track(true);
+            _trackListViewModel.SelectedTrack = track;
+
+            _trackHandler.Expect(x => x.PlayTrack(track));
+
+            _trackListViewModel.PlaySelectedTrack();
+
+            _trackHandler.VerifyAllExpectations();
+        }
+
+
+        [Test]
+        public void PlayTrack_TrackNotPlayable_MessagesUserFeedBackHandler()
+        {
+            //not playable track
+            var track = new Track(false);
+            _trackListViewModel.SelectedTrack = track;
+
+            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.TrackNotPlayable));
+
+            _trackListViewModel.PlaySelectedTrack();
+
+            _userFeedbackHandler.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void QueueTrackList_TrackPlayable_SendsTrackToTrackManager()
+        {
+            var trackList = new List<Track>();
+            _trackListViewModel.SelectedTracks = trackList;
+
+            _trackHandler.Expect(x => x.QueueTracks(trackList));
+
+            _trackListViewModel.QueueTracks();
+        }
+
+        [Test]
+        public void QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler()
+        {
+            var trackList = new List<Track>();
+            var track1 = new Track(false);
+            var track2 = new Track(true);
+            _trackListViewModel.SelectedTracks = trackList;
+
+            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.SomeTracksNotPlayable));
+
+            _trackListViewModel.QueueTracks();
+        }
+
+        [Test]
+        public void QueueTrackList_TrackNotPlayable_QueuesPlayableTracks()
+        {
+            var trackList = new List<Track>();
+            var track1 = new Track(false);
+            var track2 = new Track(true);
+            _trackListViewModel.SelectedTracks = trackList;
+
+            _trackHandler.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));
+
+            _trackListViewModel.QueueTracks();
+        }
+
+        [Test]
+        public void OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager()
+        {
+            _playListManager.Expect(x => x.SelectedPlayList);
+
+            _trackListViewModel.OnSelectedPlaylistChanged();
+            
+            _playListManager.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void OnSelectedPlayListChanged_FillsTrackListWithSelectedPlayList()
+        {
+            var playList = new PlayList();
+            playList.TrackList = new List<Track>() {new Track(true), new Track(false)};
+            _playListManager.Stub(x => x.SelectedPlayList).Return(playList);
+            
+            _trackListViewModel.OnSelectedPlaylistChanged();
+
+            Assert.AreEqual(playList.TrackList, _trackListViewModel.TrackList);
+            
+        }
+    }
+}
