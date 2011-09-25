@@ -29,7 +29,7 @@ namespace PonchoTests.ViewModelsTests
 
 
         [Test]
-        public void PlayTrack_TrackPlayable_SendsTrackToTrackManager()
+        public void PlaySelectedTrack_TrackPlayable_SendsTrackToTrackHandler()
         {
             //playabletrack
             var track = new Track(true);
@@ -44,7 +44,7 @@ namespace PonchoTests.ViewModelsTests
 
 
         [Test]
-        public void PlayTrack_TrackNotPlayable_MessagesUserFeedBackHandler()
+        public void PlaySelectedTrack_TrackNotPlayable_MessagesUserFeedBackHandler()
         {
             //not playable track
             var track = new Track(false);
@@ -58,7 +58,7 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void QueueTrackList_TrackPlayable_SendsTrackToTrackManager()
+        public void QueueTrackList_TrackPlayable_SendsTrackToTrackHandler()
         {
             var trackList = new List<Track>();
             _trackListViewModel.SelectedTracks = trackList;
@@ -82,7 +82,7 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void QueueTrackList_TrackNotPlayable_QueuesPlayableTracks()
+        public void QueueTrackList_SomeTracksNotPlayable_QueuesPlayableTracks()
         {
             var trackList = new List<Track>();
             var track1 = new Track(false);
