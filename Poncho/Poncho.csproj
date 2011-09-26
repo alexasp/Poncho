@@ -76,7 +76,14 @@
     <Compile Include="Models\LoginManager.cs" />
     <Compile Include="Models\PlaylistManager.cs" />
     <Compile Include="Models\Services\Interfaces\ISpotifyServices.cs" />
+    <Compile Include="Models\Services\Session.cs" />
     <Compile Include="Models\Services\SpotifyServices.cs" />
+    <Compile Include="Models\Services\Enums\sp_sampletype.cs" />
+    <Compile Include="Models\Services\Structs\KeyManager.cs" />
+    <Compile Include="Models\Services\Structs\sp_audioformat.cs" />
+    <Compile Include="Models\Services\Structs\sp_audio_buffer_stats.cs" />
+    <Compile Include="Models\Services\Structs\sp_session_callbacks.cs" />
+    <Compile Include="Models\Services\Structs\sp_session_config.cs" />
     <Compile Include="Models\TrackStreamPlayer.cs" />
     <Compile Include="Models\UserFeedbackHandler.cs" />
     <Compile Include="ViewModels\Interfaces\ILoginViewModel.cs" />

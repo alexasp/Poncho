@@ -4,21 +4,43 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using Poncho.Models.services;
+using Poncho.Models.Services.Structs;
 
 
 namespace Poncho.Models.Services
 {
-    class SpotifyServices : ISpotifyServices
+    public class SpotifyServices : ISpotifyServices
     {
-        private IntPtr _sessionHandle;
+        private readonly IntPtr _sessionHandle;
         private IntPtr _searchHandle;
+        private sp_session_config _sessionConfig;
+        private string cacheLocation;
+        private string settingsLocation;
+        private string _userAgent = "poncho";
+        private sp_session_callbacks _sessionCallbacks;
+        private const int SpotifyApiVersion = 9;
+
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         private delegate void SearchCallbackDelegate(IntPtr searchHandle, IntPtr userdataPointer);
 
         public SpotifyServices()
         {
+            cacheLocation = "G:\\PonchoCache"; //no cache
+            settingsLocation = cacheLocation;
             //assuming a given session handle is constant throughout lifetime
-            _sessionHandle = new IntPtr();
+            _sessionHandle = IntPtr.Zero;
+            _sessionCallbacks = new sp_session_callbacks();
+
+            IntPtr appKeyPointer = Marshal.AllocHGlobal(KeyManager.ApplicationKey.Length);
+            Marshal.Copy(KeyManager.ApplicationKey, 0, appKeyPointer, KeyManager.ApplicationKey.Length);
+            IntPtr sessionCallbacksPtr = Marshal.AllocHGlobal(Marshal.SizeOf(_sessionCallbacks));
+            Marshal.StructureToPtr(_sessionCallbacks, sessionCallbacksPtr, true);
+
+            _sessionConfig = new sp_session_config(SpotifyApiVersion, cacheLocation, settingsLocation,
+                appKeyPointer, KeyManager.ApplicationKey.Length, _userAgent, sessionCallbacksPtr);
+            var error = sp_session_create(ref _sessionConfig, ref _sessionHandle);
+
+            Console.WriteLine(error);
         }
 
         public void FetchPlaylistTracks(PlayList playlist)
@@ -27,13 +49,24 @@ namespace Poncho.Models.Services
         }
 
         [DllImport("spotify.dll")]
-        private static extern void sp_session_login(IntPtr session, ref SByte username, ref SByte password,
+        //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
+        private static extern sp_error sp_session_create(ref sp_session_config config, ref IntPtr sessionHandle);
+
+        //(void) sp_session_release(sp_session *sess);
+
+        [DllImport("spotify.dll")]
+        private static extern void sp_session_login(IntPtr session, ref char[] username, ref char[] password,
                                                    bool rememberMe);
 
         [DllImport("spotify.dll")]
-        private static extern void sp_search_create(IntPtr session, ref SByte query, Int32 track_offset,
-                                                    Int32 track_count, Int32 album_offset, Int32 album_count,
-                                                    Int32 artist_offset, Int32 artist_count,
+        //(void) sp_session_logout(sp_session *session);
+        private static extern void sp_session_logout(IntPtr session);
+        
+
+        [DllImport("spotify.dll")]
+        private static extern void sp_search_create(IntPtr session, ref char[] query, int trackOffset,
+                                                    int trackCount, int albumOffset, int albumCount,
+                                                    int artistOffset, int artistCount,
                                                     SearchCallbackDelegate callbackDelegate, IntPtr userdataPointer);
 
         [DllImport("spotify.dll")]
@@ -49,34 +82,34 @@ namespace Poncho.Models.Services
         private static extern IntPtr sp_search_query(IntPtr searchHandle);
 
         [DllImport("spotify.dll")]
-        private static extern Int32 sp_search_total_tracks(IntPtr searchHandle);
+        private static extern int sp_search_total_tracks(IntPtr searchHandle);
 
         [DllImport("spotify.dll")]
-        private static extern Int32 sp_search_num_tracks(IntPtr searchHandle);
+        private static extern int sp_search_num_tracks(IntPtr searchHandle);
 
         [DllImport("spotify.dll")]
         //(sp_track *) sp_search_track(sp_search *search, int index);
-        private static extern IntPtr sp_search_track(IntPtr searchHandle, Int32 index);
+        private static extern IntPtr sp_search_track(IntPtr searchHandle, int index);
 
         [DllImport("spotify.dll")]
         //(int) sp_search_num_albums(sp_search *search);
-        private static extern Int32 sp_search_num_albums(IntPtr searchHandle);
+        private static extern int sp_search_num_albums(IntPtr searchHandle);
 
         [DllImport("spotify.dll")]
         //(sp_album *) sp_search_album(sp_search *search, int index);
-        private static extern IntPtr sp_search_album(IntPtr searchHandle, Int32 index);
+        private static extern IntPtr sp_search_album(IntPtr searchHandle, int index);
 
         [DllImport("spotify.dll")]
         //(int) sp_search_num_artists(sp_search *search);
-        private static extern Int32 sp_search_num_artists(IntPtr searchHandle);
+        private static extern int sp_search_num_artists(IntPtr searchHandle);
 
         [DllImport("spotify.dll")]
         //(sp_artist *) sp_search_artist(sp_search *search, int index);
-        private static extern IntPtr sp_search_artist(IntPtr searchHandle, Int32 index);
+        private static extern IntPtr sp_search_artist(IntPtr searchHandle, int index);
 
         [DllImport("spotify.dll")]
         //(const char *) sp_artist_name(sp_artist *artist);
-        private static extern SByte sp_artist_name(IntPtr artistPointer);
+        private static extern char sp_artist_name(IntPtr artistPointer);
 
         [DllImport("spotify.dll")]
         //(const char *) sp_album_name(sp_album *album);
@@ -84,7 +117,7 @@ namespace Poncho.Models.Services
 
         [DllImport("spotify.dll")]
         //(int) sp_album_year(sp_album *album);
-        private static extern Int32 sp_album_year(IntPtr albumPointer);
+        private static extern int sp_album_year(IntPtr albumPointer);
 
         [DllImport("spotify.dll")]
         //(const char*) sp_error_message(sp_error error);
@@ -93,17 +126,23 @@ namespace Poncho.Models.Services
 
         public void RequestLogin(string username, string password)
         {
-            SByte usernameAsSbyte = Convert.ToSByte(username);
-            SByte passwordASbyte = Convert.ToSByte(password);
+            var usernameAschar = username.ToCharArray();
+            var passwordAschar = password.ToCharArray();
 
-            sp_session_login(_sessionHandle, ref usernameAsSbyte, ref passwordASbyte, true);
+            sp_session_login(_sessionHandle, ref usernameAschar, ref passwordAschar, true);
+        }
+
+        private void LoginCallBack(IntPtr sessionHandle, sp_error error)
+        {
+            Console.WriteLine("Login attempted. Result: " + error);
         }
 
         public void Search(string searchText)
         {
-            var queryAsSByte = Convert.ToSByte(searchText);
+            var queryAsChar = searchText.ToCharArray();
+
             var callbackDelegate = new SearchCallbackDelegate(SearchCallback);
-            sp_search_create(_sessionHandle, ref queryAsSByte, 0, 100, 0, 100, 0, 100, callbackDelegate, new IntPtr());
+            sp_search_create(_sessionHandle, ref queryAsChar, 0, 100, 0, 100, 0, 100, callbackDelegate, new IntPtr());
         }
 
         private void SearchCallback(IntPtr searchHandle, IntPtr userdataPointer)
@@ -113,7 +152,7 @@ namespace Poncho.Models.Services
     }
 
 // ReSharper disable InconsistentNaming
-    internal enum sp_error
+    public enum sp_error
     {
         SP_ERROR_OK = 0,  //< No errors encountered
         SP_ERROR_BAD_API_VERSION = 1,  //< The library version targeted does not match the one you claim you support
