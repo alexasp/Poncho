@@ -10,7 +10,7 @@ namespace PonchoTests.ServicesTets
         [Test]
         public void InitializeSession_ReturnsSPErrorOK()
         {
-            var spotifyServices = new SpotifyServices();
+            var spotifyServices = new SpotifyService();
             Assert.AreEqual(sp_error.SP_ERROR_OK, spotifyServices.InitializeSession());
             spotifyServices.EndSession();
         }

@@ -77,9 +77,9 @@
     <Compile Include="Models\PlaylistManager.cs" />
     <Compile Include="Models\Services\Enums\sp_error.cs" />
     <Compile Include="Models\Services\Interfaces\ISpotifyServices.cs" />
-    <Compile Include="Models\Services\SpotifyServices.cs" />
+    <Compile Include="Models\Services\SpotifyService.cs" />
     <Compile Include="Models\Services\Enums\sp_sampletype.cs" />
-    <Compile Include="Models\Services\Structs\KeyManager.cs" />
+    <Compile Include="Models\Services\KeyManager.cs" />
     <Compile Include="Models\Services\Structs\sp_audioformat.cs" />
     <Compile Include="Models\Services\Structs\sp_audio_buffer_stats.cs" />
     <Compile Include="Models\Services\Structs\sp_session_callbacks.cs" />
