@@ -14,6 +14,14 @@ namespace PonchoTests.ServicesTets
             Assert.AreEqual(sp_error.SP_ERROR_OK, spotifyServices.InitializeSession());
             spotifyServices.EndSession();
         }
-        
+
+        [Test]
+        public void RequestLogin()
+        {
+            var spotifyServices = new SpotifyService();
+            spotifyServices.RequestLogin("AlexBA", "tomater90");
+            spotifyServices.EndSession();
+        }
+
     }
 }
