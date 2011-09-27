@@ -19,7 +19,7 @@ namespace Poncho.Models.Services
         private string settingsLocation;
         private string _userAgent = "poncho";
         private sp_session_callbacks _sessionCallbacks;
-        private const int SpotifyApiVersion = 10;
+        private const int SpotifyApiVersion = 9;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         private delegate void SearchCallbackDelegate(IntPtr searchHandle, IntPtr userdataPointer);
@@ -30,7 +30,6 @@ namespace Poncho.Models.Services
             settingsLocation = "tmp";
 
             _sessionHandle = IntPtr.Zero;
-            _sessionConfig.callbacks = Marshal.AllocHGlobal(Marshal.SizeOf(_sessionCallbacks));
 
             IntPtr appKeyPointer = Marshal.AllocHGlobal(KeyManager.ApplicationKey.Length);
             Marshal.Copy(KeyManager.ApplicationKey, 0, appKeyPointer, KeyManager.ApplicationKey.Length);
@@ -57,9 +56,15 @@ namespace Poncho.Models.Services
                 initially_unload_playlists = Convert.ToInt32(true)
             };
 
+
             var error = sp_session_create(ref _sessionConfig, out _sessionHandle);
 
             return error;
+        }
+
+        public void EndSession()
+        {
+            sp_session_release(out _sessionHandle);
         }
 
         public void FetchPlaylistTracks(PlayList playlist)
@@ -71,7 +76,9 @@ namespace Poncho.Models.Services
         //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
         private static extern sp_error sp_session_create(ref sp_session_config config, out IntPtr sessionHandle);
 
+        [DllImport("spotify.dll")]
         //(void) sp_session_release(sp_session *sess);
+        private static extern void sp_session_release(out IntPtr sessionHandle);
 
         [DllImport("spotify.dll")]
         private static extern void sp_session_login(IntPtr session, ref char[] username, ref char[] password,
@@ -168,6 +175,8 @@ namespace Poncho.Models.Services
         {
             throw new NotImplementedException();
         }
+
+        
     }
 
 

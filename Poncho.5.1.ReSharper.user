@@ -9,12 +9,12 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="public" priority="40" />
-      <Item value="void" priority="38" />
+      <Item value="public" priority="42" />
+      <Item value="void" priority="39" />
       <Item value="SongListViewModelTest`0" priority="2" />
-      <Item value="var" priority="25" />
+      <Item value="var" priority="26" />
       <Item value="songListViewModel" priority="1" />
-      <Item value="new" priority="52" />
+      <Item value="new" priority="59" />
       <Item value="TrackListViewModel" priority="3" />
       <Item value="ITrackListViewModel`0" priority="0" />
       <Item value="ITrack" priority="0" />
@@ -30,12 +30,12 @@
       <Item value="trackListViewModel" priority="2" />
       <Item value="track" priority="28" />
       <Item value="AssertWasCalled`1" priority="0" />
-      <Item value="return" priority="5" />
+      <Item value="return" priority="6" />
       <Item value="_selectedTrack" priority="0" />
       <Item value="value" priority="1" />
-      <Item value="true" priority="14" />
+      <Item value="true" priority="17" />
       <Item value="Track`0" priority="25" />
-      <Item value="false" priority="6" />
+      <Item value="false" priority="7" />
       <Item value="TrackListViewModel`0" priority="8" />
       <Item value="feedBackHandler" priority="0" />
       <Item value="IUserFeedBackHandler`0" priority="8" />
@@ -46,7 +46,7 @@
       <Item value="_trackManager" priority="11" />
       <Item value="_userFeedBackHandler" priority="4" />
       <Item value="TearDown" priority="0" />
-      <Item value="null" priority="3" />
+      <Item value="null" priority="5" />
       <Item value="_trackManagerMock" priority="2" />
       <Item value="_userFeedBackHandlerMock" priority="0" />
       <Item value="TrackManagerTests`0" priority="1" />
@@ -64,7 +64,7 @@
       <Item value="if" priority="5" />
       <Item value="_playable" priority="0" />
       <Item value="Playable" priority="0" />
-      <Item value="throw" priority="0" />
+      <Item value="throw" priority="1" />
       <Item value="ArgumentException" priority="0" />
       <Item value="TrackQueue`0" priority="2" />
       <Item value="_trackQueue" priority="16" />
@@ -86,7 +86,7 @@
       <Item value="SelectedTrack" priority="4" />
       <Item value="SelectedTracks" priority="0" />
       <Item value="Arg" priority="3" />
-      <Item value="foreach" priority="1" />
+      <Item value="foreach" priority="2" />
       <Item value="selectedTrack" priority="1" />
       <Item value="matches" priority="0" />
       <Item value="else" priority="3" />
@@ -117,8 +117,8 @@
       <Item value="ILoginViewModel" priority="0" />
       <Item value="_loginManager" priority="3" />
       <Item value="string" priority="1" />
-      <Item value="username" priority="0" />
-      <Item value="password" priority="3" />
+      <Item value="username" priority="5" />
+      <Item value="password" priority="5" />
       <Item value="_loginViewModel" priority="6" />
       <Item value="IUserFeedBackViewModel`0" priority="0" />
       <Item value="Poncho" priority="0" />
@@ -133,24 +133,65 @@
       <Item value="InteropServices" priority="0" />
       <Item value="DllImportAttribute`0" priority="1" />
       <Item value="DllImport" priority="0" />
-      <Item value="static" priority="0" />
-      <Item value="extern" priority="0" />
+      <Item value="static" priority="1" />
+      <Item value="extern" priority="1" />
       <Item value="struct" priority="1" />
-      <Item value="IntPtr`0" priority="9" />
-      <Item value="SByte`0" priority="5" />
+      <Item value="IntPtr`0" priority="31" />
+      <Item value="SByte`0" priority="6" />
       <Item value="sp_session_login`0" priority="0" />
-      <Item value="IntPtr" priority="0" />
+      <Item value="IntPtr" priority="2" />
       <Item value="userName" priority="5" />
-      <Item value="Convert`0" priority="5" />
-      <Item value="sbyte" priority="0" />
+      <Item value="Convert`0" priority="8" />
+      <Item value="sbyte" priority="2" />
       <Item value="usernameAsSbyte" priority="0" />
       <Item value="passwordASbyte" priority="0" />
       <Item value="Int32`0" priority="0" />
-      <Item value="sp_error`0" priority="1" />
+      <Item value="sp_error`0" priority="2" />
       <Item value="LayoutKind`0" priority="0" />
       <Item value="delegate" priority="4" />
-      <Item value="error" priority="0" />
-      <Item value="ref" priority="0" />
+      <Item value="error" priority="1" />
+      <Item value="ref" priority="3" />
+      <Item value="sessionCallbacksPtr" priority="4" />
+      <Item value="spotifyServices" priority="2" />
+      <Item value="usernameAssbyte" priority="1" />
+      <Item value="for" priority="1" />
+      <Item value="Array`0" priority="0" />
+      <Item value="i" priority="0" />
+      <Item value="Marshal`0" priority="19" />
+      <Item value="GCHandle`0" priority="1" />
+      <Item value="_sessionHandle" priority="5" />
+      <Item value="callbacks" priority="0" />
+      <Item value="_sessionCallbacks" priority="3" />
+      <Item value="managedCallbacks" priority="0" />
+      <Item value="searchText" priority="0" />
+      <Item value="cw" priority="3" />
+      <Item value="usernameAschar" priority="2" />
+      <Item value="UnmanagedType`0" priority="2" />
+      <Item value="sp_session_callbacks`0" priority="1" />
+      <Item value="byte" priority="1" />
+      <Item value="KeyManager`0" priority="2" />
+      <Item value="_sessionConfig" priority="13" />
+      <Item value="appKeyPointer" priority="1" />
+      <Item value="this" priority="0" />
+      <Item value="userdata" priority="0" />
+      <Item value="SpotifyApiVersion" priority="1" />
+      <Item value="cacheLocation" priority="5" />
+      <Item value="settingsLocation" priority="1" />
+      <Item value="Length" priority="0" />
+      <Item value="_userAgent" priority="2" />
+      <Item value="NotImplementedException" priority="0" />
+      <Item value="Pack" priority="0" />
+      <Item value="initially_unload_playlists" priority="0" />
+      <Item value="compress_playlists" priority="0" />
+      <Item value="dont_save_metadata_for_playlists" priority="0" />
+      <Item value="char" priority="1" />
+      <Item value="MarshalAsAttribute`0" priority="0" />
+      <Item value="cacheLocPtr" priority="2" />
+      <Item value="userAgentPtr" priority="0" />
+      <Item value="configPtr" priority="5" />
+      <Item value="out" priority="0" />
+      <Item value="sp_session_release`0" priority="0" />
+      <Item value="sessPtr" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Rhino.Mocks.MockRepository">
       <Item value="GenerateMock`0" priority="21" />
@@ -205,7 +246,7 @@
       <Item value="TrackList" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual`0" priority="3" />
+      <Item value="AreEqual`0" priority="5" />
       <Item value="Fail`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.Queue`1">
@@ -290,32 +331,115 @@
       <Item value="VerifyAllExpectations`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Convert">
-      <Item value="ToSByte`0" priority="7" />
+      <Item value="ToSByte`0" priority="8" />
+      <Item value="ToInt32`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Runtime.InteropServices.LayoutKind">
-      <Item value="Sequential" priority="0" />
+      <Item value="Sequential" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Length" priority="4" />
+      <Item value="EndsWith`0" priority="0" />
+      <Item value="ToCharArray`0" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Array">
+      <Item value="CreateInstance`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Runtime.InteropServices.Marshal">
+      <Item value="AllocHGlobal`0" priority="7" />
+      <Item value="SystemMaxDBCSCharSize" priority="0" />
+      <Item value="SizeOf`0" priority="5" />
+      <Item value="StringToHGlobalAuto`0" priority="2" />
+      <Item value="StringToHGlobalAnsi`0" priority="0" />
+      <Item value="Copy`0" priority="3" />
+      <Item value="StructureToPtr`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Runtime.InteropServices.GCHandle">
+      <Item value="Alloc`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Runtime.InteropServices.GCHandle">
+      <Item value="Target" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IntPtr">
+      <Item value="Zero" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Runtime.InteropServices.UnmanagedType">
+      <Item value="I4" priority="0" />
+      <Item value="AnsiBStr" priority="0" />
+      <Item value="Struct" priority="0" />
+      <Item value="LPTStr" priority="2" />
+      <Item value="LPWStr" priority="0" />
+      <Item value="ByValArray" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Poncho.Models.Services.Structs.KeyManager">
+      <Item value="ApplicationKey" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Poncho.Models.Services.Structs.sp_session_config">
+      <Item value="callbacks" priority="1" />
+      <Item value="userdata" priority="0" />
+      <Item value="api_version" priority="0" />
+      <Item value="cache_location" priority="0" />
+      <Item value="settings_location" priority="0" />
+      <Item value="application_key" priority="0" />
+      <Item value="application_key_size" priority="0" />
+      <Item value="user_agent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Poncho.Models.Services.SpotifyServices">
+      <Item value="InitializeSession`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Poncho.Models.Services.Enums.sp_error">
+      <Item value="SP_ERROR_OK" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="d:Miscellaneous Files/f:spshell.h/l:C!?Users?Alex?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?doc?examples?spshell?spshell.h" caret="1396" fromTop="10" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1663" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="543" fromTop="15" />
-      <File id="d:Miscellaneous Files/f:api.h/l:C!?Users?Alex?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?include?libspotify?api.h" caret="18204" fromTop="13" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="526" fromTop="13" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:KeyManager.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_audio_buffer_stats.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_audioformat.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_sampletype.cs" caret="0" fromTop="0" />
+      <File id="d:Miscellaneous Files/f:spshell.c/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?doc?examples?spshell?spshell.c" caret="5551" fromTop="28" />
+      <File id="d:Miscellaneous Files/f:spshell.h/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?doc?examples?spshell?spshell.h" caret="1261" fromTop="1" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="1218" fromTop="20" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="531" fromTop="18" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="629" fromTop="20" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:PlayListViewModel.cs" caret="0" fromTop="0" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="1686" fromTop="19" />
+      <File id="d:Miscellaneous Files/f:api.h/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?include?libspotify?api.h" caret="20991" fromTop="23" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2979" fromTop="25" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ServicesTets/f:SpotifyServicesTests.cs" caret="378" fromTop="13" />
     </RecentFiles>
     <RecentEdits>
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1362" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="4182" fromTop="14" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1335" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="968" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1185" fromTop="16" />
-      <File id="d:Miscellaneous Files/f:api.h/l:C!?Users?Alex?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?include?libspotify?api.h" caret="17762" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="644" fromTop="14" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="12" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7403" fromTop="3" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="139" fromTop="7" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="2228" fromTop="34" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="6876" fromTop="22" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7364" fromTop="35" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="531" fromTop="18" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="24" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="21" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="21" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="15" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="5" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="12" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="352" fromTop="2" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="256" fromTop="9" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="367" fromTop="9" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="515" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="543" fromTop="15" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="707" fromTop="22" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="508" fromTop="17" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="514" fromTop="17" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1747" fromTop="18" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1423" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1568" fromTop="13" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="699" fromTop="21" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="3196" fromTop="21" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ServicesTets/f:SpotifyServicesTests.cs" caret="353" fromTop="13" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1041" fromTop="5" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2006" fromTop="24" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7387" fromTop="17" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2655" fromTop="37" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2473" fromTop="29" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2979" fromTop="25" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
