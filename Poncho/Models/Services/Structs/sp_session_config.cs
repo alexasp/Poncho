@@ -10,24 +10,17 @@ namespace Poncho.Models.Services.Structs
     [StructLayout(LayoutKind.Sequential)]
     struct sp_session_config
     {
-        public sp_session_config(int apiVersion, string cacheLocation, string settingsLocation, IntPtr applicationKey, int applicationKeySize, string userAgent, IntPtr callbacks)
-        {
-            api_version = apiVersion;
-            cache_location = cacheLocation;
-            settings_location = settingsLocation;
-            application_key = applicationKey;
-            application_key_size = applicationKeySize;
-            user_agent = userAgent;
-            this.callbacks = callbacks;
-        }
-
         public int api_version;
-        public string cache_location;
-        public string settings_location;
+        public IntPtr cache_location;
+        public IntPtr settings_location;
         public IntPtr application_key;
         public int application_key_size;
-        public string user_agent;
+        public IntPtr user_agent;
         public IntPtr callbacks;
+        public IntPtr userdata;
+        public int compress_playlists;
+        public int dont_save_metadata_for_playlists;
+        public int initially_unload_playlists;
     }
     // ReSharper restore InconsistentNaming
 }

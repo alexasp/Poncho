@@ -75,8 +75,8 @@
     <Compile Include="Models\Interfaces\IUserFeedbackViewModel.cs" />
     <Compile Include="Models\LoginManager.cs" />
     <Compile Include="Models\PlaylistManager.cs" />
+    <Compile Include="Models\Services\Enums\sp_error.cs" />
     <Compile Include="Models\Services\Interfaces\ISpotifyServices.cs" />
-    <Compile Include="Models\Services\Session.cs" />
     <Compile Include="Models\Services\SpotifyServices.cs" />
     <Compile Include="Models\Services\Enums\sp_sampletype.cs" />
     <Compile Include="Models\Services\Structs\KeyManager.cs" />

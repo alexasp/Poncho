@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Poncho.Models.Services.Enums;
 
 namespace Poncho.Models.Services.Structs
 {

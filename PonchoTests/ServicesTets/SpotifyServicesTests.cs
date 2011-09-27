@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Poncho.Models.Services;
+using Poncho.Models.Services.Enums;
 
 namespace PonchoTests.ServicesTets
 {
@@ -7,10 +8,10 @@ namespace PonchoTests.ServicesTets
     public class SpotifyServicesTests
     {
         [Test]
-        public void SessionCreateAndLogin_ValidLogin_SPErrorOK()
+        public void InitializeSession_ReturnsSPErrorOK()
         {
             var spotifyServices = new SpotifyServices();
-            spotifyServices.RequestLogin("AlexBA", "tomater90");
+            Assert.AreEqual(sp_error.SP_ERROR_OK, spotifyServices.InitializeSession());
         }
         
     }
