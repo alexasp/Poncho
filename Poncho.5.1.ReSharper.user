@@ -166,19 +166,19 @@
       <Item value="searchText" priority="0" />
       <Item value="cw" priority="3" />
       <Item value="usernameAschar" priority="2" />
-      <Item value="UnmanagedType`0" priority="2" />
+      <Item value="UnmanagedType`0" priority="3" />
       <Item value="sp_session_callbacks`0" priority="1" />
       <Item value="byte" priority="1" />
       <Item value="KeyManager`0" priority="2" />
-      <Item value="_sessionConfig" priority="13" />
+      <Item value="_sessionConfig" priority="14" />
       <Item value="appKeyPointer" priority="1" />
       <Item value="this" priority="0" />
       <Item value="userdata" priority="0" />
       <Item value="SpotifyApiVersion" priority="1" />
-      <Item value="cacheLocation" priority="5" />
+      <Item value="cacheLocation" priority="7" />
       <Item value="settingsLocation" priority="1" />
       <Item value="Length" priority="0" />
-      <Item value="_userAgent" priority="2" />
+      <Item value="_userAgent" priority="3" />
       <Item value="NotImplementedException" priority="0" />
       <Item value="Pack" priority="0" />
       <Item value="initially_unload_playlists" priority="0" />
@@ -349,7 +349,7 @@
       <Item value="AllocHGlobal`0" priority="7" />
       <Item value="SystemMaxDBCSCharSize" priority="0" />
       <Item value="SizeOf`0" priority="5" />
-      <Item value="StringToHGlobalAuto`0" priority="2" />
+      <Item value="StringToHGlobalAuto`0" priority="6" />
       <Item value="StringToHGlobalAnsi`0" priority="0" />
       <Item value="Copy`0" priority="3" />
       <Item value="StructureToPtr`0" priority="1" />
@@ -401,21 +401,18 @@
       <File id="d:Miscellaneous Files/f:spshell.h/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?doc?examples?spshell?spshell.h" caret="1261" fromTop="1" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="1218" fromTop="20" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="531" fromTop="18" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="629" fromTop="20" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="0" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:PlayListViewModel.cs" caret="0" fromTop="0" />
+      <File id="d:Miscellaneous Files/f:api.h/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?include?libspotify?api.h" caret="21066" fromTop="30" />
       <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="1686" fromTop="19" />
-      <File id="d:Miscellaneous Files/f:api.h/l:F!?Dropbox?VS Projects?lib?libspotify-9.1.45-Windows-win32?include?libspotify?api.h" caret="20991" fromTop="23" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2979" fromTop="25" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ServicesTets/f:SpotifyServicesTests.cs" caret="378" fromTop="13" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="355" fromTop="13" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ServicesTets/f:SpotifyServicesTests.cs" caret="466" fromTop="14" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2040" fromTop="26" />
     </RecentFiles>
     <RecentEdits>
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7403" fromTop="3" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="139" fromTop="7" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Enums/f:sp_error.cs" caret="2228" fromTop="34" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="6876" fromTop="22" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7364" fromTop="35" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="6833" fromTop="22" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7321" fromTop="35" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_callbacks.cs" caret="531" fromTop="18" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="24" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="21" />
@@ -424,22 +421,25 @@
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="5" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="876" fromTop="12" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="352" fromTop="2" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="256" fromTop="9" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="707" fromTop="22" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="508" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="514" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1747" fromTop="18" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="723" fromTop="22" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="609" fromTop="17" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="609" fromTop="17" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1423" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1568" fromTop="13" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="699" fromTop="21" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="3196" fromTop="21" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="3153" fromTop="21" />
       <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ServicesTets/f:SpotifyServicesTests.cs" caret="353" fromTop="13" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1041" fromTop="5" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2006" fromTop="24" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7387" fromTop="17" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2655" fromTop="37" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2473" fromTop="29" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2979" fromTop="25" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2095" fromTop="24" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="7344" fromTop="17" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2597" fromTop="37" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2418" fromTop="19" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2925" fromTop="36" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="609" fromTop="19" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2053" fromTop="25" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1203" fromTop="10" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="1700" fromTop="21" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/f:SpotifyServices.cs" caret="2033" fromTop="26" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Models/d:Services/d:Structs/f:sp_session_config.cs" caret="355" fromTop="13" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

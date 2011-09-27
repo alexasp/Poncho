@@ -10,14 +10,14 @@ namespace Poncho.Models.Services.Structs
     [StructLayout(LayoutKind.Sequential)]
     struct sp_session_config
     {
-        public int api_version;
-        public IntPtr cache_location;
-        public IntPtr settings_location;
-        public IntPtr application_key;
-        public int application_key_size;
-        public IntPtr user_agent;
-        public IntPtr callbacks;
-        public IntPtr userdata;
+        internal int api_version;
+        internal string cache_location;
+        internal string settings_location;
+        internal IntPtr application_key;
+        internal int application_key_size;
+        internal string user_agent;
+        internal IntPtr callbacks;
+        internal IntPtr userdata;
         public int compress_playlists;
         public int dont_save_metadata_for_playlists;
         public int initially_unload_playlists;

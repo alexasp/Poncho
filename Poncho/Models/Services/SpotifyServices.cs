@@ -44,11 +44,11 @@ namespace Poncho.Models.Services
             _sessionConfig = new sp_session_config
             {
                 api_version = SpotifyApiVersion,
-                cache_location = cacheLocPtr,
-                settings_location = cacheLocPtr,
+                cache_location = cacheLocation,
+                settings_location = cacheLocation,
                 application_key = appKeyPointer,
                 application_key_size = KeyManager.ApplicationKey.Length,
-                user_agent = userAgentPtr,
+                user_agent = _userAgent,
                 callbacks = IntPtr.Zero,
                 userdata = IntPtr.Zero,
                 compress_playlists = Convert.ToInt32(false),
