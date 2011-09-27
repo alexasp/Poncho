@@ -19,7 +19,9 @@ namespace PonchoTests.ServicesTets
         public void RequestLogin()
         {
             var spotifyServices = new SpotifyService();
+            #region
             spotifyServices.RequestLogin("AlexBA", "tomater90");
+            #endregion
             spotifyServices.EndSession();
         }
 

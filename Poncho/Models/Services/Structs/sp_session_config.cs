@@ -7,7 +7,7 @@ using System.Text;
 namespace Poncho.Models.Services.Structs
 {
 // ReSharper disable InconsistentNaming
-    [StructLayout(LayoutKind.Sequential)]
+    
     struct sp_session_config
     {
         internal int api_version;
