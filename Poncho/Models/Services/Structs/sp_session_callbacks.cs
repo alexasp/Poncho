@@ -5,6 +5,7 @@ using Poncho.Models.Services.Enums;
 namespace Poncho.Models.Services.Structs
 {
 // ReSharper disable InconsistentNaming
+    [StructLayout(LayoutKind.Sequential)]
     public struct sp_session_callbacks
     {
         internal IntPtr logged_in;

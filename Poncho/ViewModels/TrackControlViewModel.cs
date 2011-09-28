@@ -20,5 +20,12 @@ namespace Poncho.ViewModels
             IsPlaying = !IsPlaying;
             _trackHandler.PlayPause(IsPlaying);
         }
+
+
+        public void Something()
+        {
+            int tall = 5;
+        }
+
     }
 }
