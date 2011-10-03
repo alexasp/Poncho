@@ -7,23 +7,39 @@ namespace PonchoTests.ServicesTets
     [TestFixture]
     public class SpotifyServicesTests
     {
-        [Test]
-        public void InitializeSession_ReturnsSPErrorOK()
+        private SpotifyService _spotifyServices;
+
+
+        [SetUp]
+        public void Init()
         {
-            var spotifyServices = new SpotifyService();
-            Assert.AreEqual(sp_error.SP_ERROR_OK, spotifyServices.InitializeSession());
-            spotifyServices.EndSession();
+            _spotifyServices = new SpotifyService();
+            //Login
+            #region
+            _spotifyServices.RequestLogin("AlexBA", "tomater90");
+            #endregion
+        }
+
+
+        [Test]
+        public void Search()
+        {
+            _spotifyServices.Search("seigmen");
         }
 
         [Test]
-        public void RequestLogin()
+        public void SearchCallback_CreatesTrackListAndSendsToSearchManager()
         {
-            var spotifyServices = new SpotifyService();
-            #region
-            spotifyServices.RequestLogin("AlexBA", "tomater90");
-            #endregion
-            spotifyServices.EndSession();
+            _spotifyServices.Search("seigmen");
         }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _spotifyServices.Logout();
+            _spotifyServices.EndSession();
+        }
+
 
     }
 }

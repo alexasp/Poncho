@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using Poncho.Models.Services.Enums;
 using Poncho.Models.Services.Structs;
 
@@ -10,6 +11,8 @@ namespace Poncho.Models.Services
 {
     public class libspotify
     {
+
+        internal static object Mutex = new object();
 
         [DllImport("spotify.dll")]
         //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
@@ -20,6 +23,7 @@ namespace Poncho.Models.Services
         public static extern void sp_session_release(IntPtr sessionHandle);
 
         [DllImport("spotify.dll")]
+        //(void) sp_session_login(sp_session *session, const char *username, const char *password, bool remember_me);
         public static extern void sp_session_login(IntPtr session, string username, string password,
                                                    bool rememberMe);
 

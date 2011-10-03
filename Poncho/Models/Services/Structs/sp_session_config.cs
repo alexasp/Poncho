@@ -7,7 +7,7 @@ using System.Text;
 namespace Poncho.Models.Services.Structs
 {
 // ReSharper disable InconsistentNaming
-    [StructLayout(LayoutKind.Sequential)]
+    [StructLayout(LayoutKind.Sequential, Pack=1)]
     public struct sp_session_config
     {
         public int api_version;
@@ -18,9 +18,9 @@ namespace Poncho.Models.Services.Structs
         public string user_agent;
         public IntPtr callbacks;
         public IntPtr userdata;
-        public int compress_playlists;
-        public int dont_save_metadata_for_playlists;
-        public int initially_unload_playlists;
+        public bool compress_playlists;
+        public bool dont_save_metadata_for_playlists;
+        public bool initially_unload_playlists;
     }
     // ReSharper restore InconsistentNaming
 }

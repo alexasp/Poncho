@@ -21,12 +21,17 @@ namespace Poncho.Models.Services
         private sp_session_callbacks _sessionCallbacks;
         private const int SpotifyApiVersion = 9;
 
-        
 
-        public sp_error InitializeSession()
+        public SpotifyService()
+        {
+            InitializeSession();
+        }
+
+        private sp_error InitializeSession()
         {
             _cacheLocation = "tmp";
             _settingsLocation = "tmp";
+
 
             _sessionHandle = IntPtr.Zero;
 
@@ -37,9 +42,6 @@ namespace Poncho.Models.Services
             IntPtr sessionCallbacksPtr = Marshal.AllocHGlobal(Marshal.SizeOf(_sessionCallbacks));
             Marshal.StructureToPtr(_sessionCallbacks, sessionCallbacksPtr, true);
 
-            IntPtr cacheLocPtr = Marshal.StringToHGlobalUni(_cacheLocation);
-
-            IntPtr userAgentPtr = Marshal.StringToHGlobalUni(UserAgent);
 
             _sessionConfig = new sp_session_config
             {
@@ -51,9 +53,9 @@ namespace Poncho.Models.Services
                 user_agent = UserAgent,
                 callbacks = IntPtr.Zero,
                 userdata = IntPtr.Zero,
-                compress_playlists = Convert.ToInt32(false),
-                dont_save_metadata_for_playlists = Convert.ToInt32(true),
-                initially_unload_playlists = Convert.ToInt32(true)
+                compress_playlists = false,
+                dont_save_metadata_for_playlists = true,
+                initially_unload_playlists = true
             };
 
 
@@ -72,12 +74,20 @@ namespace Poncho.Models.Services
             throw new NotImplementedException();
         }
 
-        
-        
-
         public void RequestLogin(string username, string password)
         {
-            libspotify.sp_session_login(_sessionHandle, username, password, true);
+            lock (libspotify.Mutex)
+            {
+                libspotify.sp_session_login(_sessionHandle,username, password, true);
+            }
+        }
+
+        public void Logout()
+        {
+            lock (libspotify.Mutex)
+            {
+                libspotify.sp_session_logout(_sessionHandle);
+            }
         }
 
         private void LoginCallBack(IntPtr sessionHandle, sp_error error)
@@ -98,41 +108,56 @@ namespace Poncho.Models.Services
             throw new NotImplementedException();
         }
 
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate void SearchCallbackDelegate(IntPtr searchHandle, IntPtr userdataPointer);
 
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void logged_in(IntPtr sessionHandle, sp_error error);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void logged_out(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void metadata_updated(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void connection_error(IntPtr sessionHandle, sp_error error);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void message_to_user(IntPtr sessionHandle, ref char[] message);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void notify_main_thread(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void music_delivery(
             IntPtr sessionHandle, ref sp_audioformat format, IntPtr frames, int num_frames);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void play_token_lost(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void log_message(IntPtr sessionHandle, ref char[] data);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void end_of_track(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void streaming_error(IntPtr sessionHandle, sp_error error);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void userinfo_updated(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void start_playback(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void stop_playback(IntPtr sessionHandle);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void get_audio_buffet_stats(IntPtr sessionHandle, ref sp_audio_buffer_stats stats);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void offline_status_updated(IntPtr sessionHandle);
 
 
@@ -140,6 +165,8 @@ namespace Poncho.Models.Services
         {
             EndSession();
         }
+
+        
     }
 
 
