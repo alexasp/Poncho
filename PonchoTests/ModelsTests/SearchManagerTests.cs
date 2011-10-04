@@ -39,14 +39,18 @@ namespace PonchoTests.ModelsTests
         }
 
         [Test]
-        public void SearchResultsRetrieved_SendsResultingTracklistToTrackSearchViewModel()
+        public void SearchResultsRetrieved_SendsResultingTracklistToTrackListViewModel()
         {
             var trackList = new List<Track>();
+            var searchResults = new SearchResults(trackList);
+            
             _trackListViewModel.Expect(x => x.TrackList = trackList);
 
-            _searchManager.SearchResultsRetrieved(trackList);
+            _searchManager.SearchResultsRetrieved(searchResults);
 
             _spotifyServices.VerifyAllExpectations();
         }
+
+        public SearchManagerTests(int i)
     }
 }

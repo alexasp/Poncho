@@ -1,6 +1,8 @@
 using NUnit.Framework;
+using Poncho.Models.Interfaces;
 using Poncho.Models.Services;
 using Poncho.Models.Services.Enums;
+using Rhino.Mocks;
 
 namespace PonchoTests.ServicesTets
 {
@@ -8,12 +10,14 @@ namespace PonchoTests.ServicesTets
     public class SpotifyServicesTests
     {
         private SpotifyService _spotifyServices;
+        private ISearchManager _searchmanager;
 
 
         [SetUp]
         public void Init()
         {
-            _spotifyServices = new SpotifyService();
+            _searchmanager = MockRepository.GenerateMock<ISearchManager>();
+            _spotifyServices = new SpotifyService(_searchmanager);
             //Login
             #region
             _spotifyServices.RequestLogin("AlexBA", "tomater90");
@@ -23,12 +27,6 @@ namespace PonchoTests.ServicesTets
 
         [Test]
         public void Search()
-        {
-            _spotifyServices.Search("seigmen");
-        }
-
-        [Test]
-        public void SearchCallback_CreatesTrackListAndSendsToSearchManager()
         {
             _spotifyServices.Search("seigmen");
         }

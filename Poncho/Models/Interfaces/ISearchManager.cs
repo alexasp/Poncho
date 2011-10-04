@@ -6,6 +6,6 @@ namespace Poncho.Models.Interfaces
     public interface ISearchManager
     {
         void Search(string text);
-        void SearchResultsRetrieved(List<Track> trackList);
+        void SearchResultsRetrieved(SearchResults trackList);
     }
 }

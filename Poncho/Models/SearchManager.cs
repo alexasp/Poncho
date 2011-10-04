@@ -18,9 +18,9 @@ namespace Poncho.Models
             _trackListViewModel = trackListViewModel;
         }
 
-        public void SearchResultsRetrieved(List<Track> trackList)
+        public void SearchResultsRetrieved(SearchResults searchResults)
         {
-            _trackListViewModel.TrackList = trackList;
+            _trackListViewModel.TrackList = searchResults.TrackList;
         }
 
         public void Search(string text)
