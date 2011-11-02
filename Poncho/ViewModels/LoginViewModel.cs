@@ -1,6 +1,4 @@
 ﻿using System;
-using Poncho.Models.Enums;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels.Interfaces;
 
 namespace Poncho.ViewModels

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Poncho.Models.Cargo;
-using Poncho.Models.Enums;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels;
 
 namespace Poncho.Models

@@ -3,9 +3,6 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Poncho.Models;
-using Poncho.Models.Cargo;
-using Poncho.Models.Enums;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels;
 using Rhino.Mocks;
 

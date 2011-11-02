@@ -48,15 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelsTests\LoginManagerTests.cs" />
-    <Compile Include="ModelsTests\PlaylistManagerTests.cs" />
-    <Compile Include="ModelsTests\QueueTests.cs" />
-    <Compile Include="ModelsTests\SearchManagerTests.cs" />
-    <Compile Include="ModelsTests\TrackHandlerTests.cs" />
-    <Compile Include="ModelsTests\TrackStreamPlayerTests.cs" />
-    <Compile Include="ModelsTests\UserFeedbackHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServicesTets\SpotifyServicesTests.cs" />
     <Compile Include="ViewModelsTests\LogInViewModelTests.cs" />
     <Compile Include="ViewModelsTests\PlayListViewModelTests.cs" />
     <Compile Include="ViewModelsTests\TrackControlViewModelTests.cs" />

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE9AA137-7F3A-45A1-85CA-A8131810C974}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpotifyService</RootNamespace>
+    <AssemblyName>SpotifyService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cargo\PlayList.cs" />
+    <Compile Include="Cargo\SearchResult.cs" />
+    <Compile Include="Cargo\Track.cs" />
+    <Compile Include="Cargo\TrackStream.cs" />
+    <Compile Include="Enums\sp_error.cs" />
+    <Compile Include="Enums\sp_sampletype.cs" />
+    <Compile Include="Interfaces\IMusicServices.cs" />
+    <Compile Include="Interfaces\ISpotifyWrapper.cs" />
+    <Compile Include="Interfaces\ITrackSubscriber.cs" />
+    <Compile Include="KeyManager.cs" />
+    <Compile Include="Models\Enums\UserFeedback.cs" />
+    <Compile Include="Models\Interfaces\ILoginManager.cs" />
+    <Compile Include="Models\Interfaces\IPlaylistManager.cs" />
+    <Compile Include="Models\Interfaces\ISearchManager.cs" />
+    <Compile Include="Models\Interfaces\IStreamManager.cs" />
+    <Compile Include="Models\Interfaces\ITrackHandler.cs" />
+    <Compile Include="Models\Interfaces\ITrackQueue.cs" />
+    <Compile Include="Models\Interfaces\ITrackStreamPlayer.cs" />
+    <Compile Include="Models\Interfaces\IUserFeedbackHandler.cs" />
+    <Compile Include="Models\Interfaces\IUserFeedbackViewModel.cs" />
+    <Compile Include="Models\LoginManager.cs" />
+    <Compile Include="Models\PlaylistManager.cs" />
+    <Compile Include="Models\SearchManager.cs" />
+    <Compile Include="Models\TrackHandler.cs" />
+    <Compile Include="Models\TrackQueue.cs" />
+    <Compile Include="Models\TrackStreamPlayer.cs" />
+    <Compile Include="Models\UserFeedbackHandler.cs" />
+    <Compile Include="MusicServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpotifyWrapper.cs" />
+    <Compile Include="Structs\sp_album.cs" />
+    <Compile Include="Structs\sp_audioformat.cs" />
+    <Compile Include="Structs\sp_audio_buffer_stats.cs" />
+    <Compile Include="Structs\sp_session_callbacks.cs" />
+    <Compile Include="Structs\sp_session_config.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="api.h" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Poncho.Models.Cargo;
 
 namespace Poncho.Models
 {

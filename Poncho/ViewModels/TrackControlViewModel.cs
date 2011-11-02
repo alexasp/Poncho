@@ -1,5 +1,4 @@
 ﻿using System;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels.Interfaces;
 
 namespace Poncho.ViewModels

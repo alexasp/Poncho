@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Poncho.Models;
-using Poncho.Models.Interfaces;
 using Rhino.Mocks;
 
 namespace PonchoTests.ViewModelsTests

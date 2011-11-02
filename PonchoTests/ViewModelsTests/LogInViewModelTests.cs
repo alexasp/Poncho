@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Poncho.Models.Enums;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;

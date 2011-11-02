@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Poncho.Models;
-using Poncho.Models.Cargo;
-using Poncho.Models.Enums;
-using Poncho.Models.Interfaces;
 using Poncho.ViewModels;
 using Rhino.Mocks;
 

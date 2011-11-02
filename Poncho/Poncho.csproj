@@ -46,9 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="DemiCode.Mvvm">
-      <HintPath>..\packages\DemiCode.Mvvm.1.1.0.16\lib\net40\DemiCode.Mvvm.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -72,42 +69,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Models\Cargo\SearchResults.cs" />
-    <Compile Include="Models\Cargo\Track.cs" />
-    <Compile Include="Models\Cargo\TrackStream.cs" />
-    <Compile Include="Models\Interfaces\ILoginManager.cs" />
-    <Compile Include="Models\Interfaces\IPlaylistManager.cs" />
-    <Compile Include="Models\Interfaces\ISearchManager.cs" />
-    <Compile Include="Models\Interfaces\IStreamManager.cs" />
-    <Compile Include="Models\Interfaces\ITrackHandler.cs" />
-    <Compile Include="Models\Interfaces\ITrackQueue.cs" />
-    <Compile Include="Models\Interfaces\IUserFeedbackHandler.cs" />
-    <Compile Include="Models\Enums\UserFeedback.cs" />
-    <Compile Include="Models\Interfaces\ITrackStreamPlayer.cs" />
-    <Compile Include="Models\Interfaces\IUserFeedbackViewModel.cs" />
-    <Compile Include="Models\LoginManager.cs" />
-    <Compile Include="Models\PlaylistManager.cs" />
-    <Compile Include="Models\Services\Enums\sp_error.cs" />
-    <Compile Include="Models\Services\Interfaces\ISpotifyServices.cs" />
-    <Compile Include="Models\Services\ISpotifyWrapper.cs" />
-    <Compile Include="Models\Services\SpotifyService.cs" />
-    <Compile Include="Models\Services\Enums\sp_sampletype.cs" />
-    <Compile Include="Models\Services\KeyManager.cs" />
-    <Compile Include="Models\Services\Structs\sp_audioformat.cs" />
-    <Compile Include="Models\Services\Structs\sp_audio_buffer_stats.cs" />
-    <Compile Include="Models\Services\Structs\sp_session_callbacks.cs" />
-    <Compile Include="Models\Services\Structs\sp_session_config.cs" />
-    <Compile Include="Models\TrackStreamPlayer.cs" />
-    <Compile Include="Models\UserFeedbackHandler.cs" />
     <Compile Include="ViewModels\Interfaces\ILoginViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
-    <Compile Include="Models\Cargo\PlayList.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackControlViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\PlayListViewModel.cs" />
-    <Compile Include="Models\SearchManager.cs" />
-    <Compile Include="Models\TrackQueue.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackListViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Page Include="Views\ShellView.xaml">
@@ -120,7 +87,6 @@
     </Compile>
     <Compile Include="ViewModels\TrackControlViewModel.cs" />
     <Compile Include="ViewModels\TrackListViewModel.cs" />
-    <Compile Include="Models\TrackHandler.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>
