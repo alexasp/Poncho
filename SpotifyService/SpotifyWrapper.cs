@@ -21,6 +21,8 @@ namespace SpotifyService
 
         internal static object Mutex = new object();
 
+        public event Action SearchRetrieved;
+
         public sp_error CreateSession()
         {
             if (_sessionHandle != IntPtr.Zero)
@@ -131,56 +133,35 @@ namespace SpotifyService
             throw new NotImplementedException();
         }
 
-        public IntPtr GetSearchAlbum(int index)
+        public IntPtr GetAlbum(int index)
         {
             throw new NotImplementedException();
         }
 
-        public IntPtr GetSearchArtist(int index)
+        public IntPtr GetArtist(int index)
         {
             throw new NotImplementedException();
         }
 
-        public IntPtr GetSearchTrack(int index)
+        public IntPtr GetTrack(int index)
         {
             throw new NotImplementedException();
         }
 
-        public List<Track> GetLastSearchTracks()
+        public List<Track> GetSearchTracks()
         {
             throw new NotImplementedException();
         }
 
+        
 
 
         private void SearchCallback(IntPtr searchHandle, IntPtr userdataPointer)
         {
             if (sp_search_error(searchHandle) == (UInt32)sp_error.SP_ERROR_OK)
             {
-             
-                //int i;
-
-                //printf("Query          : %s\n", sp_search_query(search));
-                //printf("Did you mean   : %s\n", sp_search_did_you_mean(search));
-                //printf("Tracks in total: %d\n", sp_search_total_tracks(search));
-                //puts("");
-
-                //for (i = 0; i < sp_search_num_tracks(search); ++i)
-                //    print_track(sp_search_track(search, i));
-
-                //puts("");
-
-                //for (i = 0; i < sp_search_num_albums(search); ++i)
-                //    print_album(sp_search_album(search, i));
-
-                //puts("");
-
-                //for (i = 0; i < sp_search_num_artists(search); ++i)
-                //    print_artist(sp_search_artist(search, i));
-
-                //puts("");
-
-
+                _searchHandle = searchHandle;
+                SearchRetrieved();
             }
         }
 
@@ -320,4 +301,5 @@ namespace SpotifyService
             EndSession();
         }
     }
+
 }

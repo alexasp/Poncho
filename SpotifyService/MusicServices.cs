@@ -9,15 +9,25 @@ namespace SpotifyService
     public class MusicServices : IMusicServices
     {
         private readonly ISearchManager _searchManager;
-        
-
-        private static SpotifyWrapper _instance;
         private ISpotifyWrapper _spotifyWrapper;
 
         public MusicServices(ISearchManager searchManager, ISpotifyWrapper spotifyWrapper)
         {
             _searchManager = searchManager;
             _spotifyWrapper = spotifyWrapper;
+            _spotifyWrapper.SearchRetrieved += SearchRetrieved;
+        }
+
+        public void SearchRetrieved()
+        {
+            var searchQuery = _spotifyWrapper.GetSearchQuery();
+            var didYouMeanText = _spotifyWrapper.GetSearchDidYouMean();
+            var trackCount = _spotifyWrapper.GetSearchCountTracksRetrieved();
+            var totalTrackCount = _spotifyWrapper.GetSearchTotalTracksFound();
+            var albumCount = _spotifyWrapper.GetSearchCountAlbumsRetrieved();
+            var tracks = _spotifyWrapper.GetSearchTracks();
+
+            _searchManager.SearchResultsRetrieved(new SearchResult(tracks, searchQuery, didYouMeanText, trackCount, totalTrackCount, albumCount));
         }
 
         public void InitializeSession(string username, string password)
@@ -28,10 +38,6 @@ namespace SpotifyService
                 _spotifyWrapper.RequestLogin(username, password);
         }
 
-        public void SearchRetrieved(SearchResult result)
-        {
-            throw new NotImplementedException();
-        }
 
         public void EndSession()
         {

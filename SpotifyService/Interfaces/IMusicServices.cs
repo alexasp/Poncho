@@ -8,7 +8,7 @@ namespace SpotifyService.Interfaces
         void FetchPlaylistTracks(PlayList playlist);
         void Search(string searchText);
         void InitializeSession(string username, string password);
-        void SearchRetrieved(SearchResult result);
         void EndSession();
+        void SearchRetrieved();
     }
 }
