@@ -25,9 +25,9 @@ namespace SpotifyServiceTests.ModelsTests
         {
             var playlist = new PlayList();
 
-            _musicServices.Expect(x => x.FetchPlaylistTracks(playlist));
-
             _playlistManager.SelectedPlayList = playlist;
+
+            _musicServices.AssertWasCalled(x => x.FetchPlaylistTracks(playlist));
         }
     }
 }

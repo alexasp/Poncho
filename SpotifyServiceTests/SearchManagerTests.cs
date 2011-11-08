@@ -18,7 +18,7 @@ namespace SpotifyServiceTests.ModelsTests
         [SetUp]
         public void Init()
         {
-            _trackSubscriber = MockRepository.GenerateMock<ITrackSubscriber>();
+            _trackSubscriber = MockRepository.GenerateStub<ITrackSubscriber>();
             _musicServices = MockRepository.GenerateStub<IMusicServices>();
             _searchManager = new SearchManager(_musicServices, _trackSubscriber);
         }
@@ -27,11 +27,10 @@ namespace SpotifyServiceTests.ModelsTests
         public void Search_ValidSearchText_CallsSearchOnISpotifyServices()
         {
             var searchText = "Seigmen";
-            _musicServices.Expect(x => x.Search(searchText));
 
             _searchManager.Search(searchText);
 
-            _musicServices.VerifyAllExpectations();
+            _musicServices.AssertWasCalled(x => x.Search(searchText));
         }
 
         [Test]
@@ -40,11 +39,9 @@ namespace SpotifyServiceTests.ModelsTests
             var trackList = new List<Track>();
             var searchResults = new SearchResult(trackList);
 
-            _trackSubscriber.Expect(x => x.TrackList = trackList);
-
             _searchManager.SearchResultsRetrieved(searchResults);
 
-            _musicServices.VerifyAllExpectations();
+            _trackSubscriber.AssertWasCalled(x => x.SearchRetrieved(searchResults));
         }
 
         [Test]
@@ -53,11 +50,9 @@ namespace SpotifyServiceTests.ModelsTests
             var trackList = new List<Track>();
             var searchResults = new SearchResult(trackList);
 
-            _trackSubscriber.Expect(x => x.SearchRetrieved(searchResults));
-
             _searchManager.SearchResultsRetrieved(searchResults);
 
-            _trackSubscriber.VerifyAllExpectations();
+            _trackSubscriber.AssertWasCalled(x => x.SearchRetrieved(searchResults));
         }
 
     }

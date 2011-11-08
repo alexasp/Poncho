@@ -21,19 +21,21 @@ namespace SpotifyServiceTests
         public void Init()
         {
             _searchManager = MockRepository.GenerateStub<ISearchManager>();
-            _spotifyWrapper = MockRepository.GenerateStub<ISpotifyWrapper>();
+            _spotifyWrapper = MockRepository.GenerateMock<ISpotifyWrapper>();
             _musicServices = new MusicServices(_searchManager, _spotifyWrapper);
         }
 
         [Test]  
-        public void InitializeSession_CreatesOnSpotifyServices()
+        public void InitializeSession_CallsCreateSessionOnSpotifyServices()
         {
             string username = "baldi";
             string password = "123321";
 
-            _spotifyWrapper.Expect(x => x.CreateSession()).Return(sp_error.SP_ERROR_OK);
+            _spotifyWrapper.Stub(x => x.CreateSession()).Return(sp_error.SP_ERROR_OK);
 
             _musicServices.InitializeSession(username, password);
+
+            _spotifyWrapper.AssertWasCalled(x => x.CreateSession());
         }
 
         [Test]
@@ -42,9 +44,9 @@ namespace SpotifyServiceTests
             string username = "baldi";
             string password = "123321";
 
-            _spotifyWrapper.Expect(x => x.RequestLogin(username, password));
-
             _musicServices.InitializeSession(username, password);
+
+            _spotifyWrapper.AssertWasCalled(x => x.RequestLogin(username, password));
         }
 
         [Test]
@@ -52,9 +54,9 @@ namespace SpotifyServiceTests
         {
             string search = "Seigmen";
 
-            _spotifyWrapper.Expect(x => x.CreateSearch(search));
-
             _musicServices.Search(search);
+
+            _spotifyWrapper.AssertWasCalled(x => x.CreateSearch(search));
         }
 
 
@@ -70,11 +72,9 @@ namespace SpotifyServiceTests
             _spotifyWrapper.Stub(x => x.GetSearchTotalTracksFound()).Return(120);
             _spotifyWrapper.Stub(x => x.GetSearchCountAlbumsRetrieved()).Return(8);
 
-            _searchManager.Expect(x => x.SearchResultsRetrieved(Arg<SearchResult>.Is.Anything));
-
             _musicServices.SearchRetrieved();
 
-            _searchManager.VerifyAllExpectations();
+            _searchManager.AssertWasCalled(x => x.SearchResultsRetrieved(Arg<SearchResult>.Is.Anything));
         }
 
         [Test]
@@ -95,8 +95,10 @@ namespace SpotifyServiceTests
             _spotifyWrapper.Stub(x => x.GetSearchTotalTracksFound()).Return(totalTrackCount);
             _spotifyWrapper.Stub(x => x.GetSearchCountAlbumsRetrieved()).Return(albumCount);
 
-            _searchManager.Expect(x => x.SearchResultsRetrieved(Arg<SearchResult>.Matches(
-                y => y.TrackList == trackList 
+            _musicServices.SearchRetrieved();
+
+            _searchManager.AssertWasCalled(x => x.SearchResultsRetrieved(Arg<SearchResult>.Matches(
+                y => y.TrackList == trackList
                     && y.SearchQuery == searchText
                     && y.DidYouMeanText == didYouMean
                     && y.TrackCount == trackCount
@@ -104,14 +106,9 @@ namespace SpotifyServiceTests
                     && y.AlbumCount == albumCount
                     )
                 ));
-
-
-            _musicServices.SearchRetrieved();
-
-
-            _searchManager.VerifyAllExpectations();
         }
 
+        //Is there some way to test for order as well? If there is, it's on mocks, so we're leaving this a mock for now.
         [Test]
         public void PlayTrack_CallsLoadTrackThenPlayTrackOnWrapper()
         {

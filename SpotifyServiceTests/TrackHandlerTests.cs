@@ -29,11 +29,9 @@ namespace SpotifyServiceTests.ModelsTests
         {
             var track = new Track(true);
 
-            _musicServices.Expect(x => x.PlayTrack(track));
-
             _trackHandler.PlayTrack(track);
 
-            _musicServices.VerifyAllExpectations();
+            _musicServices.AssertWasCalled(x => x.PlayTrack(track));
         }
 
 
@@ -50,11 +48,10 @@ namespace SpotifyServiceTests.ModelsTests
         public void QueueTrack_TrackPlayable_AddsTrackToQueue()
         {
             var track = new Track(true);
-            _trackQueue.Expect(x => x.Enqueue(track));
 
             _trackHandler.QueueTracks(track);
 
-            _trackQueue.VerifyAllExpectations();
+            _trackQueue.AssertWasCalled(x => x.Enqueue(track));
         }
 
         [Test]

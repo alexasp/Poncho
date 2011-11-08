@@ -15,19 +15,32 @@ namespace SpotifyServiceTests.ModelsTests
         [SetUp]
         public void Init()
         {
-            _musicServices = MockRepository.GenerateStub<IMusicServices>();
+            _musicServices = MockRepository.GenerateMock<IMusicServices>();
             _loginManager = new LoginManager(_musicServices);
         }
 
         [Test]
-        public void RequestLogin_ProperLoginInfo_CallsInitializeSessionOnIMusicServices()
+        public void AttemptLogin_ProperLoginInfo_CallsInitializeSessionOnIMusicServices()
         {
             var username = "aspis";
             var password = "123asd";
 
-            _musicServices.Expect(x => x.InitializeSession(username, password));
+            _loginManager.AttemptLogin(username, password);
+
+            _musicServices.AssertWasCalled(x => x.InitializeSession(username, password));
+        }
+
+        [Test]
+        public void AttemptLogin_InvalidUsername_CallsUserFeedBackHandlerWithEmptyUsername()
+        {
+            var username = "aspis";
+            var password = "123asd";
 
             _loginManager.AttemptLogin(username, password);
+
+            _musicServices.AssertWasCalled(x => x.InitializeSession(username, password));
+
+            Assert.Fail();
         }
     }
 }

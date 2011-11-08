@@ -23,43 +23,35 @@ namespace SpotifyServiceTests.ModelsTests
         [Test]
         public void Display_TrackNotPlayable_SetsUserMessageOnUserFeedbackViewModel()
         {
-            _userFeedbackDisplay.Expect(x => x.DisplayMessage("This track is not playable."));
-
             _userFeedbackHandler.Display(UserFeedback.TrackNotPlayable);
 
-            _userFeedbackDisplay.VerifyAllExpectations();
+            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("This track is not playable."));
         }
 
         [Test]
         public void Display_TracksNotPlayable_SetsUserMessageOnUserFeedbackViewModel()
         {
-            _userFeedbackDisplay.Expect(x => x.DisplayMessage("One or more of these tracks were not playable."));
-
             _userFeedbackHandler.Display(UserFeedback.SomeTracksNotPlayable);
 
-            _userFeedbackDisplay.VerifyAllExpectations();
+            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("One or more of these tracks were not playable."));
 
         }
 
         [Test]
         public void Display_NoSearchTextEntered_SetsUserMessageOnUserFeedbackViewModel()
         {
-            _userFeedbackDisplay.Expect(x => x.DisplayMessage("You need to enter a search text."));
-
             _userFeedbackHandler.Display(UserFeedback.NoSearchTextEntered);
 
-            _userFeedbackDisplay.VerifyAllExpectations();
+            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("You need to enter a search text."));
 
         }
 
         [Test]
         public void Display_InvalidLoginInfo_SetsUserMessageOnUserFeedbackViewModel()
         {
-            _userFeedbackDisplay.Expect(x => x.DisplayMessage("The login information you provided was incorrect."));
-
             _userFeedbackHandler.Display(UserFeedback.InvalidLoginInfo);
 
-            _userFeedbackDisplay.VerifyAllExpectations();
+            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("The login information you provided was incorrect."));
         }
     }
 }
