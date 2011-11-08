@@ -48,6 +48,7 @@
     <Compile Include="Interfaces\IMusicServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
     <Compile Include="Interfaces\ITrackSubscriber.cs" />
+    <Compile Include="Interfaces\IUserFeedBackDisplay.cs" />
     <Compile Include="KeyManager.cs" />
     <Compile Include="Models\Enums\UserFeedback.cs" />
     <Compile Include="Models\Interfaces\ILoginManager.cs" />

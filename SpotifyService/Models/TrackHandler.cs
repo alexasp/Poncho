@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SpotifyService.Cargo;
+using SpotifyService.Interfaces;
 using SpotifyService.Models.Interfaces;
 
 namespace SpotifyService.Models
@@ -8,11 +9,13 @@ namespace SpotifyService.Models
     public class TrackHandler : ITrackHandler
     {
         private readonly ITrackQueue _trackQueue;
+        private readonly IMusicServices _musicServices;
 
 
-        public TrackHandler(ITrackQueue trackQueue)
+        public TrackHandler(ITrackQueue trackQueue, IMusicServices musicServices)
         {
             _trackQueue = trackQueue;
+            _musicServices = musicServices;
         }
 
 
@@ -20,10 +23,16 @@ namespace SpotifyService.Models
         {
 
             if (track != null)
-                if(!track.Playable)
+            {
+                if (!track.Playable)
                     throw new ArgumentException("Track was not playable.");
                 else
-                    _streamManager.RequestTrackStream(track);
+                    _musicServices.PlayTrack(track);
+            }
+            else
+            {
+                throw new ArgumentException("Track was null");
+            }
         }
 
         public void QueueTracks(List<Track> tracks)

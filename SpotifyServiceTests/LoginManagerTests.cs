@@ -15,7 +15,7 @@ namespace SpotifyServiceTests.ModelsTests
         [SetUp]
         public void Init()
         {
-            _musicServices = MockRepository.GenerateMock<IMusicServices>();
+            _musicServices = MockRepository.GenerateStub<IMusicServices>();
             _loginManager = new LoginManager(_musicServices);
         }
 

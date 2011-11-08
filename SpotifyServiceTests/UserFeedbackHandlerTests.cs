@@ -16,7 +16,7 @@ namespace SpotifyServiceTests.ModelsTests
         [SetUp]
         public void Init()
         {
-            _userFeedbackDisplay = MockRepository.GenerateMock<IUserFeedBackDisplay>();
+            _userFeedbackDisplay = MockRepository.GenerateStub<IUserFeedBackDisplay>();
             _userFeedbackHandler = new UserFeedbackHandler(_userFeedbackDisplay);
         }
 

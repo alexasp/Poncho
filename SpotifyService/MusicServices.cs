@@ -30,7 +30,7 @@ namespace SpotifyService
             _searchManager.SearchResultsRetrieved(new SearchResult(tracks, searchQuery, didYouMeanText, trackCount, totalTrackCount, albumCount));
         }
 
-        public void PlayTrack(int i)
+        public void PlayTrack(Track i)
         {
             throw new NotImplementedException();
         }

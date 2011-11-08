@@ -19,7 +19,7 @@ namespace SpotifyServiceTests.ModelsTests
         public void Init()
         {
             _trackSubscriber = MockRepository.GenerateMock<ITrackSubscriber>();
-            _musicServices = MockRepository.GenerateMock<IMusicServices>();
+            _musicServices = MockRepository.GenerateStub<IMusicServices>();
             _searchManager = new SearchManager(_musicServices, _trackSubscriber);
         }
 

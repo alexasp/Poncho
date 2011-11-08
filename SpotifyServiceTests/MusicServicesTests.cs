@@ -20,8 +20,8 @@ namespace SpotifyServiceTests
         [SetUp]
         public void Init()
         {
-            _searchManager = MockRepository.GenerateMock<ISearchManager>();
-            _spotifyWrapper = MockRepository.GenerateMock<ISpotifyWrapper>();
+            _searchManager = MockRepository.GenerateStub<ISearchManager>();
+            _spotifyWrapper = MockRepository.GenerateStub<ISpotifyWrapper>();
             _musicServices = new MusicServices(_searchManager, _spotifyWrapper);
         }
 
@@ -115,11 +115,11 @@ namespace SpotifyServiceTests
         [Test]
         public void PlayTrack_CallsLoadTrackThenPlayTrackOnWrapper()
         {
-            int trackHandle = 135;
-            _spotifyWrapper.Expect(x => x.LoadTrack(trackHandle));
+            var track = new Track(true);
+            _spotifyWrapper.Expect(x => x.LoadTrack(track.Handle));
             _spotifyWrapper.Expect(x => x.Play(true));
 
-            _musicServices.PlayTrack(trackHandle);
+            _musicServices.PlayTrack(track);
 
             _spotifyWrapper.VerifyAllExpectations();
         }
