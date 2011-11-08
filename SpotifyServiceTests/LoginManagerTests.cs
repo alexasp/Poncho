@@ -20,7 +20,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void RequestLogin_ProperLoginInfo_CallsRequestLoginOnIMusicServices()
+        public void RequestLogin_ProperLoginInfo_CallsInitializeSessionOnIMusicServices()
         {
             var username = "aspis";
             var password = "123asd";
