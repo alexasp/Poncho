@@ -23,5 +23,7 @@ namespace SpotifyService.Interfaces
         IntPtr GetTrack(int index);
         List<Track> GetSearchTracks();
         event Action SearchRetrieved;
+        void LoadTrack(int trackIndex);
+        void Play(bool b);
     }
 }

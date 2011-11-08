@@ -59,7 +59,7 @@ namespace SpotifyServiceTests
 
 
         [Test]
-        public void SearchResultsRetrieved_ConstructsSearchResultAndPassesToSearchManager()
+        public void SearchResultsRetrieved_ConstructsSearchResultAndPassesToSearchResultSubscribers()
         {
             var trackList = new List<Track>();
 
@@ -112,5 +112,16 @@ namespace SpotifyServiceTests
             _searchManager.VerifyAllExpectations();
         }
 
+        [Test]
+        public void PlayTrack_CallsLoadTrackThenPlayTrackOnWrapper()
+        {
+            int trackHandle = 135;
+            _spotifyWrapper.Expect(x => x.LoadTrack(trackHandle));
+            _spotifyWrapper.Expect(x => x.Play(true));
+
+            _musicServices.PlayTrack(trackHandle);
+
+            _spotifyWrapper.VerifyAllExpectations();
+        }
     }
 }

@@ -22,6 +22,15 @@ namespace SpotifyService
         internal static object Mutex = new object();
 
         public event Action SearchRetrieved;
+        public void LoadTrack(int trackIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Play(bool b)
+        {
+            throw new NotImplementedException();
+        }
 
         public sp_error CreateSession()
         {

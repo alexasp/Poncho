@@ -6,5 +6,6 @@ namespace SpotifyService.Interfaces
     public interface ITrackSubscriber
     {
         List<Track> TrackList { get; set; }
+        void SearchRetrieved(SearchResult searchResults);
     }
 }

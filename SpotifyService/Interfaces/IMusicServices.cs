@@ -10,5 +10,6 @@ namespace SpotifyService.Interfaces
         void InitializeSession(string username, string password);
         void EndSession();
         void SearchRetrieved();
+        void PlayTrack(int i);
     }
 }

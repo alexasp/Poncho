@@ -30,6 +30,11 @@ namespace SpotifyService
             _searchManager.SearchResultsRetrieved(new SearchResult(tracks, searchQuery, didYouMeanText, trackCount, totalTrackCount, albumCount));
         }
 
+        public void PlayTrack(int i)
+        {
+            throw new NotImplementedException();
+        }
+
         public void InitializeSession(string username, string password)
         {
             sp_error error = _spotifyWrapper.CreateSession();

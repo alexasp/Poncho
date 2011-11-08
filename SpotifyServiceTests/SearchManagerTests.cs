@@ -13,14 +13,14 @@ namespace SpotifyServiceTests.ModelsTests
     {
         private IMusicServices _musicServices;
         private ISearchManager _searchManager;
-        private ITrackSubscriber _trackListViewModel;
+        private ITrackSubscriber _trackSubscriber;
 
         [SetUp]
         public void Init()
         {
-            _trackListViewModel = MockRepository.GenerateMock<ITrackSubscriber>();
+            _trackSubscriber = MockRepository.GenerateMock<ITrackSubscriber>();
             _musicServices = MockRepository.GenerateMock<IMusicServices>();
-            _searchManager = new SearchManager(_musicServices, _trackListViewModel);
+            _searchManager = new SearchManager(_musicServices, _trackSubscriber);
         }
 
         [Test]
@@ -35,12 +35,12 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void SearchResultsRetrieved_SendsResultingTracklistToTrackListViewModel()
+        public void SearchResultsRetrieved_PassesToSearchRetrievedSubscribers()
         {
             var trackList = new List<Track>();
             var searchResults = new SearchResult(trackList);
-            
-            _trackListViewModel.Expect(x => x.TrackList = trackList);
+
+            _trackSubscriber.Expect(x => x.TrackList = trackList);
 
             _searchManager.SearchResultsRetrieved(searchResults);
 
@@ -52,11 +52,12 @@ namespace SpotifyServiceTests.ModelsTests
         {
             var trackList = new List<Track>();
             var searchResults = new SearchResult(trackList);
- 
+
+            _trackSubscriber.Expect(x => x.SearchRetrieved(searchResults));
 
             _searchManager.SearchResultsRetrieved(searchResults);
 
-            Assert.AreEqual(searchResults, _searchManager.LastSearch);
+            _trackSubscriber.VerifyAllExpectations();
         }
 
     }
