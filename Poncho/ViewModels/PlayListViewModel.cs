@@ -1,4 +1,6 @@
 ﻿using System;
+using SpotifyService.Cargo;
+using SpotifyService.Models.Interfaces;
 
 namespace Poncho.Models
 {

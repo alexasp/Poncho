@@ -57,7 +57,6 @@
     <Compile Include="Models\Interfaces\IStreamManager.cs" />
     <Compile Include="Models\Interfaces\ITrackHandler.cs" />
     <Compile Include="Models\Interfaces\ITrackQueue.cs" />
-    <Compile Include="Models\Interfaces\ITrackStreamPlayer.cs" />
     <Compile Include="Models\Interfaces\IUserFeedbackHandler.cs" />
     <Compile Include="Models\Interfaces\IUserFeedbackViewModel.cs" />
     <Compile Include="Models\LoginManager.cs" />
@@ -65,7 +64,6 @@
     <Compile Include="Models\SearchManager.cs" />
     <Compile Include="Models\TrackHandler.cs" />
     <Compile Include="Models\TrackQueue.cs" />
-    <Compile Include="Models\TrackStreamPlayer.cs" />
     <Compile Include="Models\UserFeedbackHandler.cs" />
     <Compile Include="MusicServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

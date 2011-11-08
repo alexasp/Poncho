@@ -60,6 +60,10 @@
       <Project>{45388A88-56DA-438D-B19C-98407532D8D6}</Project>
       <Name>Poncho</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SpotifyService\SpotifyService.csproj">
+      <Project>{AE9AA137-7F3A-45A1-85CA-A8131810C974}</Project>
+      <Name>SpotifyService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

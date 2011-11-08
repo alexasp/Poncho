@@ -14,7 +14,7 @@ namespace SpotifyIntegrationTests
         private ISearchManager _searchmanager;
         private ISpotifyWrapper _spotifyWrapper;
 
-
+        //
         [SetUp]
         public void Init()
         {

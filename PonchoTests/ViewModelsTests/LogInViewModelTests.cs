@@ -6,6 +6,8 @@ using NUnit.Framework;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
+using SpotifyService.Models.Enums;
+using SpotifyService.Models.Interfaces;
 
 namespace PonchoTests.ViewModelsTests
 {
@@ -49,11 +51,5 @@ namespace PonchoTests.ViewModelsTests
             _loginManager.VerifyAllExpectations();
         }
 
-        //Not sure if testable
-        [Test]
-        public void LoginValid_ValidLogin_ShouldInitializeRestOfApplication()
-        {
-            Assert.Fail();
-        }
     }
 }

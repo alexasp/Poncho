@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Poncho.ViewModels;
+using SpotifyService.Cargo;
+using SpotifyService.Models.Enums;
+using SpotifyService.Models.Interfaces;
 
 namespace Poncho.Models
 {
@@ -27,6 +30,7 @@ namespace Poncho.Models
             else
                 _searchManager.Search(Text);
         }
+
 
         public void SearchResultsRetrieved(List<Track> trackList)
         {

@@ -7,15 +7,13 @@ namespace SpotifyService.Models
 {
     public class TrackHandler : ITrackHandler
     {
-        private readonly ITrackStreamPlayer _trackStreamPlayer;
         private readonly ITrackQueue _trackQueue;
         private IStreamManager _streamManager;
 
 
-        public TrackHandler(IStreamManager streamManager, ITrackStreamPlayer trackStreamPlayer, ITrackQueue trackQueue)
+        public TrackHandler(IStreamManager streamManager, ITrackQueue trackQueue)
         {
             _streamManager = streamManager;
-            _trackStreamPlayer = trackStreamPlayer;
             _trackQueue = trackQueue;
         }
 
@@ -57,9 +55,5 @@ namespace SpotifyService.Models
             throw new NotImplementedException();
         }
 
-        public void TrackStreamRetreived(TrackStream trackStream)
-        {
-            if (trackStream != null) _trackStreamPlayer.PlayStream(trackStream);
-        }
     }
 }

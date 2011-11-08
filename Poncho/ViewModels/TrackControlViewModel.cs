@@ -1,5 +1,6 @@
 ﻿using System;
 using Poncho.ViewModels.Interfaces;
+using SpotifyService.Models.Interfaces;
 
 namespace Poncho.ViewModels
 {

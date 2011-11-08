@@ -44,13 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelsTests\LoginManagerTests.cs" />
-    <Compile Include="ModelsTests\PlaylistManagerTests.cs" />
-    <Compile Include="ModelsTests\QueueTests.cs" />
-    <Compile Include="ModelsTests\SearchManagerTests.cs" />
-    <Compile Include="ModelsTests\TrackHandlerTests.cs" />
-    <Compile Include="ModelsTests\TrackStreamPlayerTests.cs" />
-    <Compile Include="ModelsTests\UserFeedbackHandlerTests.cs" />
+    <Compile Include="LoginManagerTests.cs" />
+    <Compile Include="PlaylistManagerTests.cs" />
+    <Compile Include="QueueTests.cs" />
+    <Compile Include="SearchManagerTests.cs" />
+    <Compile Include="TrackHandlerTests.cs" />
+    <Compile Include="UserFeedbackHandlerTests.cs" />
     <Compile Include="MusicServicesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
