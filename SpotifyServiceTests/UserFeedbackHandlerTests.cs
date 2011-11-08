@@ -53,7 +53,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Display_InvalidLoginInfo_SersUserMessageOnUserFeedbackViewModel()
+        public void Display_InvalidLoginInfo_SetsUserMessageOnUserFeedbackViewModel()
         {
             _userFeedbackDisplay.Expect(x => x.DisplayMessage("The login information you provided was incorrect."));
 
