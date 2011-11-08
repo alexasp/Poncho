@@ -10,6 +10,7 @@ namespace SpotifyService
     {
         private readonly ISearchManager _searchManager;
         private ISpotifyWrapper _spotifyWrapper;
+        public event Action<SearchResult> SearchResultsRetrieved;
 
         public MusicServices(ISearchManager searchManager, ISpotifyWrapper spotifyWrapper)
         {

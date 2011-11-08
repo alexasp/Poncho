@@ -5,6 +5,8 @@ namespace SpotifyService.Models.Enums
         TrackNotPlayable,
         SomeTracksNotPlayable,
         NoSearchTextEntered,
-        InvalidLoginInfo
+        InvalidLoginInfo,
+        EmptyUsername,
+        EmptyPassword
     }
 }

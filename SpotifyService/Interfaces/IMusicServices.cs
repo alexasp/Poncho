@@ -11,5 +11,6 @@ namespace SpotifyService.Interfaces
         void EndSession();
         void SearchRetrieved();
         void PlayTrack(Track i);
+        event Action<SearchResult> SearchResultsRetrieved;
     }
 }

@@ -24,7 +24,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Search_ValidSearchText_CallsSearchOnISpotifyServices()
+        public void Search_ValidSearchText_CallsSearchOnIMusicServices()
         {
             var searchText = "Seigmen";
 
@@ -34,7 +34,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void SearchResultsRetrieved_PassesToSearchRetrievedSubscribers()
+        public void SearchResultsRetrieved_PassesToITrackSubscriber()
         {
             var trackList = new List<Track>();
             var searchResults = new SearchResult(trackList);
