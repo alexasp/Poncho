@@ -218,6 +218,22 @@ namespace SpotifyService
         public delegate void offline_status_updated(IntPtr sessionHandle);
 
         [DllImport("spotify.dll")]
+        //(sp_error) sp_session_player_load(sp_session *session, sp_track *track);
+        public static extern sp_error sp_session_player_load(IntPtr sessionHandle, IntPtr trackHandle);
+
+        [DllImport("spotify.dll")]
+        //(void) sp_session_player_play(sp_session *session, bool play);
+        public static extern void sp_session_player_play(IntPtr sessionHandle, bool play);
+
+        [DllImport("spotify.dll")]
+        //(void) sp_session_player_unload(sp_session *session);
+        public static extern void sp_session_player_unload(IntPtr sessionHandle);
+
+        [DllImport("spotify.dll")]
+        //(sp_error) sp_session_player_prefetch(sp_session *session, sp_track *track);
+        public static extern sp_error sp_session_player_prefetch(IntPtr sessionHandle, IntPtr trackHandle);
+
+        [DllImport("spotify.dll")]
         //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
         public static extern sp_error sp_session_create(ref sp_session_config config, out IntPtr sessionHandle);
 
