@@ -21,7 +21,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Display_TrackNotPlayable_SetsUserMessageOnUserFeedbackViewModel()
+        public void Display_TrackNotPlayable_SetsUserMessageOnUserFeedbackDisplay()
         {
             _userFeedbackHandler.Display(UserFeedback.TrackNotPlayable);
 
@@ -29,7 +29,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Display_TracksNotPlayable_SetsUserMessageOnUserFeedbackViewModel()
+        public void Display_TracksNotPlayable_SetsUserMessageOnUserFeedbackDisplay()
         {
             _userFeedbackHandler.Display(UserFeedback.SomeTracksNotPlayable);
 
@@ -38,7 +38,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Display_NoSearchTextEntered_SetsUserMessageOnUserFeedbackViewModel()
+        public void Display_NoSearchTextEntered_SetsUserMessageOnUserFeedbackDisplay()
         {
             _userFeedbackHandler.Display(UserFeedback.NoSearchTextEntered);
 
@@ -47,7 +47,7 @@ namespace SpotifyServiceTests.ModelsTests
         }
 
         [Test]
-        public void Display_InvalidLoginInfo_SetsUserMessageOnUserFeedbackViewModel()
+        public void Display_InvalidLoginInfo_SetsUserMessageOnUserFeedbackDisplay()
         {
             _userFeedbackHandler.Display(UserFeedback.InvalidLoginInfo);
 
