@@ -1,3 +1,4 @@
+using SpotifyService.Interfaces;
 using SpotifyService.Models.Enums;
 using SpotifyService.Models.Interfaces;
 
@@ -5,9 +6,9 @@ namespace SpotifyService.Models
 {
     public class UserFeedbackHandler
     {
-        private IUserFeedbackViewModel _userFeedbackViewModel;
+        private IUserFeedBackDisplay _userFeedbackViewModel;
 
-        public UserFeedbackHandler(IUserFeedbackViewModel userFeedbackViewModel)
+        public UserFeedbackHandler(IUserFeedBackDisplay userFeedbackViewModel)
         {
             _userFeedbackViewModel = userFeedbackViewModel;
         }

@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
+using SpotifyService.Interfaces;
 using SpotifyService.Models;
 using SpotifyService.Models.Interfaces;
 
@@ -10,28 +11,29 @@ namespace SpotifyServiceTests.ModelsTests
     [TestFixture]
     class TrackHandlerTests
     {
-        private IStreamManager _streamManager;
+
         private TrackHandler _trackHandler;
         private ITrackQueue _trackQueue;
+        private IMusicServices _musicServices;
 
         [SetUp]
         public void Init()
         {
-            _streamManager = MockRepository.GenerateMock<IStreamManager>();
             _trackQueue = MockRepository.GenerateMock<ITrackQueue>();
-            _trackHandler = new TrackHandler(_streamManager, _trackQueue);
+            _musicServices = MockRepository.GenerateMock<IMusicServices>();
+            _trackHandler = new TrackHandler(_trackQueue);
         }
 
         [Test]
-        public void PlayTrack_PlayableTrack_RequestsTrackStreamFromStreamManager()
+        public void PlayTrack_PlayableTrack_CallsPlayTrackOnMusicServices()
         {
             var track = new Track(true);
 
-            _streamManager.Expect(x => x.RequestTrackStream(track));
+            _musicServices.Expect(x => x.PlayTrack(track));
 
             _trackHandler.PlayTrack(track);
 
-            _streamManager.VerifyAllExpectations();
+            _musicServices.VerifyAllExpectations();
         }
 
 

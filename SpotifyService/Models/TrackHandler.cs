@@ -8,12 +8,10 @@ namespace SpotifyService.Models
     public class TrackHandler : ITrackHandler
     {
         private readonly ITrackQueue _trackQueue;
-        private IStreamManager _streamManager;
 
 
-        public TrackHandler(IStreamManager streamManager, ITrackQueue trackQueue)
+        public TrackHandler(ITrackQueue trackQueue)
         {
-            _streamManager = streamManager;
             _trackQueue = trackQueue;
         }
 
