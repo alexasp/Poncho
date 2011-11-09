@@ -262,6 +262,7 @@
     <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IMethodOptions`1">
       <Item value="Repeat" priority="0" />
       <Item value="Return`0" priority="7" />
+      <Item value="WhenCalled`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Poncho.Models.ITrackStreamPlayer">
       <Item value="Expect`2" priority="0" />
@@ -293,8 +294,8 @@
       <Item value="AddRange`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Rhino.Mocks.Arg`1">
-      <Item value="Matches`0" priority="0" />
-      <Item value="Is" priority="28" />
+      <Item value="Matches`0" priority="27" />
+      <Item value="Is" priority="55" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Poncho.Models.Cargo.Track">
       <Item value="Playable" priority="1" />
@@ -324,7 +325,7 @@
       <Item value="Expect`2" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Rhino.Mocks.Constraints.IsArg`1">
-      <Item value="Anything" priority="28" />
+      <Item value="Anything" priority="55" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Poncho.Models.Interfaces.IPlayListManager">
       <Item value="SelectedPlayList" priority="2" />
@@ -452,51 +453,82 @@
       <Item value="Instance" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="new" priority="95" />
+      <Item value="new" priority="127" />
       <Item value="MusicServices" priority="28" />
       <Item value="_searchmanager" priority="31" />
       <Item value="SpotifyService" priority="31" />
       <Item value="_spotifyServices" priority="32" />
-      <Item value="_spotifyWrapper" priority="154" />
+      <Item value="_spotifyWrapper" priority="506" />
       <Item value="SpotifyWrapper" priority="28" />
-      <Item value="public" priority="31" />
-      <Item value="void" priority="31" />
+      <Item value="public" priority="127" />
+      <Item value="void" priority="129" />
       <Item value="_musicServiceses" priority="63" />
       <Item value="#region" priority="95" />
       <Item value="string" priority="95" />
-      <Item value="var" priority="63" />
+      <Item value="var" priority="255" />
       <Item value="#endregion" priority="27" />
       <Item value="username" priority="31" />
       <Item value="passwd" priority="31" />
       <Item value="_musicServices" priority="31" />
       <Item value="_sessionHandle" priority="26" />
       <Item value="IntPtr`0" priority="159" />
-      <Item value="searchText" priority="26" />
+      <Item value="searchText" priority="90" />
       <Item value="Assert`0" priority="31" />
-      <Item value="_searchManager" priority="95" />
+      <Item value="_searchManager" priority="154" />
       <Item value="searchResults" priority="63" />
       <Item value="value" priority="31" />
-      <Item value="return" priority="31" />
+      <Item value="return" priority="63" />
       <Item value="LastSearch" priority="31" />
       <Item value="PlayList`0" priority="63" />
       <Item value="int" priority="191" />
       <Item value="sp_album`0" priority="31" />
-      <Item value="private" priority="31" />
+      <Item value="private" priority="63" />
       <Item value="throw" priority="31" />
       <Item value="DivideByZeroException" priority="28" />
       <Item value="sessionCallbacksPtr" priority="32" />
-      <Item value="Console`0" priority="63" />
+      <Item value="Console`0" priority="95" />
       <Item value="cw" priority="127" />
       <Item value="if" priority="63" />
       <Item value="error" priority="31" />
       <Item value="SP_ERROR_OK" priority="16" />
       <Item value="RequestLogin`0" priority="31" />
-      <Item value="Arg" priority="63" />
-      <Item value="SearchResult`0" priority="63" />
+      <Item value="Arg" priority="127" />
+      <Item value="SearchResult`0" priority="381" />
+      <Item value="_searchHandle" priority="26" />
+      <Item value="searchHandle" priority="31" />
+      <Item value="event" priority="127" />
+      <Item value="delegate" priority="31" />
+      <Item value="SearchRetrievedEvent" priority="31" />
+      <Item value="EventHandler`0" priority="65" />
+      <Item value="this" priority="26" />
+      <Item value="EventArgs`0" priority="31" />
+      <Item value="SearchRetrieved`0" priority="60" />
+      <Item value="Action`0" priority="32" />
+      <Item value="SearchRetrived" priority="26" />
+      <Item value="SearchResult" priority="28" />
+      <Item value="tracks" priority="31" />
+      <Item value="searchQuery" priority="31" />
+      <Item value="didYouMeanText" priority="31" />
+      <Item value="Track`0" priority="31" />
+      <Item value="trackCount" priority="127" />
+      <Item value="totalTrackCount" priority="63" />
+      <Item value="albumCount" priority="95" />
+      <Item value="Func" priority="32" />
+      <Item value="Search`0" priority="31" />
+      <Item value="TrackList" priority="31" />
+      <Item value="trackList" priority="58" />
+      <Item value="null" priority="31" />
+      <Item value="searchResult" priority="128" />
+      <Item value="x" priority="95" />
+      <Item value="Delegates`0" priority="32" />
+      <Item value="invocation" priority="63" />
+      <Item value="albumCOunt" priority="31" />
+      <Item value="y" priority="127" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:SpotifyService.MusicServices">
       <Item value="RequestLogin`0" priority="26" />
       <Item value="InitializeSession`0" priority="26" />
+      <Item value="SearchRetrieved`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:SpotifyService.Interfaces.IMusicServices">
       <Item value="InitializeSession`0" priority="54" />
@@ -506,83 +538,97 @@
       <Item value="EndSession`0" priority="26" />
       <Item value="ToString`0" priority="26" />
       <Item value="CreateSearch`0" priority="26" />
+      <Item value="SearchRetrived" priority="26" />
+      <Item value="GetSearchAlbum`0" priority="53" />
+      <Item value="GetSearchArtist`0" priority="26" />
+      <Item value="GetSearchTracks`0" priority="53" />
+      <Item value="GetSearchCountAlbumsRetrieved`0" priority="26" />
+      <Item value="GetSearchCountTracksRetrieved`0" priority="26" />
+      <Item value="GetSearchDidYouMean`0" priority="26" />
+      <Item value="GetSearchQuery`0" priority="26" />
+      <Item value="GetSearchTotalTracksFound`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:SpotifyService.Models.Interfaces.ISearchManager">
       <Item value="LastSearch" priority="53" />
-      <Item value="VerifyAllExpectations`0" priority="26" />
+      <Item value="VerifyAllExpectations`0" priority="53" />
+      <Item value="SearchResultsRetrieved`0" priority="53" />
+      <Item value="Stub`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Console">
       <Item value="Write`0" priority="26" />
       <Item value="WriteLine`0" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Rhino.Mocks.Arg">
-      <Item value="Is`1" priority="26" />
+      <Item value="Is`1" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.EventArgs">
+      <Item value="Empty" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.MethodInvocation">
+      <Item value="Arguments" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SpotifyService.Cargo.SearchResult">
+      <Item value="AlbumCount" priority="53" />
+      <Item value="TrackList" priority="53" />
+      <Item value="SearchQuery" priority="26" />
+      <Item value="DidYouMeanText" priority="26" />
+      <Item value="TrackCount" priority="27" />
+      <Item value="TotalTrackCount" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:Track.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_audioformat.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_session_callbacks.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_session_config.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Enums/f:sp_error.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Enums/f:sp_sampletype.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:KeyManager.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_audio_buffer_stats.cs" caret="0" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/d:Interfaces/f:ISearchManager.cs" caret="272" fromTop="10" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:SearchManager.cs" caret="606" fromTop="19" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_album.cs" caret="0" fromTop="0" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:UserFeedbackHandlerTests.cs" caret="1386" fromTop="2" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="296" fromTop="9" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="0" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:KeyManager.cs" caret="1211" fromTop="16" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="100" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:PlayList.cs" caret="0" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="638" fromTop="16" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:SearchManager.cs" caret="0" fromTop="0" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:SearchManagerTests.cs" caret="513" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="3287" fromTop="49" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:QueueTests.cs" caret="581" fromTop="2" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:PlaylistManagerTests.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ILoginViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ISearchViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackControlViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:PlayListViewModel.cs" caret="522" fromTop="19" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="1018" fromTop="29" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:ShellViewModel.cs" caret="419" fromTop="15" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackControlViewModel.cs" caret="515" fromTop="19" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="0" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:SearchViewModelTests.cs" caret="880" fromTop="21" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackControlViewModelTests.cs" caret="0" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:TrackHandler.cs" caret="1486" fromTop="16" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="1030" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:PlayListViewModelTests.cs" caret="299" fromTop="13" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="1268" fromTop="17" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="1346" fromTop="28" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="759" fromTop="14" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="501" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:IMusicServices.cs" caret="162" fromTop="7" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="920" fromTop="15" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:ISpotifyWrapper.cs" caret="667" fromTop="10" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="490" fromTop="15" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4151" fromTop="48" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:api.h" caret="43069" fromTop="0" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="8690" fromTop="17" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="5091" fromTop="19" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="3337" fromTop="22" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="1958" fromTop="23" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="2602" fromTop="22" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="2373" fromTop="31" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="2925" fromTop="19" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="3169" fromTop="28" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2198" fromTop="16" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="339" fromTop="12" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:PlaylistManagerTests.cs" caret="382" fromTop="13" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="705" fromTop="22" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="296" fromTop="9" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:SearchViewModelTests.cs" caret="469" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="792" fromTop="20" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="255" fromTop="9" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="1077" fromTop="19" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ISearchViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:PlayListViewModel.cs" caret="522" fromTop="19" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackControlViewModel.cs" caret="515" fromTop="19" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="676" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:PlayListViewModelTests.cs" caret="0" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackControlViewModelTests.cs" caret="0" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="975" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:TrackHandler.cs" caret="491" fromTop="17" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:TrackHandler.cs" caret="212" fromTop="9" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:TrackHandler.cs" caret="1486" fromTop="16" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="353" fromTop="13" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="663" fromTop="21" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="1030" fromTop="17" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="11532" fromTop="13" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="277" fromTop="10" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="4920" fromTop="11" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="1102" fromTop="21" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="1479" fromTop="14" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="933" fromTop="17" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="938" fromTop="12" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="540" fromTop="12" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="403" fromTop="11" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="5192" fromTop="12" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="920" fromTop="18" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="299" fromTop="10" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="1965" fromTop="16" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2446" fromTop="16" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2458" fromTop="16" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="1965" fromTop="4" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="636" fromTop="7" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:IMusicServices.cs" caret="346" fromTop="11" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:ISpotifyWrapper.cs" caret="841" fromTop="15" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="758" fromTop="17" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="1156" fromTop="10" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="3585" fromTop="19" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="3052" fromTop="12" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="3589" fromTop="7" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4098" fromTop="21" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2796" fromTop="4" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4043" fromTop="12" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2692" fromTop="7" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -595,62 +641,4 @@
     <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.10\bin\net-2.0\</NUnitInstallDir>
     <UseAddins>Never</UseAddins>
   </UnitTestRunnerNUnit>
-  <UnitTestSessions>
-    <Session>
-      <Name>Session #1</Name>
-      <Elements>
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.LoginManagerTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.LogInViewModelTests" type="NUnitTestFixtureElement" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.PlaylistManagerTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.PlayListViewModelTests" type="NUnitTestFixtureElement" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.QueueTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.SearchManagerTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.SearchViewModelTests" type="NUnitTestFixtureElement" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackControlViewModelTests" type="NUnitTestFixtureElement" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestFixtureElement" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" type="NUnitTestFixtureElement" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.QueueTests.Append_ValidTrack_TrackIsAppendedToFrontOfQueue" ParentId="SpotifyServiceTests.ModelsTests.QueueTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.QueueTests" MethodName="Append_ValidTrack_TrackIsAppendedToFrontOfQueue" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.QueueTests.Dequeue_NotEmpty_ReturnsFirstInQueue" ParentId="SpotifyServiceTests.ModelsTests.QueueTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.QueueTests" MethodName="Dequeue_NotEmpty_ReturnsFirstInQueue" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests.Display_InvalidLoginInfo_SersUserMessageOnUserFeedbackViewModel" ParentId="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" MethodName="Display_InvalidLoginInfo_SersUserMessageOnUserFeedbackViewModel" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests.Display_NoSearchTextEntered_SetsUserMessageOnUserFeedbackViewModel" ParentId="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" MethodName="Display_NoSearchTextEntered_SetsUserMessageOnUserFeedbackViewModel" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests.Display_TrackNotPlayable_SetsUserMessageOnUserFeedbackViewModel" ParentId="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" MethodName="Display_TrackNotPlayable_SetsUserMessageOnUserFeedbackViewModel" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests.Display_TracksNotPlayable_SetsUserMessageOnUserFeedbackViewModel" ParentId="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests" MethodName="Display_TracksNotPlayable_SetsUserMessageOnUserFeedbackViewModel" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.QueueTests.Enqueue_ValidTrack_TrackIsQueued" ParentId="SpotifyServiceTests.ModelsTests.QueueTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.QueueTests" MethodName="Enqueue_ValidTrack_TrackIsQueued" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.HasNextTrack_NextTrackAvailable_ReturnTrue" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="HasNextTrack_NextTrackAvailable_ReturnTrue" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests.InitializeSession_CreatesOnSpotifyServices" ParentId="SpotifyServiceTests.MusicServicesTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.MusicServicesTests" MethodName="InitializeSession_CreatesOnSpotifyServices" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests.InitializeSession_RequestsLoginOnSpotifyServices" ParentId="SpotifyServiceTests.MusicServicesTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.MusicServicesTests" MethodName="InitializeSession_RequestsLoginOnSpotifyServices" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.LogInViewModelTests.InvalidLogin_MessagesUserFeedbackHandler" ParentId="PonchoTests.ViewModelsTests.LogInViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.LogInViewModelTests" MethodName="InvalidLogin_MessagesUserFeedbackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.LogInViewModelTests.Login_LoginEntered_QueriesLogInManager" ParentId="PonchoTests.ViewModelsTests.LogInViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.LogInViewModelTests" MethodName="Login_LoginEntered_QueriesLogInManager" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.LogInViewModelTests.LoginValid_ValidLogin_ShouldInitializeRestOfApplication" ParentId="PonchoTests.ViewModelsTests.LogInViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.LogInViewModelTests" MethodName="LoginValid_ValidLogin_ShouldInitializeRestOfApplication" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.NextTrack_NextTrackAvailable_ReturnsNextTrack" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="NextTrack_NextTrackAvailable_ReturnsNextTrack" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.NextTrack_NoTrackAvailable_ThrowsInvalidOperationException" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="NextTrack_NoTrackAvailable_ThrowsInvalidOperationException" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.OnSelectedPlayListChanged_FillsTrackListWithSelectedPlayList" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="OnSelectedPlayListChanged_FillsTrackListWithSelectedPlayList" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackControlViewModelTests.PlayPause_AnyPlayingState_CallsPlayPauseOnTrackHandlerWithChangedIsPlaying" ParentId="PonchoTests.ViewModelsTests.TrackControlViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackControlViewModelTests" MethodName="PlayPause_AnyPlayingState_CallsPlayPauseOnTrackHandlerWithChangedIsPlaying" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackControlViewModelTests.PlayPause_IsPause_SetsIsPlayingToTrue" ParentId="PonchoTests.ViewModelsTests.TrackControlViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackControlViewModelTests" MethodName="PlayPause_IsPause_SetsIsPlayingToTrue" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackControlViewModelTests.PlayPause_IsPlaying_SetsIsPlayingToFalse" ParentId="PonchoTests.ViewModelsTests.TrackControlViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackControlViewModelTests" MethodName="PlayPause_IsPlaying_SetsIsPlayingToFalse" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.PlaySelectedTrack_TrackNotPlayable_MessagesUserFeedBackHandler" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="PlaySelectedTrack_TrackNotPlayable_MessagesUserFeedBackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.PlaySelectedTrack_TrackPlayable_SendsTrackToTrackHandler" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="PlaySelectedTrack_TrackPlayable_SendsTrackToTrackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.PlayTrack_PlayableTrack_RequestsTrackStreamFromStreamManager" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="PlayTrack_PlayableTrack_RequestsTrackStreamFromStreamManager" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.PlayTrack_TrackNotPlayable_ThrowsInvalidArgumentException" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="PlayTrack_TrackNotPlayable_ThrowsInvalidArgumentException" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.PlayListViewModelTests.PropertySelectedPlaylistChanged_ValidPlaylist_SetsSelectedPlayListOnPlayListManager" ParentId="PonchoTests.ViewModelsTests.PlayListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.PlayListViewModelTests" MethodName="PropertySelectedPlaylistChanged_ValidPlaylist_SetsSelectedPlayListOnPlayListManager" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.TrackHandlerTests.QueueTrack_TrackPlayable_AddsTrackToQueue" ParentId="SpotifyServiceTests.ModelsTests.TrackHandlerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.TrackHandlerTests" MethodName="QueueTrack_TrackPlayable_AddsTrackToQueue" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.QueueTrackList_SomeTracksNotPlayable_QueuesPlayableTracks" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="QueueTrackList_SomeTracksNotPlayable_QueuesPlayableTracks" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.TrackListViewModelTests.QueueTrackList_TrackPlayable_SendsTrackToTrackHandler" ParentId="PonchoTests.ViewModelsTests.TrackListViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.TrackListViewModelTests" MethodName="QueueTrackList_TrackPlayable_SendsTrackToTrackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.LoginManagerTests.RequestLogin_ProperLoginInfo_CallsRequestLoginOnIMusicServices" ParentId="SpotifyServiceTests.ModelsTests.LoginManagerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.LoginManagerTests" MethodName="RequestLogin_ProperLoginInfo_CallsRequestLoginOnIMusicServices" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests.Search_CallsCreateSearchOnSpotifyServices" ParentId="SpotifyServiceTests.MusicServicesTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.MusicServicesTests" MethodName="Search_CallsCreateSearchOnSpotifyServices" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.SearchViewModelTests.Search_ContainsNoText_MessagesUserFeedbackHandler" ParentId="PonchoTests.ViewModelsTests.SearchViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.SearchViewModelTests" MethodName="Search_ContainsNoText_MessagesUserFeedbackHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="PonchoTests.ViewModelsTests.SearchViewModelTests.Search_ContainsSearchText_SendsSearchToSearchHandler" ParentId="PonchoTests.ViewModelsTests.SearchViewModelTests" type="NUnitTestElement" TypeName="PonchoTests.ViewModelsTests.SearchViewModelTests" MethodName="Search_ContainsSearchText_SendsSearchToSearchHandler" Project="AF5F2770-6BBC-4573-B9A1-8080EBC18205" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.SearchManagerTests.Search_ValidSearchText_CallsSearchOnISpotifyServices" ParentId="SpotifyServiceTests.ModelsTests.SearchManagerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.SearchManagerTests" MethodName="Search_ValidSearchText_CallsSearchOnISpotifyServices" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests.SearchResultsRetrieved_ConstructsSearchResultAndPassesToSearchManager" ParentId="SpotifyServiceTests.MusicServicesTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.MusicServicesTests" MethodName="SearchResultsRetrieved_ConstructsSearchResultAndPassesToSearchManager" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.MusicServicesTests.SearchResultsRetrieved_ConstructsSearchResultCorrectly" ParentId="SpotifyServiceTests.MusicServicesTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.MusicServicesTests" MethodName="SearchResultsRetrieved_ConstructsSearchResultCorrectly" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.SearchManagerTests.SearchResultsRetrieved_SendsResultingTracklistToTrackListViewModel" ParentId="SpotifyServiceTests.ModelsTests.SearchManagerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.SearchManagerTests" MethodName="SearchResultsRetrieved_SendsResultingTracklistToTrackListViewModel" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.SearchManagerTests.SearchResultsRetrieved_SetsLastSearchPropertyToResult" ParentId="SpotifyServiceTests.ModelsTests.SearchManagerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.SearchManagerTests" MethodName="SearchResultsRetrieved_SetsLastSearchPropertyToResult" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-        <UnitTestElement Provider="nUnit" Id="SpotifyServiceTests.ModelsTests.PlaylistManagerTests.SelectedPlayListSet_ValidPlayList_RequestsTrackListFromSpotifyWrapper" ParentId="SpotifyServiceTests.ModelsTests.PlaylistManagerTests" type="NUnitTestElement" TypeName="SpotifyServiceTests.ModelsTests.PlaylistManagerTests" MethodName="SelectedPlayListSet_ValidPlayList_RequestsTrackListFromSpotifyWrapper" Project="F5A1F80F-47FB-46C0-A84B-88A288D89E48" />
-      </Elements>
-    </Session>
-  </UnitTestSessions>
 </Configuration>
