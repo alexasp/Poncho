@@ -2,7 +2,7 @@
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Interfaces;
 
 namespace SpotifyService
 {
@@ -33,7 +33,8 @@ namespace SpotifyService
 
         public void PlayTrack(Track i)
         {
-            throw new NotImplementedException();
+            _spotifyWrapper.LoadTrack(i.Handle);
+            _spotifyWrapper.Play(true);
         }
 
         public void InitializeSession(string username, string password)

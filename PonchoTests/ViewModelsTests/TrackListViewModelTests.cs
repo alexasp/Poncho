@@ -4,8 +4,8 @@ using Poncho.Models;
 using Poncho.ViewModels;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
-using SpotifyService.Models.Enums;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Enums;
+using SpotifyService.Model.Interfaces;
 
 namespace PonchoTests.ViewModelsTests
 {

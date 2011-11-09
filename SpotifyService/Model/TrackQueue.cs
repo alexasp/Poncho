@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using SpotifyService.Cargo;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Models
+namespace SpotifyService.Model
 {
     public class TrackQueue : ITrackQueue
     {

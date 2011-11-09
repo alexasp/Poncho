@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SpotifyService.Cargo;
 
-namespace SpotifyService.Models.Interfaces
+namespace SpotifyService.Model.Interfaces
 {
     public interface ITrackHandler
     {

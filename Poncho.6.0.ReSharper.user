@@ -598,7 +598,8 @@
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="490" fromTop="15" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4151" fromTop="48" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:api.h" caret="43069" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="8690" fromTop="17" />
+      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="8284" fromTop="8" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="364" fromTop="13" />
     </RecentFiles>
     <RecentEdits>
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="11532" fromTop="13" />
@@ -629,6 +630,7 @@
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2796" fromTop="4" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4043" fromTop="12" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2692" fromTop="7" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="104" fromTop="3" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

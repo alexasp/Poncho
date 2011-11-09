@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Poncho.ViewModels;
 using SpotifyService.Cargo;
-using SpotifyService.Models.Enums;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Enums;
+using SpotifyService.Model.Interfaces;
 
 namespace Poncho.Models
 {

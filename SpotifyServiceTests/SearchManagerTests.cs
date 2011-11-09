@@ -3,8 +3,8 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
-using SpotifyService.Models;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model;
+using SpotifyService.Model.Interfaces;
 
 namespace SpotifyServiceTests.ModelsTests
 {
@@ -52,7 +52,7 @@ namespace SpotifyServiceTests.ModelsTests
 
             _searchManager.SearchResultsRetrieved(searchResults);
 
-            _trackSubscriber.AssertWasCalled(x => x.SearchRetrieved(searchResults));
+            Assert.AreEqual(searchResults, _searchManager.LastSearch);
         }
 
     }

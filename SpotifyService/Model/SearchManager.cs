@@ -1,9 +1,8 @@
-using System;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Models
+namespace SpotifyService.Model
 {
     public class SearchManager : ISearchManager
     {
@@ -19,7 +18,7 @@ namespace SpotifyService.Models
 
         public void SearchResultsRetrieved(SearchResult searchResults)
         {
-            _trackSubsriber.TrackList = searchResults.TrackList;
+            _trackSubsriber.SearchRetrieved(searchResults);
             LastSearch = searchResults;
         }
 

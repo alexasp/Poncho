@@ -1,9 +1,9 @@
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Interfaces;
-using SpotifyService.Models;
-using SpotifyService.Models.Enums;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model;
+using SpotifyService.Model.Enums;
+using SpotifyService.Model.Interfaces;
 
 namespace SpotifyServiceTests.ModelsTests
 {
@@ -19,7 +19,7 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _musicServices = MockRepository.GenerateStub<IMusicServices>();
             _userFeedBackHandler = MockRepository.GenerateStub<IUserFeedbackHandler>();
-            _loginManager = new LoginManager(_musicServices);
+            _loginManager = new LoginManager(_musicServices, _userFeedBackHandler);
         }
 
         [Test]

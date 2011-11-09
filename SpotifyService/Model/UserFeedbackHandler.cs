@@ -1,8 +1,7 @@
 using SpotifyService.Interfaces;
-using SpotifyService.Models.Enums;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Enums;
 
-namespace SpotifyService.Models
+namespace SpotifyService.Model
 {
     public class UserFeedbackHandler
     {

@@ -5,7 +5,7 @@ using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Interfaces;
 
 namespace SpotifyServiceTests
 {

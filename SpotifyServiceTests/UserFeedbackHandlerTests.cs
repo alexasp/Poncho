@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Interfaces;
-using SpotifyService.Models;
-using SpotifyService.Models.Enums;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model;
+using SpotifyService.Model.Enums;
 
 namespace SpotifyServiceTests.ModelsTests
 {

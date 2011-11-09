@@ -1,7 +1,7 @@
 using System.Linq;
 using NUnit.Framework;
 using SpotifyService.Cargo;
-using SpotifyService.Models;
+using SpotifyService.Model;
 
 namespace SpotifyServiceTests.ModelsTests
 {

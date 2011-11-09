@@ -1,4 +1,4 @@
-namespace SpotifyService.Models.Enums
+namespace SpotifyService.Model.Enums
 {
     public enum UserFeedback
     {

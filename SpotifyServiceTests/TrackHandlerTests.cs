@@ -3,8 +3,8 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
-using SpotifyService.Models;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model;
+using SpotifyService.Model.Interfaces;
 
 namespace SpotifyServiceTests.ModelsTests
 {

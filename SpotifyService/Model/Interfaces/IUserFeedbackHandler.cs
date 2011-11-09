@@ -1,6 +1,6 @@
-using SpotifyService.Models.Enums;
+using SpotifyService.Model.Enums;
 
-namespace SpotifyService.Models.Interfaces
+namespace SpotifyService.Model.Interfaces
 {
     public interface IUserFeedbackHandler
     {

@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Poncho.Models;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
-using SpotifyService.Models.Interfaces;
+using SpotifyService.Model.Interfaces;
 
 namespace PonchoTests.ViewModelsTests
 {
