@@ -62,5 +62,9 @@ namespace SpotifyService.Model
             throw new NotImplementedException();
         }
 
+        public void SearchRetrieved(SearchResult searchResults)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

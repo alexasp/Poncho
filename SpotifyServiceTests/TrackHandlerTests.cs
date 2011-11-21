@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
@@ -12,7 +13,7 @@ namespace SpotifyServiceTests.ModelsTests
     class TrackHandlerTests
     {
 
-        private TrackHandler _trackHandler;
+        private ITrackHandler _trackHandler;
         private ITrackQueue _trackQueue;
         private IMusicServices _musicServices;
 
@@ -78,6 +79,17 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _trackQueue.Stub(x => x.Length).Return(0);
             _trackHandler.NextTrack();
+        }
+
+        [Test]
+        public void SearchRetrieved_AlertsActiveTrackListListeners()
+        {
+            var list = new List<Track>();
+            var result = new SearchResult(list);
+            var trackListener = MockRepository.GenerateStub<IActiveTrackListener>();
+            _trackHandler.ActiveTrackListListeners += trackListener.ActiveTracksChanged;
+
+            _trackHandler.SearchRetrieved(result);
         }
     }
 }
