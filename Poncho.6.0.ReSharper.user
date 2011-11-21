@@ -277,7 +277,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
       <Item value="AreEqual`0" priority="32" />
-      <Item value="Fail`0" priority="1" />
+      <Item value="Fail`0" priority="56" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.Queue`1">
       <Item value="ToArray`0" priority="1" />
@@ -473,7 +473,7 @@
       <Item value="_sessionHandle" priority="26" />
       <Item value="IntPtr`0" priority="159" />
       <Item value="searchText" priority="90" />
-      <Item value="Assert`0" priority="31" />
+      <Item value="Assert`0" priority="90" />
       <Item value="_searchManager" priority="154" />
       <Item value="searchResults" priority="63" />
       <Item value="value" priority="31" />
@@ -587,11 +587,7 @@
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Enums/f:sp_sampletype.cs" caret="0" fromTop="0" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:KeyManager.cs" caret="0" fromTop="0" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_audio_buffer_stats.cs" caret="0" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/d:Interfaces/f:ISearchManager.cs" caret="272" fromTop="10" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Models/f:SearchManager.cs" caret="606" fromTop="19" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Structs/f:sp_album.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="759" fromTop="14" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="501" fromTop="0" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:IMusicServices.cs" caret="162" fromTop="7" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Cargo/f:SearchResult.cs" caret="920" fromTop="15" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:ISpotifyWrapper.cs" caret="667" fromTop="10" />
@@ -600,10 +596,14 @@
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:api.h" caret="43069" fromTop="0" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="8284" fromTop="8" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="364" fromTop="13" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:SearchManagerTests.cs" caret="0" fromTop="0" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="341" fromTop="0" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackControlViewModelTests.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="0" fromTop="0" />
+      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="687" fromTop="12" />
     </RecentFiles>
     <RecentEdits>
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="11532" fromTop="13" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="277" fromTop="10" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="4920" fromTop="11" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="1102" fromTop="21" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:MusicServices.cs" caret="1479" fromTop="14" />
@@ -631,6 +631,9 @@
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4043" fromTop="12" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="2692" fromTop="7" />
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="104" fromTop="3" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="4133" fromTop="31" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="3638" fromTop="19" />
+      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="408" fromTop="15" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

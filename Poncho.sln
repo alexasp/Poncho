@@ -83,4 +83,7 @@ Global
 		{AF5F2770-6BBC-4573-B9A1-8080EBC18205} = {58A72D77-BCA0-4F8B-BA85-DAEFB66A04AA}
 		{45388A88-56DA-438D-B19C-98407532D8D6} = {58A72D77-BCA0-4F8B-BA85-DAEFB66A04AA}
 	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\Poncho.ndproj"
+	EndGlobalSection
 EndGlobal

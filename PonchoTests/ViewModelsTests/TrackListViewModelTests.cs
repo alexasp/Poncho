@@ -100,6 +100,8 @@ namespace PonchoTests.ViewModelsTests
             _playListManager.Expect(x => x.SelectedPlayList);
 
             _trackListViewModel.OnSelectedPlaylistChanged();
+
+            Assert.Fail("This test needs to be changed to using an event. Perhaps there should be some central point for tracks to arrive from SearchManager and PlayListManager? Or is this class that point?");
             
             _playListManager.VerifyAllExpectations();
         }
@@ -111,6 +113,8 @@ namespace PonchoTests.ViewModelsTests
             playList.TrackList = new List<Track>() {new Track(true), new Track(false)};
             _playListManager.Stub(x => x.SelectedPlayList).Return(playList);
             
+            Assert.Fail("This test needs to be changed to using an event.");
+
             _trackListViewModel.OnSelectedPlaylistChanged();
 
             Assert.AreEqual(playList.TrackList, _trackListViewModel.TrackList);

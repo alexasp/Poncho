@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<InfoWarnings>
+  <Info>11.21.2011 11:14:22 Begin full analysis with NDepend v3.9.0</Info>
+  <Info>Concurrent mode</Info>
+  <Info>Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319} 
+   System.dll   v4.0.0.0
+   System.Xaml.dll   v4.0.0.0
+   mscorlib.dll   v4.0.0.0
+   System.Core.dll   v4.0.0.0</Info>
+  <Info>Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF} 
+   PresentationFramework.dll   v4.0.0.0</Info>
+  <Info>Assemblies loaded from {C:\Users\Alex\Dropbox\VS Projects\Poncho\Poncho\bin\Debug} 
+   Poncho.exe   v1.0.0.0
+   SpotifyService.dll   v1.0.0.0
+   Caliburn.Micro.dll   v1.2.0.0</Info>
+  <Info>Assemblies loaded from {C:\Users\Alex\Dropbox\VS Projects\Poncho\PonchoTests\bin\Debug} 
+   PonchoTests.dll   v1.0.0.0
+   nunit.framework.dll   v2.5.10.11092
+   Rhino.Mocks.dll   v3.6.0.0</Info>
+  <Info>Assemblies loaded from {C:\Users\Alex\Dropbox\VS Projects\Poncho\SpotifyServiceTests\bin\Debug} 
+   SpotifyServiceTests.dll   v1.0.0.0</Info>
+  <Warning>The source file {C:\Users\Alex\Dropbox\VS Projects\Poncho\PonchoTests\ViewModelsTests\TrackListViewModelTests.cs} (last modified 21.11.2011 11:11:34) and the PDB file of the assembly {PonchoTests} (last modified 21.11.2011 11:01:17) are not in-sync.</Warning>
+  <Info>57 source files parsed ; 7 source files not found ; 1 source file not in-sync with PDB</Info>
+  <Info>0 CQL rule has been extracted from code.</Info>
+  <Info>No dependency cycle detected in assemblies referencement graph.</Info>
+  <Info>11.21.2011 11:14:26 Analyse dependencies of your application.</Info>
+  <Warning>The source directory {F:\Dropbox\VS Projects\Poncho\SpotifyServiceTests} referenced by the PDB file of the assembly {SpotifyServiceTests} can't be found.</Warning>
+  <Info>11.21.2011 11:14:27 Building the report (standard).</Info>
+  <Warning>1 critical rule is violated.
+  - Methods with too many parameters - critical (NbParameters)</Warning>
+</InfoWarnings>
