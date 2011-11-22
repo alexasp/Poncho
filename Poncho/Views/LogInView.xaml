@@ -3,6 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LogInView" Height="300" Width="300">
     <Grid>
-        
+        <Grid Height="237" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top" Width="254">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="52*" />
+            </Grid.RowDefinitions>
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="usernameTextblock" Text="Username:" VerticalAlignment="Top" Width="242"  Grid.Row="0"/>
+            <TextBox Height="35" HorizontalAlignment="Left" Margin="6,0,0,0" Name="usernameTextBox" VerticalAlignment="Top" Width="242" Grid.Row="1" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="passwordTextBlock" Text="Password:" VerticalAlignment="Top" Width="242" Grid.Row="2"/>
+            <TextBox Height="35" HorizontalAlignment="Left" Margin="6,0,0,0" Name="passwordTextBox" VerticalAlignment="Top" Width="242" Grid.Row="3" />
+            <Button Content="Button" Grid.Row="4" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Name="button1" Width="120" />
+        </Grid>
     </Grid>
 </Window>
