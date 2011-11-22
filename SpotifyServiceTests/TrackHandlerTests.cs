@@ -86,10 +86,52 @@ namespace SpotifyServiceTests.ModelsTests
         {
             var list = new List<Track>();
             var result = new SearchResult(list);
-            var trackListener = MockRepository.GenerateStub<IActiveTrackListener>();
+            var trackListener = MockRepository.GenerateStub<IActiveTracksListener>();
             _trackHandler.ActiveTrackListListeners += trackListener.ActiveTracksChanged;
 
             _trackHandler.SearchRetrieved(result);
+
+            trackListener.AssertWasCalled(x => x.ActiveTracksChanged(Arg<ITrackHandler>.Is.Same(_trackHandler), Arg<EventArgs>.Is.Anything));
+        }
+
+        [Test]
+        public void SearchRetrieved_SetsActiveTrackListToResultList()
+        {
+            var list = new List<Track>();
+            var result = new SearchResult(list);
+            var trackListener = MockRepository.GenerateStub<IActiveTracksListener>();
+            _trackHandler.ActiveTrackListListeners += trackListener.ActiveTracksChanged;
+
+            _trackHandler.SearchRetrieved(result);
+
+            Assert.AreEqual(list, _trackHandler.ActiveTrackList);
+        }
+
+        [Test]
+        public void OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager()
+        {
+            //_playListManager.Expect(x => x.SelectedPlayList);
+
+            //_trackListViewModel.OnSelectedPlaylistChanged();
+
+            Assert.Fail("This test needs to be changed to using an event. Perhaps there should be some central point for tracks to arrive from SearchManager and PlayListManager? Or is this class that point?");
+
+            //_playListManager.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void OnSelectedPlayListChanged_FillsTrackListWithSelectedPlayList()
+        {
+            //var playList = new PlayList();
+            //playList.TrackList = new List<Track>() { new Track(true), new Track(false) };
+            //_playListManager.Stub(x => x.SelectedPlayList).Return(playList);
+
+            //_trackListViewModel.
+
+            Assert.Fail();
+
+            //Assert.AreEqual(playList.TrackList, _trackListViewModel.TrackList);
+
         }
     }
 }

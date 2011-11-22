@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Poncho.Models;
 using SpotifyService.Cargo;
 using SpotifyService.Model.Enums;
@@ -52,9 +53,11 @@ namespace Poncho.ViewModels
             }
         }
 
-        public void OnSelectedPlaylistChanged()
+        public void ActiveTracksChanged(object sender, EventArgs eventArgs)
         {
-            TrackList = _playListManager.SelectedPlayList.TrackList;
+            var trackHandler = sender as ITrackHandler;
+            Debug.Assert(trackHandler != null, "trackHandler != null");
+            TrackList = trackHandler.ActiveTrackList;
         }
     }
 }

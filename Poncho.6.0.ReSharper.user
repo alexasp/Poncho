@@ -602,6 +602,7 @@
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="0" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="0" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="687" fromTop="12" />
+      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="2855" fromTop="28" />
     </RecentFiles>
     <RecentEdits>
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="4920" fromTop="11" />

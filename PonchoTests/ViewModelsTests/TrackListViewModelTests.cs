@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using Poncho.Models;
 using Poncho.ViewModels;
@@ -12,7 +13,7 @@ namespace PonchoTests.ViewModelsTests
     [TestFixture]
     public class TrackListViewModelTests
     {
-        private TrackListViewModel _trackListViewModel;
+        private ITrackListViewModel _trackListViewModel;
         private ITrackHandler _trackHandler;
         private IUserFeedbackHandler _userFeedbackHandler;
         private IPlaylistManager _playListManager;
@@ -72,8 +73,6 @@ namespace PonchoTests.ViewModelsTests
         public void QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler()
         {
             var trackList = new List<Track>();
-            var track1 = new Track(false);
-            var track2 = new Track(true);
             _trackListViewModel.SelectedTracks = trackList;
 
             _userFeedbackHandler.Expect(x => x.Display(UserFeedback.SomeTracksNotPlayable));
@@ -95,30 +94,15 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager()
+        public void ActiveTracksChanged_SetsTrackListToSenderActiveTrackList()
         {
-            _playListManager.Expect(x => x.SelectedPlayList);
+            var list = new List<Track>();
+            _trackHandler.Stub(x => x.ActiveTrackList).Return(list);
 
-            _trackListViewModel.OnSelectedPlaylistChanged();
+            _trackListViewModel.ActiveTracksChanged(_trackHandler, new EventArgs());
 
-            Assert.Fail("This test needs to be changed to using an event. Perhaps there should be some central point for tracks to arrive from SearchManager and PlayListManager? Or is this class that point?");
-            
-            _playListManager.VerifyAllExpectations();
+            Assert.AreEqual(list, _trackListViewModel.TrackList);
         }
 
-        [Test]
-        public void OnSelectedPlayListChanged_FillsTrackListWithSelectedPlayList()
-        {
-            var playList = new PlayList();
-            playList.TrackList = new List<Track>() {new Track(true), new Track(false)};
-            _playListManager.Stub(x => x.SelectedPlayList).Return(playList);
-            
-            Assert.Fail("This test needs to be changed to using an event.");
-
-            _trackListViewModel.OnSelectedPlaylistChanged();
-
-            Assert.AreEqual(playList.TrackList, _trackListViewModel.TrackList);
-            
-        }
     }
 }

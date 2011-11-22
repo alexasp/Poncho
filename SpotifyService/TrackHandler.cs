@@ -11,6 +11,10 @@ namespace SpotifyService.Model
         private readonly ITrackQueue _trackQueue;
         private readonly IMusicServices _musicServices;
 
+        public event EventHandler ActiveTrackListListeners;
+
+        public List<Track> ActiveTrackList
+        { get; private set; }
 
         public TrackHandler(ITrackQueue trackQueue, IMusicServices musicServices)
         {
@@ -62,9 +66,11 @@ namespace SpotifyService.Model
             throw new NotImplementedException();
         }
 
+       
         public void SearchRetrieved(SearchResult searchResults)
         {
-            throw new NotImplementedException();
+            ActiveTrackList = searchResults.TrackList;
+            ActiveTrackListListeners(this, new EventArgs());
         }
     }
 }
