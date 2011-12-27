@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<AssemblySortForCompilOrObfusk>
-  <Assembly Assembly="SpotifyService">9</Assembly>
-  <Assembly Assembly="Poncho">10</Assembly>
-  <Assembly Assembly="PonchoTests">11</Assembly>
-  <Assembly Assembly="SpotifyServiceTests">12</Assembly>
-</AssemblySortForCompilOrObfusk>
