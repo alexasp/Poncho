@@ -11,6 +11,10 @@ namespace SpotifyService
         private readonly ISearchManager _searchManager;
         private ISpotifyWrapper _spotifyWrapper;
         public event Action<SearchResult> SearchResultsRetrieved;
+        public void SetPlaybackStatus(PlaybackStatus paused)
+        {
+            throw new NotImplementedException();
+        }
 
         public MusicServices(ISearchManager searchManager, ISpotifyWrapper spotifyWrapper)
         {

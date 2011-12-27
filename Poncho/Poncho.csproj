@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ScreenConductor.cs" />
+    <Compile Include="ValueConverters\PlayingStatusConverter.cs" />
     <Compile Include="ViewModels\Interfaces\ILoginViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackControlViewModel.cs" />
@@ -77,11 +78,17 @@
     <Compile Include="ViewModels\PlayListViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackListViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Controls\SearchControl.xaml.cs">
+      <DependentUpon>SearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaybackControl.xaml.cs">
+      <DependentUpon>PlaybackControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\LogInView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\SearchView.xaml">
+    <Page Include="Controls\SearchControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -95,7 +102,7 @@
     </Compile>
     <Compile Include="ViewModels\TrackControlViewModel.cs" />
     <Compile Include="ViewModels\TrackListViewModel.cs" />
-    <Page Include="Views\TrackControlView.xaml">
+    <Page Include="Controls\PlaybackControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,6 +145,7 @@
       <Name>SpotifyService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

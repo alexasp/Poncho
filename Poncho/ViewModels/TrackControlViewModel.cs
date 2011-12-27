@@ -1,5 +1,6 @@
 ﻿using System;
 using Poncho.ViewModels.Interfaces;
+using SpotifyService.Enums;
 using SpotifyService.Model.Interfaces;
 
 namespace Poncho.ViewModels
@@ -13,12 +14,13 @@ namespace Poncho.ViewModels
             _trackHandler = trackHandler;
         }
 
-        public bool IsPlaying { get; set; }
+
+        public PlaybackStatus PlaybackStatus { get; set; }
 
         public void PlayPause()
         {
-            IsPlaying = !IsPlaying;
-            _trackHandler.PlayPause(IsPlaying);
+            PlaybackStatus = PlaybackStatus == PlaybackStatus.Playing ? PlaybackStatus.Paused : PlaybackStatus.Playing;
+            _trackHandler.SetPlaybackStatus(PlaybackStatus);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using SpotifyService.Cargo;
+using SpotifyService.Enums;
 
 namespace SpotifyService.Interfaces
 {
@@ -12,5 +13,6 @@ namespace SpotifyService.Interfaces
         void SearchRetrieved();
         void PlayTrack(Track i);
         event Action<SearchResult> SearchResultsRetrieved;
+        void SetPlaybackStatus(PlaybackStatus paused);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SpotifyService.Cargo;
+using SpotifyService.Enums;
 using SpotifyService.Interfaces;
 using SpotifyService.Model.Interfaces;
 
@@ -61,9 +62,9 @@ namespace SpotifyService.Model
             throw new InvalidOperationException("There was no next track.");
         }
 
-        public void PlayPause(bool isPlaying)
+        public void SetPlaybackStatus(PlaybackStatus isPlaying)
         {
-            throw new NotImplementedException();
+
         }
 
        

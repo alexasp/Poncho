@@ -1,8 +1,10 @@
-﻿namespace Poncho.ViewModels
+﻿using Poncho.ViewModels.Interfaces;
+
+namespace Poncho.ViewModels
 {
     using Caliburn.Micro;
 
-    public class ShellViewModel : PropertyChangedBase
+    public class ShellViewModel : PropertyChangedBase, IShellViewModel
     {
         private string title;
         public string Title

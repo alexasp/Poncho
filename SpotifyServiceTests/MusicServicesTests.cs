@@ -120,5 +120,26 @@ namespace SpotifyServiceTests
 
             _spotifyWrapper.VerifyAllExpectations();
         }
+        
+        [Test]
+        public void SetPlaybackStatus_ToPaused_CallsSpotifyWrapperPlayWithFalse()
+        {
+            _spotifyWrapper.Expect(x => x.Play(false));
+
+            _musicServices.SetPlaybackStatus(PlaybackStatus.Paused);
+
+            _musicServices.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void SetPlaybackStatus_ToPlaying_CallsSpotifyWrapperPlayWithTrue()
+        {
+            _spotifyWrapper.Expect(x => x.Play(true));
+
+            _musicServices.SetPlaybackStatus(PlaybackStatus.Playing);
+
+            _musicServices.VerifyAllExpectations();
+        }
+
     }
 }

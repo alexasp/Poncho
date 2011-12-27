@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
+using SpotifyService.Enums;
 using SpotifyService.Model.Interfaces;
 
 namespace PonchoTests.ViewModelsTests
@@ -26,11 +27,11 @@ namespace PonchoTests.ViewModelsTests
         [Test]
         public void PlayPause_IsPlaying_SetsIsPlayingToFalse()
         {
-            _trackControlViewModel.IsPlaying = true;
+            _trackControlViewModel.PlaybackStatus = PlaybackStatus.Playing;
 
             _trackControlViewModel.PlayPause();
 
-            Assert.AreEqual(false, _trackControlViewModel.IsPlaying);
+            Assert.AreEqual(false, _trackControlViewModel.PlaybackStatus);
         }
 
         [Test]
@@ -48,7 +49,7 @@ namespace PonchoTests.ViewModelsTests
         {
             _trackControlViewModel.IsPlaying = true;
 
-            _trackHandler.Expect(x => x.PlayPause(!_trackControlViewModel.IsPlaying));
+            _trackHandler.Expect(x => x.SetPlaybackStatus(!_trackControlViewModel.IsPlaying));
 
             _trackControlViewModel.PlayPause();
 

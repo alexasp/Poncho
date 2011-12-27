@@ -1,8 +1,9 @@
-﻿namespace Poncho.ViewModels.Interfaces
+﻿using SpotifyService.Enums;
+
+namespace Poncho.ViewModels.Interfaces
 {
     public interface ITrackControlViewModel
     {
-        bool IsPlaying { get; set; }
-        void PlayPause();
+        PlaybackStatus PlaybackStatus { get; set; }
     }
 }

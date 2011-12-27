@@ -43,6 +43,7 @@
     <Compile Include="Cargo\PlayList.cs" />
     <Compile Include="Cargo\SearchResult.cs" />
     <Compile Include="Cargo\Track.cs" />
+    <Compile Include="Enums\PlaybackStatus.cs" />
     <Compile Include="Enums\sp_error.cs" />
     <Compile Include="Enums\sp_sampletype.cs" />
     <Compile Include="Interfaces\IMusicServices.cs" />

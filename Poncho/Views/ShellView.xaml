@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Views="clr-namespace:Poncho.Views"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <StackPanel Orientation="Vertical">
         <TextBlock x:Name="Title" />
-        <Views:SearchView></Views:SearchView>
-    </Grid>
+        <Views:SearchControl></Views:SearchControl>
+    </StackPanel>
 </Window>

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using SpotifyService.Cargo;
+using SpotifyService.Enums;
+
 namespace SpotifyService.Model.Interfaces
 {
     public interface ITrackHandler : ITrackSubscriber
@@ -10,7 +12,7 @@ namespace SpotifyService.Model.Interfaces
         void QueueTracks(Track track);
         bool HasNextTrack();
         Track NextTrack();
-        void PlayPause(bool isPlaying);
+        void SetPlaybackStatus(PlaybackStatus isPlaying);
         event EventHandler ActiveTrackListListeners;
         List<Track> ActiveTrackList { get; }
     }
