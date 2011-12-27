@@ -1,7 +1,7 @@
-﻿<Window x:Class="Poncho.Views.LogInView"
+﻿<Window x:Class="Poncho.Views.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LogInView" Height="210" Width="300">
+        Title="LoginView" Height="210" Width="300">
     <Grid Name="grid1" Width="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

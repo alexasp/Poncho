@@ -6,6 +6,7 @@ using Autofac;
 using Caliburn.Micro;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
+using Poncho.Views;
 using IContainer = Autofac.IContainer;
 
 namespace Poncho
@@ -48,6 +49,7 @@ namespace Poncho
             //  .InstancePerDependency();
 
             _builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
+            _builder.RegisterType<LoginView>().AsSelf();
 
             //  register the single window manager for this container
             _builder.Register<IWindowManager>(c => new WindowManager()).InstancePerLifetimeScope();
