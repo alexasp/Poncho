@@ -64,7 +64,7 @@ namespace SpotifyService.Model
 
         public void SetPlaybackStatus(PlaybackStatus isPlaying)
         {
-
+            throw new NotImplementedException();
         }
 
        

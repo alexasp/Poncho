@@ -72,10 +72,9 @@
     <Compile Include="ValueConverters\PlayingStatusConverter.cs" />
     <Compile Include="ViewModels\Interfaces\ILoginViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IShellViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackControlViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\PlayListViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ITrackListViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Controls\SearchControl.xaml.cs">
@@ -100,8 +99,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\TrackControlViewModel.cs" />
-    <Compile Include="ViewModels\TrackListViewModel.cs" />
     <Page Include="Controls\PlaybackControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

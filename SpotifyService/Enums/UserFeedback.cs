@@ -7,6 +7,7 @@ namespace SpotifyService.Model.Enums
         NoSearchTextEntered,
         InvalidLoginInfo,
         EmptyUsername,
-        EmptyPassword
+        EmptyPassword,
+        NoTrackSelected
     }
 }
