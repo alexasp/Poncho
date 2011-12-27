@@ -1,11 +1,12 @@
 ﻿using System;
+using Caliburn.Micro;
 using Poncho.ViewModels.Interfaces;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
 namespace Poncho.ViewModels
 {
-    public class LoginViewModel : ILoginViewModel
+    public class LoginViewModel : Screen, ILoginViewModel
     {
         private readonly ILoginManager _loginManager;
         private readonly IUserFeedbackHandler _userFeedbackHandler;
@@ -15,6 +16,7 @@ namespace Poncho.ViewModels
             _loginManager = loginManager;
             _userFeedbackHandler = userFeedbackHandler;
         }
+        
 
         public string Password { get; set; }
 

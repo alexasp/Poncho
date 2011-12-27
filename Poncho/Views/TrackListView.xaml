@@ -1,8 +1,8 @@
 ﻿<Window x:Class="Poncho.Views.TrackListView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TrackListView" Height="493" Width="752">
-    <Grid>
-        <DataGrid AutoGenerateColumns="False" Height="442" HorizontalAlignment="Left" Name="dataGrid1" VerticalAlignment="Top" Width="718" ItemsSource="{Binding}" />
+        Title="TrackListView" Height="500" Width="750">
+    <Grid Height="Auto">
+        <DataGrid AutoGenerateColumns="False" Height="500" Name="dataGrid1" Width="Auto" ItemsSource="{Binding}" />
     </Grid>
 </Window>

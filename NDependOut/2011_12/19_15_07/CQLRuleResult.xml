@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CQLRuleResult NbQueries="111" NbErrors="0" NbWarns="31">
+  <Group Name="Code Quality" FullName="Code Quality" GroupId="GroupOfRules-55193780" NbQueries="12" NbErrors="0" NbWarns="4" Status="Warn">
+    <Query Status="Warn" Name="Methods with too many parameters - critical (NbParameters)" ContentTruncatedThreshold="100" FullName="Code Quality \ Methods with too many parameters - critical (NbParameters)" QueryId="Query1017023229" NbNodeMatched="1" NbNodeTested="530" KindOfNode=" methods">
+      <QueryHtml>&lt;font color='#008000'&gt;//&amp;#0160;&amp;lt;Name&amp;gt;&lt;/font&gt;&lt;b style="color:#008000;background-color:#E6FFE6"&gt;Methods&amp;#0160;with&amp;#0160;too&amp;#0160;many&amp;#0160;parameters&amp;#0160;-&amp;#0160;critical&amp;#0160;(NbParameters)&lt;/b&gt;&lt;font color='#008000'&gt;&amp;lt;/Name&amp;gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#0000FF'&gt;WARN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IF&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;Count&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;SELECT&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;METHODS&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;WHERE&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbParameters&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;8&lt;/b&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;ORDER&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;BY&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;NbParameters&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;DESC&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;METHODS&amp;#0160;WHERE&amp;#0160;NbParameters&amp;#0160;&amp;gt;&amp;#0160;8&amp;#0160;might&amp;#0160;be&amp;#0160;painful&amp;#0160;to&amp;#0160;call&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;and&amp;#0160;might&amp;#0160;degrade&amp;#0160;performance.&amp;#0160;You&amp;#0160;should&amp;#0160;prefer&amp;#0160;using&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;additional&amp;#0160;properties/fields&amp;#0160;to&amp;#0160;the&amp;#0160;declaring&amp;#0160;type&amp;#0160;to&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;handle&amp;#0160;numerous&amp;#0160;states.&amp;#0160;Another&amp;#0160;alternative&amp;#0160;is&amp;#0160;to&amp;#0160;provide&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;a&amp;#0160;class&amp;#0160;or&amp;#0160;structure&amp;#0160;dedicated&amp;#0160;to&amp;#0160;handle&amp;#0160;arguments&amp;#0160;passing&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;(for&amp;#0160;example&amp;#0160;see&amp;#0160;the&amp;#0160;class&amp;#0160;System.Diagnostics.ProcessStartInfo&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;and&amp;#0160;the&amp;#0160;method&amp;#0160;System.Diagnostics.Process.Start(ProcessStartInfo))&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;See&amp;#0160;the&amp;#0160;definition&amp;#0160;of&amp;#0160;the&amp;#0160;NbParameters&amp;#0160;metric&amp;#0160;here&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbParameters" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbParameters&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;</QueryHtml>
+      <Columns>
+        <Column>methods</Column>
+        <Column># Parameters</Column>
+      </Columns>
+      <Rows>
+        <Row Name="sp_search_create(IntPtr,Char[]&amp;,Int32,Int32,Int32,Int32,Int32,Int32 ,IntPtr,IntPtr)" FullName="SpotifyService.SpotifyWrapper.sp_search_create(IntPtr,Char[]&amp;,Int32 ,Int32,Int32,Int32,Int32,Int32,IntPtr,IntPtr)">
+          <Val>10</Val>
+        </Row>
+        <Row Name="Sum:" FullName="Stat">
+          <Val>10</Val>
+        </Row>
+        <Row Name="Average:" FullName="Stat">
+          <Val>10</Val>
+        </Row>
+        <Row Name="Minimum:" FullName="Stat">
+          <Val>10</Val>
+        </Row>
+        <Row Name="Maximum:" FullName="Stat">
+          <Val>10</Val>
+        </Row>
+        <Row Name="Standard deviation:" FullName="Stat">
+          <Val>0</Val>
+        </Row>
+        <Row Name="Variance:" FullName="Stat">
+          <Val>0</Val>
+        </Row>
+      </Rows>
+    </Query>
+    <Query Status="Warn" Name="Quick summary of methods to refactor" ContentTruncatedThreshold="100" FullName="Code Quality \ Quick summary of methods to refactor" QueryId="Query4115833988" NbNodeMatched="3" NbNodeTested="530" KindOfNode=" methods">
+      <QueryHtml>&lt;font color='#008000'&gt;//&amp;#0160;&amp;lt;Name&amp;gt;&lt;/font&gt;&lt;b style="color:#008000;background-color:#E6FFE6"&gt;Quick&amp;#0160;summary&amp;#0160;of&amp;#0160;methods&amp;#0160;to&amp;#0160;refactor&lt;/b&gt;&lt;font color='#008000'&gt;&amp;lt;/Name&amp;gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#0000FF'&gt;WARN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IF&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;Count&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;SELECT&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;METHODS&lt;/font&gt;&amp;#0160;&lt;font color='#008000'&gt;/*OUT&amp;#0160;OF&amp;#0160;"YourGeneratedCode"&amp;#0160;*/&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;WHERE&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;Metrics'&amp;#0160;definitions&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;(&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;NbLinesOfCode&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;30&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbLinesOfCode" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbLinesOfCode&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbILInstructions&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;200&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbILInstructions" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbILInstructions&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;CyclomaticComplexity&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;20&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#CC" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#CC&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;ILCyclomaticComplexity&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;50&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#ILCC" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#ILCC&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;ILNestingDepth&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;4&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#ILNestingDepth" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#ILNestingDepth&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbParameters&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;5&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbParameters" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbParameters&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbVariables&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;8&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbVariables" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbVariables&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbOverloads&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;6&lt;/b&gt;&amp;#0160;&lt;font color='#000000'&gt;)&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#NbOverloads" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#NbOverloads&lt;/a&gt;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;Here&amp;#0160;are&amp;#0160;some&amp;#0160;ways&amp;#0160;to&amp;#0160;avoid&amp;#0160;taking&amp;#0160;account&amp;#0160;of&amp;#0160;generated&amp;#0160;methods.&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;!&lt;/font&gt;&lt;font color='#000000'&gt;(&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;NameIs&lt;/font&gt;&amp;#0160;&lt;font color='#A31515'&gt;"InitializeComponent()"&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;NDepend.CQL.GeneratedAttribute&amp;#0160;is&amp;#0160;defined&amp;#0160;in&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;the&amp;#0160;redistributable&amp;#0160;assembly&amp;#0160;$NDependInstallDir$\Lib\NDepend.CQL.dll&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;You&amp;#0160;can&amp;#0160;define&amp;#0160;your&amp;#0160;own&amp;#0160;attribute&amp;#0160;to&amp;#0160;mark&amp;#0160;"Generated".&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;HasAttribute&lt;/font&gt;&amp;#0160;&lt;font color='#A31515'&gt;"OPTIONAL:NDepend.CQL.GeneratedAttribute"&lt;/font&gt;&lt;font color='#000000'&gt;)&lt;/font&gt;&amp;#0160;</QueryHtml>
+      <Columns>
+        <Column>methods</Column>
+        <Column># lines of code (LOC)</Column>
+        <Column># IL instructions</Column>
+        <Column>Cyclomatic Complexity (CC)</Column>
+        <Column>IL Cyclomatic Complexity (ILCC)</Column>
+        <Column>IL Nesting Depth</Column>
+        <Column># Parameters</Column>
+        <Column># Variables</Column>
+        <Column># Overloads</Column>
+      </Columns>
+      <Rows>
+        <Row Name="sp_search_create(IntPtr,Char[]&amp;,Int32,Int32,Int32,Int32,Int32,Int32 ,IntPtr,IntPtr)" FullName="SpotifyService.SpotifyWrapper.sp_search_create(IntPtr,Char[]&amp;,Int32 ,Int32,Int32,Int32,Int32,Int32,IntPtr,IntPtr)">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>N/A</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>10</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+        </Row>
+        <Row Name="BeginInvoke(IntPtr,sp_audioformat&amp;,IntPtr,Int32,AsyncCallback,Object)" FullName="SpotifyService.SpotifyWrapper+music_delivery.BeginInvoke(IntPtr ,sp_audioformat&amp;,IntPtr,Int32,AsyncCallback,Object)">
+          <Val>N/A</Val>
+          <Val>0</Val>
+          <Val>N/A</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>6</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+        </Row>
+        <Row Name=".ctor(List&lt;Track&gt;,String,String,Int32,Int32,Int32)" FullName="SpotifyService.Cargo.SearchResult..ctor(List&lt;Track&gt;,String,String ,Int32,Int32,Int32)">
+          <Val>7</Val>
+          <Val>30</Val>
+          <Val>N/A</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+          <Val>6</Val>
+          <Val>0</Val>
+          <Val>2</Val>
+        </Row>
+        <Row Name="Sum:" FullName="Stat">
+          <Val>7</Val>
+          <Val>30</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+          <Val>22</Val>
+          <Val>0</Val>
+          <Val>4</Val>
+        </Row>
+        <Row Name="Average:" FullName="Stat">
+          <Val>2.3333</Val>
+          <Val>10</Val>
+          <Val>0</Val>
+          <Val>0.33333</Val>
+          <Val>0</Val>
+          <Val>7.3333</Val>
+          <Val>0</Val>
+          <Val>1.3333</Val>
+        </Row>
+        <Row Name="Minimum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>6</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+        </Row>
+        <Row Name="Maximum:" FullName="Stat">
+          <Val>7</Val>
+          <Val>30</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+          <Val>10</Val>
+          <Val>0</Val>
+          <Val>2</Val>
+        </Row>
+        <Row Name="Standard deviation:" FullName="Stat">
+          <Val>3.2998</Val>
+          <Val>14.142</Val>
+          <Val>0</Val>
+          <Val>0.4714</Val>
+          <Val>0</Val>
+          <Val>1.8856</Val>
+          <Val>0</Val>
+          <Val>0.4714</Val>
+        </Row>
+        <Row Name="Variance:" FullName="Stat">
+          <Val>10.889</Val>
+          <Val>200</Val>
+          <Val>0</Val>
+          <Val>0.22222</Val>
+          <Val>0</Val>
+          <Val>3.5556</Val>
+          <Val>0</Val>
+          <Val>0.22222</Val>
+        </Row>
+      </Rows>
+    </Query>
+    <Group Name="Type Metrics" FullName="Code Quality \ Type Metrics" GroupId="GroupOfRules-1034765296" NbQueries="5" NbErrors="0" NbWarns="1" Status="Warn" />
+  </Group>
+  <Group Name="Design" FullName="Design" GroupId="GroupOfRules-358659326" NbQueries="15" NbErrors="0" NbWarns="5" Status="Warn">
+    <Query Status="Warn" Name="A stateless class or structure might be turned into a static type" ContentTruncatedThreshold="100" FullName="Design \ A stateless class or structure might be turned into a static type" QueryId="Query154626024" NbNodeMatched="3" NbNodeTested="205" KindOfNode=" types">
+      <QueryHtml>&lt;font color='#008000'&gt;//&amp;#0160;&amp;lt;Name&amp;gt;&lt;/font&gt;&lt;b style="color:#008000;background-color:#E6FFE6"&gt;A&amp;#0160;stateless&amp;#0160;class&amp;#0160;or&amp;#0160;structure&amp;#0160;might&amp;#0160;be&amp;#0160;turned&amp;#0160;into&amp;#0160;a&amp;#0160;static&amp;#0160;type&lt;/b&gt;&lt;font color='#008000'&gt;&amp;lt;/Name&amp;gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#0000FF'&gt;WARN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IF&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;Count&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;SELECT&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;TYPES&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;WHERE&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;SizeOfInst&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;==&lt;/font&gt;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;For&amp;#0160;accuracy,&amp;#0160;this&amp;#0160;rule&amp;#0160;doesn't&amp;#0160;take&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;account&amp;#0160;of&amp;#0160;types&amp;#0160;that&amp;#0160;implement&amp;#0160;some&amp;#0160;interfaces.&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;and&amp;#0160;classes&amp;#0160;that&amp;#0160;have&amp;#0160;a&amp;#0160;base&amp;#0160;class&amp;#0160;and&amp;#0160;don't&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;derive&amp;#0160;directly&amp;#0160;from&amp;#0160;System.Object,&amp;#0160;or&amp;#0160;classes&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;that&amp;#0160;have&amp;#0160;sub-classes&amp;#0160;children.&amp;#0160;&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbInterfacesImplemented&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;==&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;(&lt;/font&gt;&lt;font color='#000000'&gt;(&lt;/font&gt;&lt;font color='#000064'&gt;IsClass&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;DepthOfInheritance&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;==&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;1&lt;/b&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;NbChildren&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;==&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&lt;font color='#000000'&gt;)&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;OR&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;IsStructure&lt;/font&gt;&lt;font color='#000000'&gt;)&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;!&lt;/font&gt;&lt;font color='#000064'&gt;IsStatic&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;!&lt;/font&gt;&lt;font color='#000064'&gt;IsGeneric&lt;/font&gt;&lt;font color='#000000'&gt;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;this&amp;#0160;rule&amp;#0160;indicates&amp;#0160;stateless&amp;#0160;types&amp;#0160;that&amp;#0160;might&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;eventually&amp;#0160;be&amp;#0160;turned&amp;#0160;into&amp;#0160;static&amp;#0160;classes.&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;See&amp;#0160;the&amp;#0160;definition&amp;#0160;of&amp;#0160;the&amp;#0160;SizeOfInst&amp;#0160;metric&amp;#0160;here&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;&lt;a href="http://www.ndepend.com/Metrics.aspx#SizeOfInst" target="_blank"&gt;http://www.ndepend.com/Metrics.aspx#SizeOfInst&lt;/a&gt;&lt;/font&gt;</QueryHtml>
+      <Columns>
+        <Column>types</Column>
+        <Column>Size of instance</Column>
+        <Column># interfaces implemented</Column>
+        <Column>Depth of inheritance</Column>
+        <Column># Children</Column>
+      </Columns>
+      <Rows>
+        <Row Name="sp_album" FullName="SpotifyService.Structs.sp_album">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Bootstrapper" FullName="Poncho.Bootstrapper">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Resources" FullName="Poncho.Properties.Resources">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Sum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>3</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Average:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Minimum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Maximum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>1</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Standard deviation:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Variance:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+      </Rows>
+    </Query>
+    <Query Status="Warn" Name="Class with no descendant should be sealed if possible" ContentTruncatedThreshold="100" FullName="Design \ Class with no descendant should be sealed if possible" QueryId="Query654815140" NbNodeMatched="39" NbNodeTested="205" KindOfNode=" types">
+      <QueryHtml>&lt;font color='#008000'&gt;//&amp;#0160;&amp;lt;Name&amp;gt;&lt;/font&gt;&lt;b style="color:#008000;background-color:#E6FFE6"&gt;Class&amp;#0160;with&amp;#0160;no&amp;#0160;descendant&amp;#0160;should&amp;#0160;be&amp;#0160;sealed&amp;#0160;if&amp;#0160;possible&lt;/b&gt;&lt;font color='#008000'&gt;&amp;lt;/Name&amp;gt;&lt;br/&gt;&lt;/font&gt;&lt;font color='#0000FF'&gt;WARN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IF&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;Count&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;&amp;gt;&lt;/font&gt;&amp;#0160;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;IN&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;SELECT&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;TYPES&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;WHERE&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;IsClass&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000064'&gt;NbChildren&lt;/font&gt;&amp;#0160;&lt;font color='#000000'&gt;==&lt;/font&gt;&lt;b style="color:#000000;background-color:#FFFF99"&gt;0&lt;/b&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;!&lt;/font&gt;&lt;font color='#000064'&gt;IsSealed&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;AND&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#000000'&gt;!&lt;/font&gt;&lt;font color='#000064'&gt;IsStatic&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&lt;br/&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;AND&amp;#0160;!IsPublic&amp;#0160;&amp;lt;--&amp;#0160;You&amp;#0160;might&amp;#0160;want&amp;#0160;to&amp;#0160;add&amp;#0160;this&amp;#0160;condition&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;if&amp;#0160;you&amp;#0160;are&amp;#0160;developping&amp;#0160;a&amp;#0160;framework&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;with&amp;#0160;classes&amp;#0160;that&amp;#0160;are&amp;#0160;intended&amp;#0160;to&amp;#0160;be&amp;#0160;&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#008000'&gt;//&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;&amp;#0160;sub-classed&amp;#0160;by&amp;#0160;your&amp;#0160;clients.&lt;br/&gt;&lt;/font&gt;&lt;font color='#000000'&gt;&amp;#0160;&amp;#0160;&lt;/font&gt;&lt;font color='#0000FF'&gt;ORDER&lt;/font&gt;&amp;#0160;&lt;font color='#0000FF'&gt;BY&lt;/font&gt;&amp;#0160;&lt;font color='#000064'&gt;NbLinesOfCode&lt;/font&gt;</QueryHtml>
+      <Columns>
+        <Column>types</Column>
+        <Column># Children</Column>
+        <Column># lines of code (LOC)</Column>
+      </Columns>
+      <Rows>
+        <Row Name="PlayList" FullName="SpotifyService.Cargo.PlayList">
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Bootstrapper" FullName="Poncho.Bootstrapper">
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="sp_album" FullName="SpotifyService.Structs.sp_album">
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="App" FullName="Poncho.App">
+          <Val>0</Val>
+          <Val>2</Val>
+        </Row>
+        <Row Name="SearchView" FullName="Poncho.Views.SearchView">
+          <Val>0</Val>
+          <Val>3</Val>
+        </Row>
+        <Row Name="LogInView" FullName="Poncho.Views.LogInView">
+          <Val>0</Val>
+          <Val>3</Val>
+        </Row>
+        <Row Name="ShellView" FullName="Poncho.Views.ShellView">
+          <Val>0</Val>
+          <Val>3</Val>
+        </Row>
+        <Row Name="TrackListView" FullName="Poncho.Views.TrackListView">
+          <Val>0</Val>
+          <Val>3</Val>
+        </Row>
+        <Row Name="PlaylistManagerTests" FullName="SpotifyServiceTests.ModelsTests.PlaylistManagerTests">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="LoginViewModel" FullName="Poncho.ViewModels.LoginViewModel">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="TrackControlViewModel" FullName="Poncho.ViewModels.TrackControlViewModel">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="PlayListViewModel" FullName="Poncho.Models.PlayListViewModel">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="App" FullName="Caliburn.Micro.Hello.App">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="PlayListViewModelTests" FullName="PonchoTests.ViewModelsTests.PlayListViewModelTests">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="PlaylistManager" FullName="SpotifyService.Model.PlaylistManager">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="Track" FullName="SpotifyService.Cargo.Track">
+          <Val>0</Val>
+          <Val>5</Val>
+        </Row>
+        <Row Name="ShellViewModel" FullName="Poncho.ViewModels.ShellViewModel">
+          <Val>0</Val>
+          <Val>6</Val>
+        </Row>
+        <Row Name="Resources" FullName="Poncho.Properties.Resources">
+          <Val>0</Val>
+          <Val>7</Val>
+        </Row>
+        <Row Name="TrackControlView" FullName="Poncho.Views.TrackControlView">
+          <Val>0</Val>
+          <Val>7</Val>
+        </Row>
+        <Row Name="LoginManager" FullName="SpotifyService.Model.LoginManager">
+          <Val>0</Val>
+          <Val>8</Val>
+        </Row>
+        <Row Name="SearchManager" FullName="SpotifyService.Model.SearchManager">
+          <Val>0</Val>
+          <Val>8</Val>
+        </Row>
+        <Row Name="SearchViewModel" FullName="Poncho.Models.SearchViewModel">
+          <Val>0</Val>
+          <Val>9</Val>
+        </Row>
+        <Row Name="SearchResult" FullName="SpotifyService.Cargo.SearchResult">
+          <Val>0</Val>
+          <Val>9</Val>
+        </Row>
+        <Row Name="UserFeedbackHandler" FullName="SpotifyService.Model.UserFeedbackHandler">
+          <Val>0</Val>
+          <Val>11</Val>
+        </Row>
+        <Row Name="QueueTests" FullName="SpotifyServiceTests.ModelsTests.QueueTests">
+          <Val>0</Val>
+          <Val>12</Val>
+        </Row>
+        <Row Name="LogInViewModelTests" FullName="PonchoTests.ViewModelsTests.LogInViewModelTests">
+          <Val>0</Val>
+          <Val>13</Val>
+        </Row>
+        <Row Name="SearchViewModelTests" FullName="PonchoTests.ViewModelsTests.SearchViewModelTests">
+          <Val>0</Val>
+          <Val>13</Val>
+        </Row>
+        <Row Name="TrackControlViewModelTests" FullName="PonchoTests.ViewModelsTests.TrackControlViewModelTests">
+          <Val>0</Val>
+          <Val>13</Val>
+        </Row>
+        <Row Name="UserFeedbackHandlerTests" FullName="SpotifyServiceTests.ModelsTests.UserFeedbackHandlerTests">
+          <Val>0</Val>
+          <Val>14</Val>
+        </Row>
+        <Row Name="SearchManagerTests" FullName="SpotifyServiceTests.ModelsTests.SearchManagerTests">
+          <Val>0</Val>
+          <Val>14</Val>
+        </Row>
+        <Row Name="TrackQueue" FullName="SpotifyService.Model.TrackQueue">
+          <Val>0</Val>
+          <Val>15</Val>
+        </Row>
+        <Row Name="LoginManagerTests" FullName="SpotifyServiceTests.ModelsTests.LoginManagerTests">
+          <Val>0</Val>
+          <Val>17</Val>
+        </Row>
+        <Row Name="TrackHandler" FullName="SpotifyService.Model.TrackHandler">
+          <Val>0</Val>
+          <Val>17</Val>
+        </Row>
+        <Row Name="MusicServices" FullName="SpotifyService.MusicServices">
+          <Val>0</Val>
+          <Val>20</Val>
+        </Row>
+        <Row Name="TrackListViewModel" FullName="Poncho.ViewModels.TrackListViewModel">
+          <Val>0</Val>
+          <Val>20</Val>
+        </Row>
+        <Row Name="TrackListViewModelTests" FullName="PonchoTests.ViewModelsTests.TrackListViewModelTests">
+          <Val>0</Val>
+          <Val>35</Val>
+        </Row>
+        <Row Name="TrackHandlerTests" FullName="SpotifyServiceTests.ModelsTests.TrackHandlerTests">
+          <Val>0</Val>
+          <Val>38</Val>
+        </Row>
+        <Row Name="SpotifyWrapper" FullName="SpotifyService.SpotifyWrapper">
+          <Val>0</Val>
+          <Val>44</Val>
+        </Row>
+        <Row Name="MusicServicesTests" FullName="SpotifyServiceTests.MusicServicesTests">
+          <Val>0</Val>
+          <Val>59</Val>
+        </Row>
+        <Row Name="Sum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>463</Val>
+        </Row>
+        <Row Name="Average:" FullName="Stat">
+          <Val>0</Val>
+          <Val>11.872</Val>
+        </Row>
+        <Row Name="Minimum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>0</Val>
+        </Row>
+        <Row Name="Maximum:" FullName="Stat">
+          <Val>0</Val>
+          <Val>59</Val>
+        </Row>
+        <Row Name="Standard deviation:" FullName="Stat">
+          <Val>0</Val>
+          <Val>12.424</Val>
+        </Row>
+        <Row Name="Variance:" FullName="Stat">
+          <Val>0</Val>
+          <Val>154.37</Val>
+        </Row>
+      </Rows>
+    </Query>
+    <Group Name="Performance" FullName="Design \ Performance" GroupId="GroupOfRules-1202259592" NbQueries="4" NbErrors="0" NbWarns="1" Status="Warn" />
+  </Group>
+  <Group Name="Code Diff" FullName="Code Diff" GroupId="GroupOfRules-1312349231" NbQueries="10" NbErrors="0" NbWarns="0" Status="Ok">
+    <Group Name="API Breaking Changes" FullName="Code Diff \ API Breaking Changes" GroupId="GroupOfRules-1429212426" NbQueries="3" NbErrors="0" NbWarns="0" Status="Ok" />
+  </Group>
+  <Group Name="Code Coverage" FullName="Code Coverage" GroupId="GroupOfRules1296861689" NbQueries="7" NbErrors="0" NbWarns="0" Status="Ok">
+    <Group Name="Coverage Regression" FullName="Code Coverage \ Coverage Regression" GroupId="GroupOfRules-2093326276" NbQueries="7" NbErrors="0" NbWarns="0" Status="Ok" />
+  </Group>
+  <Group Name="Dead Code" FullName="Dead Code" GroupId="GroupOfRules-935955550" NbQueries="3" NbErrors="0" NbWarns="3" Status="Warn" />
+  <Group Name="Code Quality from Now!" FullName="Code Quality from Now!" GroupId="GroupOfRules494690661" NbQueries="3" NbErrors="0" NbWarns="0" Status="Ok" />
+  <Group Name="Encapsulation" FullName="Encapsulation" GroupId="GroupOfRules-899546502" NbQueries="1" NbErrors="0" NbWarns="1" Status="Warn">
+    <Group Name="Methods Optimal Encapsulation" FullName="Encapsulation \ Methods Optimal Encapsulation" GroupId="GroupOfRules112565523" NbQueries="5" NbErrors="0" NbWarns="2" Status="Warn" />
+    <Group Name="Types Optimal Encapsulation" FullName="Encapsulation \ Types Optimal Encapsulation" GroupId="GroupOfRules-1690661178" NbQueries="5" NbErrors="0" NbWarns="2" Status="Warn" />
+    <Group Name="Fields Optimal Encapsulation" FullName="Encapsulation \ Fields Optimal Encapsulation" GroupId="GroupOfRules-1054548904" NbQueries="5" NbErrors="0" NbWarns="2" Status="Warn" />
+  </Group>
+  <Group Name="Purity - Immutability - Side-Effects" FullName="Purity - Immutability - Side-Effects" GroupId="GroupOfRules213518596" NbQueries="6" NbErrors="0" NbWarns="2" Status="Warn" />
+  <Group Name="Naming Conventions" FullName="Naming Conventions" GroupId="GroupOfRules-1005792771" NbQueries="10" NbErrors="0" NbWarns="4" Status="Warn">
+    <Group Name="Name too long" FullName="Naming Conventions \ Name too long" GroupId="GroupOfRules1667286463" NbQueries="3" NbErrors="0" NbWarns="1" Status="Warn" />
+  </Group>
+  <Group Name=".NET Framework Usage" FullName=".NET Framework Usage" GroupId="GroupOfRules776011600" NbQueries="0" NbErrors="0" NbWarns="0" Status="Warn">
+    <Group Name="System" FullName=".NET Framework Usage \ System" GroupId="GroupOfRules994470963" NbQueries="13" NbErrors="0" NbWarns="1" Status="Warn" />
+    <Group Name="System.Collection" FullName=".NET Framework Usage \ System.Collection" GroupId="GroupOfRules-908923421" NbQueries="1" NbErrors="0" NbWarns="0" Status="Ok" />
+    <Group Name="System.Runtime.InteropServices" FullName=".NET Framework Usage \ System.Runtime.InteropServices" GroupId="GroupOfRules125586677" NbQueries="3" NbErrors="0" NbWarns="2" Status="Warn" />
+    <Group Name="System.Threading" FullName=".NET Framework Usage \ System.Threading" GroupId="GroupOfRules-818084121" NbQueries="7" NbErrors="0" NbWarns="0" Status="Ok" />
+    <Group Name="System.Xml" FullName=".NET Framework Usage \ System.Xml" GroupId="GroupOfRules1344796316" NbQueries="2" NbErrors="0" NbWarns="0" Status="Ok" />
+    <Group Name="System.Globalization" FullName=".NET Framework Usage \ System.Globalization" GroupId="GroupOfRules-678451365" NbQueries="1" NbErrors="0" NbWarns="0" Status="Ok" />
+  </Group>
+</CQLRuleResult>

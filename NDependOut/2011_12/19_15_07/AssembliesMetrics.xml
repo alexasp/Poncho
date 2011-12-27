@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<AssembliesMetrics>
+  <Assembly Assembly="SpotifyService v1.0.0.0" NTypes="50" NAbstractTypes="12" NILInstructionInAsm="1061" NbLinesOfCodeInAsm="143" NbLinesOfCommentInAsm="-" PercentageCommentInAsm="-" PercentageCoverageInAsm="-" AfferentCoupling="33" EfferentCoupling="35" RelationalCohesion="1.5" Instability="0.51" Abstractness="0.26" DistFrMainSeq="0.16" NormDistFrMainSeq="0.23" />
+  <Assembly Assembly="SpotifyServiceTests v1.0.0.0" NTypes="17" NAbstractTypes="0" NILInstructionInAsm="1320" NbLinesOfCodeInAsm="169" NbLinesOfCommentInAsm="27" PercentageCommentInAsm="13" PercentageCoverageInAsm="-" AfferentCoupling="0" EfferentCoupling="64" RelationalCohesion="0.65" Instability="1" Abstractness="0" DistFrMainSeq="0" NormDistFrMainSeq="0" />
+  <Assembly Assembly="Poncho v1.0.0.0" NTypes="20" NAbstractTypes="4" NILInstructionInAsm="703" NbLinesOfCodeInAsm="85" NbLinesOfCommentInAsm="73" PercentageCommentInAsm="46" PercentageCoverageInAsm="-" AfferentCoupling="5" EfferentCoupling="44" RelationalCohesion="0.4" Instability="0.9" Abstractness="0.2" DistFrMainSeq="0.07" NormDistFrMainSeq="0.1" />
+  <Assembly Assembly="PonchoTests v1.0.0.0" NTypes="9" NAbstractTypes="0" NILInstructionInAsm="602" NbLinesOfCodeInAsm="83" NbLinesOfCommentInAsm="19" PercentageCommentInAsm="18" PercentageCoverageInAsm="-" AfferentCoupling="0" EfferentCoupling="54" RelationalCohesion="0.56" Instability="1" Abstractness="0" DistFrMainSeq="0" NormDistFrMainSeq="0" />
+</AssembliesMetrics>
