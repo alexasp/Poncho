@@ -1,6 +1,8 @@
+using Caliburn.Micro;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model;
 using SpotifyService.Model.Enums;
 
@@ -10,13 +12,13 @@ namespace SpotifyServiceTests.ModelsTests
     class UserFeedbackHandlerTests
     {
         private UserFeedbackHandler _userFeedbackHandler;
-        private IUserFeedBackDisplay _userFeedbackDisplay;
+        private IEventAggregator _eventAggregator;
 
         [SetUp]
         public void Init()
         {
-            _userFeedbackDisplay = MockRepository.GenerateStub<IUserFeedBackDisplay>();
-            _userFeedbackHandler = new UserFeedbackHandler(_userFeedbackDisplay);
+            _eventAggregator = MockRepository.GenerateStub<IEventAggregator>();
+            _userFeedbackHandler = new UserFeedbackHandler(_eventAggregator);
         }
 
         [Test]
@@ -24,7 +26,7 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _userFeedbackHandler.Display(UserFeedback.TrackNotPlayable);
 
-            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("This track is not playable."));
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<UserFeedbackMessage>.Matches(y => y.Text == "This track is not playable.")));
         }
 
         [Test]
@@ -32,7 +34,7 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _userFeedbackHandler.Display(UserFeedback.SomeTracksNotPlayable);
 
-            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("One or more of these tracks were not playable."));
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<UserFeedbackMessage>.Matches(y => y.Text == "One or more of these tracks were not playable.")));
 
         }
 
@@ -41,7 +43,7 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _userFeedbackHandler.Display(UserFeedback.NoSearchTextEntered);
 
-            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("You need to enter a search text."));
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<UserFeedbackMessage>.Matches(y => y.Text == "You need to enter a search text.")));
 
         }
 
@@ -50,7 +52,7 @@ namespace SpotifyServiceTests.ModelsTests
         {
             _userFeedbackHandler.Display(UserFeedback.InvalidLoginInfo);
 
-            _userFeedbackDisplay.AssertWasCalled(x => x.DisplayMessage("The login information you provided was incorrect."));
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<UserFeedbackMessage>.Matches(y => y.Text == "The login information you provided was incorrect.")));
         }
     }
 }

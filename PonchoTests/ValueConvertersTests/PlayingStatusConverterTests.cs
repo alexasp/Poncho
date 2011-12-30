@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Poncho.Models;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
 using SpotifyService.Model.Interfaces;

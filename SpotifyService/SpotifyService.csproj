@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\..\lib\Caliburn.Micro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,20 +51,19 @@
     <Compile Include="Enums\sp_sampletype.cs" />
     <Compile Include="Interfaces\IMusicServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
-    <Compile Include="Interfaces\IUserFeedBackDisplay.cs" />
     <Compile Include="KeyManager.cs" />
     <Compile Include="Enums\UserFeedback.cs" />
-    <Compile Include="Interfaces\IActiveTracksListener.cs" />
     <Compile Include="Interfaces\ILoginManager.cs" />
     <Compile Include="Interfaces\IPlaylistManager.cs" />
     <Compile Include="Interfaces\ISearchManager.cs" />
     <Compile Include="Interfaces\IStreamManager.cs" />
     <Compile Include="Interfaces\ITrackHandler.cs" />
     <Compile Include="Interfaces\ITrackQueue.cs" />
-    <Compile Include="Interfaces\ITrackSubscriber.cs" />
     <Compile Include="Interfaces\IUserFeedbackHandler.cs" />
-    <Compile Include="Interfaces\IUserFeedbackViewModel.cs" />
     <Compile Include="LoginManager.cs" />
+    <Compile Include="Messages\LoginResultMessage.cs" />
+    <Compile Include="Messages\SearchResultMessage.cs" />
+    <Compile Include="Messages\UserFeedbackMessage.cs" />
     <Compile Include="PlaylistManager.cs" />
     <Compile Include="SearchManager.cs" />
     <Compile Include="TrackHandler.cs" />

@@ -4,6 +4,6 @@ namespace SpotifyService.Model.Interfaces
 {
     public interface IUserFeedbackHandler
     {
-        void Display(UserFeedback trackNotPlayable);
+        void Display(UserFeedback feedback);
     }
 }

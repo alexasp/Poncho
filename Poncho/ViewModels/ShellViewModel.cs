@@ -11,7 +11,7 @@ namespace Poncho.ViewModels
 {
     using Caliburn.Micro;
 
-    public class ShellViewModel : PropertyChangedBase, IShellViewModel, IActiveTracksListener
+    public class ShellViewModel : PropertyChangedBase, IShellViewModel
     {
         private readonly ITrackHandler _trackHandler;
         private readonly ISearchManager _searchManager;
@@ -115,6 +115,11 @@ namespace Poncho.ViewModels
             var trackHandler = sender as ITrackHandler;
             Debug.Assert(trackHandler != null, "trackHandler != null");
             TrackList = trackHandler.ActiveTrackList;
+        }
+
+        public void SearchRetrieved(SearchResult searchResults)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SpotifyService.Interfaces
         void EndSession();
         void SearchRetrieved();
         void PlayTrack(Track i);
-        event Action<SearchResult> SearchResultsRetrieved;
         void SetPlaybackStatus(PlaybackStatus paused);
+        void LoginResponseRetrieved(sp_error error);
     }
 }

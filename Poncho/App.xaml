@@ -1,12 +1,12 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Caliburn.Micro.Hello" xmlns:Poncho="clr-namespace:Poncho"
-             x:Class="Caliburn.Micro.Hello.App">
+             xmlns:local="clr-namespace:Poncho"
+             x:Class="Poncho.App">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <Poncho:Bootstrapper x:Key="bootstrapper" />
+                    <local:Bootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

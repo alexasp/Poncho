@@ -81,31 +81,7 @@ namespace SpotifyServiceTests.ModelsTests
             _trackHandler.NextTrack();
         }
 
-        [Test]
-        public void SearchRetrieved_AlertsActiveTrackListListeners()
-        {
-            var list = new List<Track>();
-            var result = new SearchResult(list);
-            var trackListener = MockRepository.GenerateStub<IActiveTracksListener>();
-            _trackHandler.ActiveTrackListListeners += trackListener.ActiveTracksChanged;
-
-            _trackHandler.SearchRetrieved(result);
-
-            trackListener.AssertWasCalled(x => x.ActiveTracksChanged(Arg<ITrackHandler>.Is.Same(_trackHandler), Arg<EventArgs>.Is.Anything));
-        }
-
-        [Test]
-        public void SearchRetrieved_SetsActiveTrackListToResultList()
-        {
-            var list = new List<Track>();
-            var result = new SearchResult(list);
-            var trackListener = MockRepository.GenerateStub<IActiveTracksListener>();
-            _trackHandler.ActiveTrackListListeners += trackListener.ActiveTracksChanged;
-
-            _trackHandler.SearchRetrieved(result);
-
-            Assert.AreEqual(list, _trackHandler.ActiveTrackList);
-        }
+       
 
         [Test]
         public void OnSelectedPlayListChanged_GetsSelectedPlaylistFromPlaylistManager()

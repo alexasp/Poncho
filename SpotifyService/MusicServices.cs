@@ -1,26 +1,41 @@
 ﻿using System;
+using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model.Interfaces;
 
 namespace SpotifyService
 {
     public class MusicServices : IMusicServices
     {
-        private readonly ISearchManager _searchManager;
+        private readonly IEventAggregator _eventAggregator;
         private ISpotifyWrapper _spotifyWrapper;
-        public event Action<SearchResult> SearchResultsRetrieved;
+
         public void SetPlaybackStatus(PlaybackStatus paused)
         {
             throw new NotImplementedException();
         }
 
-        public MusicServices(ISearchManager searchManager, ISpotifyWrapper spotifyWrapper)
+        public void LoginResponseRetrieved(sp_error error)
         {
-            _searchManager = searchManager;
+
+            bool success = error == sp_error.SP_ERROR_OK;
+
+            //Kill Spotify session if login failed.
+            if (!success)
+                _spotifyWrapper.EndSession();
+
+            _eventAggregator.Publish(new LoginResultMessage(success));
+        }
+
+        public MusicServices(IEventAggregator eventAggregator, ISpotifyWrapper spotifyWrapper)
+        {
+            _eventAggregator = eventAggregator;
             _spotifyWrapper = spotifyWrapper;
             _spotifyWrapper.SearchRetrieved += SearchRetrieved;
+            _spotifyWrapper.LoginResponseRetrieved += LoginResponseRetrieved;
         }
 
         public void SearchRetrieved()
@@ -32,8 +47,12 @@ namespace SpotifyService
             var albumCount = _spotifyWrapper.GetSearchCountAlbumsRetrieved();
             var tracks = _spotifyWrapper.GetSearchTracks();
 
-            _searchManager.SearchResultsRetrieved(new SearchResult(tracks, searchQuery, didYouMeanText, trackCount, totalTrackCount, albumCount));
+            _eventAggregator.Publish(new SearchResultMessage(
+                new SearchResult(tracks, searchQuery, didYouMeanText, trackCount, totalTrackCount, albumCount)
+                ));
         }
+
+        
 
         public void PlayTrack(Track i)
         {

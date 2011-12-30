@@ -13,14 +13,12 @@ namespace SpotifyServiceTests.ModelsTests
     {
         private IMusicServices _musicServices;
         private ISearchManager _searchManager;
-        private ITrackSubscriber _trackSubscriber;
 
         [SetUp]
         public void Init()
         {
-            _trackSubscriber = MockRepository.GenerateStub<ITrackSubscriber>();
             _musicServices = MockRepository.GenerateStub<IMusicServices>();
-            _searchManager = new SearchManager(_musicServices, _trackSubscriber);
+            _searchManager = new SearchManager(_musicServices);
         }
 
         [Test]
@@ -41,7 +39,7 @@ namespace SpotifyServiceTests.ModelsTests
 
             _searchManager.SearchResultsRetrieved(searchResults);
 
-            _trackSubscriber.AssertWasCalled(x => x.SearchRetrieved(searchResults));
+            Assert.Fail("Revamp test.");
         }
 
         [Test]

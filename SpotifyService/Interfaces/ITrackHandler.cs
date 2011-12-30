@@ -5,7 +5,7 @@ using SpotifyService.Enums;
 
 namespace SpotifyService.Model.Interfaces
 {
-    public interface ITrackHandler : ITrackSubscriber
+    public interface ITrackHandler
     {
         void PlayTrack(Track track);
         void QueueTracks(List<Track> tracks);

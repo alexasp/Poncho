@@ -22,6 +22,8 @@ namespace SpotifyService
         internal static object Mutex = new object();
 
         public event Action SearchRetrieved;
+        public event Action<sp_error> LoginResponseRetrieved;
+
         public void LoadTrack(int trackIndex)
         {
             throw new NotImplementedException();
@@ -66,7 +68,7 @@ namespace SpotifyService
             };
 
 
-            var error = sp_session_create(ref _sessionConfig, out _sessionHandle);
+                var error = sp_session_create(ref _sessionConfig, out _sessionHandle);
 
             if(error == sp_error.SP_ERROR_OK)
                 Console.WriteLine("Session successfully created.");
@@ -90,7 +92,6 @@ namespace SpotifyService
         {
             lock (Mutex)
             {
-                Console.WriteLine("Requested login.");
                 sp_session_login(_sessionHandle, username, password, true);
             }
         }
@@ -99,14 +100,13 @@ namespace SpotifyService
         {
             lock (Mutex)
             {
-                Console.WriteLine("Requested logout.");
                 sp_session_logout(_sessionHandle);
             }
         }
 
         private void LoginCallBack(IntPtr sessionHandle, sp_error error)
         {
-            Console.WriteLine("Login result: " + error);
+            LoginResponseRetrieved(error);
         }
 
         public void CreateSearch(string searchText)

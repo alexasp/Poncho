@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Poncho.Models;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
@@ -168,17 +167,6 @@ namespace PonchoTests.ViewModelsTests
             _trackHandler.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));
 
             _shellViewModel.QueueTracks();
-        }
-
-        [Test]
-        public void ActiveTracksChanged_SetsTrackListToSenderActiveTrackList()
-        {
-            var list = new List<Track>();
-            _trackHandler.Stub(x => x.ActiveTrackList).Return(list);
-
-            _shellViewModel.ActiveTracksChanged(_trackHandler, new EventArgs());
-
-            Assert.AreEqual(list, _shellViewModel.TrackList);
         }
 
 

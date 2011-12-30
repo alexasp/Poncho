@@ -1,14 +1,12 @@
-﻿namespace Poncho
-{
-    using System.Windows;
+﻿using System.Windows;
 
+namespace Poncho
+{
     public partial class App : Application
     {
-        Bootstrapper bootstrapper;
-
         public App()
         {
-            bootstrapper = new Bootstrapper();
+            InitializeComponent();
         }
     }
 }

@@ -1,28 +1,32 @@
 ﻿using System.Collections.Generic;
+using Caliburn.Micro;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model.Interfaces;
 
 namespace SpotifyServiceTests
 {
+    /// <summary>
     //Responsible for interactions with the Spotify library.
+    /// </summary>
     [TestFixture]
     class MusicServicesTests
     {
         private IMusicServices _musicServices;
-        private ISearchManager _searchManager;
         private ISpotifyWrapper _spotifyWrapper;
+        private IEventAggregator _eventAggregator;
 
         [SetUp]
         public void Init()
         {
-            _searchManager = MockRepository.GenerateStub<ISearchManager>();
+            _eventAggregator = MockRepository.GenerateMock<IEventAggregator>();
             _spotifyWrapper = MockRepository.GenerateMock<ISpotifyWrapper>();
-            _musicServices = new MusicServices(_searchManager, _spotifyWrapper);
+            _musicServices = new MusicServices(_eventAggregator, _spotifyWrapper);
         }
 
         [Test]  
@@ -61,7 +65,7 @@ namespace SpotifyServiceTests
 
 
         [Test]
-        public void SearchResultsRetrieved_ConstructsSearchResultAndPassesToSearchResultSubscribers()
+        public void SearchResultsRetrieved_ConstructsSearchResultAndPublishesAsSearchResultMessage()
         {
             var trackList = new List<Track>();
 
@@ -74,7 +78,7 @@ namespace SpotifyServiceTests
 
             _musicServices.SearchRetrieved();
 
-            _searchManager.AssertWasCalled(x => x.SearchResultsRetrieved(Arg<SearchResult>.Is.Anything));
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<SearchResultMessage >.Is.Anything));
         }
 
         [Test]
@@ -97,15 +101,40 @@ namespace SpotifyServiceTests
 
             _musicServices.SearchRetrieved();
 
-            _searchManager.AssertWasCalled(x => x.SearchResultsRetrieved(Arg<SearchResult>.Matches(
-                y => y.TrackList == trackList
-                    && y.SearchQuery == searchText
-                    && y.DidYouMeanText == didYouMean
-                    && y.TrackCount == trackCount
-                    && y.TotalTrackCount == totalTrackCount
-                    && y.AlbumCount == albumCount
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<SearchResultMessage>.Matches(
+                y => y.Result.TrackList == trackList
+                    && y.Result.SearchQuery == searchText
+                    && y.Result.DidYouMeanText == didYouMean
+                    && y.Result.TrackCount == trackCount
+                    && y.Result.TotalTrackCount == totalTrackCount
+                    && y.Result.AlbumCount == albumCount
                     )
-                ));
+                    )
+                );
+        }
+
+        [Test]
+        public void LoginResponseRetrieved_LoginSuccesful_PublishesLoginResultMessageWithSuccess()
+        {
+            _musicServices.LoginResponseRetrieved(sp_error.SP_ERROR_OK);
+
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<LoginResultMessage>.Matches(y => y.Success == true)));
+        }
+
+        [Test]
+        public void LoginResponseRetrieved_LoginNotSuccesful_PublishesLoginResultMessageWithFailure()
+        {
+            _musicServices.LoginResponseRetrieved(sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD);
+
+            _eventAggregator.AssertWasCalled(x => x.Publish(Arg<LoginResultMessage>.Matches(y => y.Success == false)));
+        }
+
+        [Test]
+        public void LoginResponseRetrieved_LoginNotSuccesful_CallsEndSessionsOnSpotifyWrapper()
+        {
+            _musicServices.LoginResponseRetrieved(sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD);
+
+            _spotifyWrapper.AssertWasCalled(x => x.EndSession());
         }
 
         //Is there some way to test for order as well? If there is, it's on mocks, so we're leaving this a mock for now.

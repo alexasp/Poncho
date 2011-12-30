@@ -1,8 +1,10 @@
-﻿namespace Poncho.ViewModels.Interfaces
+﻿using Caliburn.Micro;
+using SpotifyService.Messages;
+
+namespace Poncho.ViewModels.Interfaces
 {
-    public interface ILoginViewModel
+    public interface ILoginViewModel : IHandle<LoginResultMessage>
     {
-        void InvalidLogin();
         void Login();
         string Username { get; set; }
         string Password { get; set; }

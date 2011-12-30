@@ -4,25 +4,29 @@ using System.ComponentModel;
 using System.Linq;
 using Autofac;
 using Caliburn.Micro;
+using System.Windows;
+using System.Windows.Controls;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Poncho.Views;
+using SpotifyService;
+using SpotifyService.Interfaces;
+using SpotifyService.Model;
+using SpotifyService.Model.Interfaces;
 using IContainer = Autofac.IContainer;
 
 namespace Poncho
 {
-    public class Bootstrapper : Bootstrapper<LoginViewModel>
+    public class Bootstrapper : Bootstrapper<ILoginViewModel>
     {
-        private ContainerBuilder _builder;
+        private readonly ILog _logger = LogManager.GetLog(typeof(Bootstrapper));
         private IContainer _container;
-
 
         protected void ConfigureContainer(ContainerBuilder builder)
         {
-        }
+            _logger.Info("Configuring Container.");
 
-        protected override void Configure()
-        { //  configure container     var builder = new ContainerBuilder();
+            //  configure container     var builder = new ContainerBuilder();
 
             //  register view models
             //_builder.RegisterAssemblyTypes(AssemblySource.Instance.ToArray())
@@ -47,18 +51,66 @@ namespace Poncho
             //  .AsSelf()
             //    //  always create a new one
             //  .InstancePerDependency();
+            _logger.Info("Registering ViewModels.");
+            builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
+            builder.RegisterType<ShellViewModel>().As<IShellViewModel>();
+            _logger.Info("Registering Views.");
+            builder.RegisterType<LoginView>().AsSelf();
+            builder.RegisterType<ShellView>().AsSelf();
 
-            _builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
-            _builder.RegisterType<LoginView>().AsSelf();
+            builder.RegisterType<LoginManager>().As<ILoginManager>();
+            builder.RegisterType<UserFeedbackHandler>().As<IUserFeedbackHandler>();
+            builder.RegisterType<MusicServices>().As<IMusicServices>();
+            builder.RegisterType<SpotifyWrapper>().As<ISpotifyWrapper>();
+            builder.RegisterType<SearchManager>().As<ISearchManager>();
+            builder.RegisterType<TrackHandler>().As<ITrackHandler>();
+            builder.RegisterType<PlaylistManager>().As<IPlaylistManager>();
+            builder.RegisterInstance(new EventAggregator()).As<IEventAggregator>();
+        }
+
+        
+        protected override void Configure()
+        { 
+            var builder = new ContainerBuilder();
 
             //  register the single window manager for this container
-            _builder.Register<IWindowManager>(c => new WindowManager()).InstancePerLifetimeScope();
+            builder.Register<IWindowManager>(c => new WindowManager()).InstancePerLifetimeScope();
             //  register the single event aggregator for this container
-            _builder.Register<IEventAggregator>(c => new EventAggregator()).InstancePerLifetimeScope();
+            builder.Register<IEventAggregator>(c => new EventAggregator()).InstancePerLifetimeScope();
 
-            ConfigureContainer(_builder);
+            ConfigureContainer(builder);
 
-            _container = _builder.Build();
+            _container = builder.Build();
+        }
+
+        protected override object GetInstance(Type serviceType, string key)
+        {
+            object instance;
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                if (_container.TryResolve(serviceType, out instance))
+                {
+                    return instance;
+                }
+            }
+            else
+            {
+                if (_container.TryResolveNamed(key, serviceType, out instance))
+                {
+                    return instance;
+                }
+            }
+
+            throw new Exception(string.Format("Could not locate any instances of contract {0}.", key ?? serviceType.Name));
+        }
+
+        protected override IEnumerable<object> GetAllInstances(Type serviceType)
+        {
+            return _container.Resolve(typeof(IEnumerable<>).MakeGenericType(serviceType)) as IEnumerable<object>;
+        }
+        protected override void BuildUp(object instance)
+        {
+            _container.InjectProperties(instance);
         }
     }
 }

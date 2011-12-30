@@ -7,18 +7,15 @@ namespace SpotifyService.Model
     public class SearchManager : ISearchManager
     {
         private readonly IMusicServices _musicServices;
-        private readonly ITrackSubscriber _trackSubscriber;
         private SearchResult _searchResult;
 
-        public SearchManager(IMusicServices musicServices, ITrackSubscriber trackSubsriber)
+        public SearchManager(IMusicServices musicServices)
         {
             _musicServices = musicServices;
-            _trackSubscriber = trackSubsriber;
         }
 
         public void SearchResultsRetrieved(SearchResult searchResults)
         {
-            _trackSubscriber.SearchRetrieved(searchResults);
             LastSearch = searchResults;
         }
 
