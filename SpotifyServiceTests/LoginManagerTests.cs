@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Rhino.Mocks;
+using SpotifyService;
 using SpotifyService.Interfaces;
 using SpotifyService.Model;
 using SpotifyService.Model.Enums;
@@ -54,5 +55,7 @@ namespace SpotifyServiceTests.ModelsTests
 
             _userFeedBackHandler.AssertWasCalled(x => x.Display(UserFeedback.EmptyPassword));
         }
+
+
     }
 }

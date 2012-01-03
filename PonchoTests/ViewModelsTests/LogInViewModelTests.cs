@@ -7,6 +7,8 @@ using NUnit.Framework;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
+using SpotifyService.Enums;
+using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
@@ -45,11 +47,11 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void Handle_LoginNotSuccesful_CallUserFeedbackHandlerToDisplayLoginFailed()
+        public void Handle_LoginNotSuccesful_SetsOutputToLoginFailed()
         {
-            _loginViewModel.Handle(new LoginResultMessage(false));
+            _loginViewModel.Handle(new LoginResultMessage(false, sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD));
 
-            _userFeedbackHandler.AssertWasCalled(x => x.Display(UserFeedback.LoginFailed));
+            Assert.AreEqual(_loginViewModel.Output, "Login failed.");
         }
     }
 }

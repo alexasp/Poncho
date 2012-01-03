@@ -1,4 +1,4 @@
-namespace SpotifyService.Model.Interfaces
+namespace SpotifyService.Interfaces
 {
     public interface ILoginManager
     {

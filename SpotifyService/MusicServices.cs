@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
@@ -13,6 +14,14 @@ namespace SpotifyService
         private readonly IEventAggregator _eventAggregator;
         private ISpotifyWrapper _spotifyWrapper;
 
+        public MusicServices(IEventAggregator eventAggregator, ISpotifyWrapper spotifyWrapper)
+        {
+            _eventAggregator = eventAggregator;
+            _spotifyWrapper = spotifyWrapper;
+            _spotifyWrapper.SearchRetrieved += SearchRetrieved;
+            _spotifyWrapper.LoginResponseRetrieved += LoginResponseRetrieved;
+        }
+
         public void SetPlaybackStatus(PlaybackStatus paused)
         {
             throw new NotImplementedException();
@@ -20,22 +29,12 @@ namespace SpotifyService
 
         public void LoginResponseRetrieved(sp_error error)
         {
+            Debug.WriteLine("Publishing login result.");
 
             bool success = error == sp_error.SP_ERROR_OK;
 
-            //Kill Spotify session if login failed.
-            if (!success)
-                _spotifyWrapper.EndSession();
 
-            _eventAggregator.Publish(new LoginResultMessage(success));
-        }
-
-        public MusicServices(IEventAggregator eventAggregator, ISpotifyWrapper spotifyWrapper)
-        {
-            _eventAggregator = eventAggregator;
-            _spotifyWrapper = spotifyWrapper;
-            _spotifyWrapper.SearchRetrieved += SearchRetrieved;
-            _spotifyWrapper.LoginResponseRetrieved += LoginResponseRetrieved;
+            _eventAggregator.Publish(new LoginResultMessage(success, error));
         }
 
         public void SearchRetrieved()
@@ -62,10 +61,16 @@ namespace SpotifyService
 
         public void InitializeSession(string username, string password)
         {
-            sp_error error = _spotifyWrapper.CreateSession();
-
-            if(error == (UInt32)sp_error.SP_ERROR_OK)
+            if (!_spotifyWrapper.ActiveSession())
+            {
+                sp_error error = _spotifyWrapper.CreateSession();
+                Debug.WriteLine(error);
+                if (error == (UInt32) sp_error.SP_ERROR_OK)
+                    _spotifyWrapper.RequestLogin(username, password);
+            }
+            else
                 _spotifyWrapper.RequestLogin(username, password);
+
         }
 
 

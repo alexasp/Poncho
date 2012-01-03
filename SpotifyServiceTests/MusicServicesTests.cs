@@ -30,16 +30,31 @@ namespace SpotifyServiceTests
         }
 
         [Test]  
-        public void InitializeSession_CallsCreateSessionOnSpotifyServices()
+        public void InitializeSession_NoExistingSession_CallsCreateSessionOnSpotifyServices()
         {
             string username = "baldi";
             string password = "123321";
 
             _spotifyWrapper.Stub(x => x.CreateSession()).Return(sp_error.SP_ERROR_OK);
+            _spotifyWrapper.Stub(x => x.ActiveSession()).Return(false);
 
             _musicServices.InitializeSession(username, password);
 
             _spotifyWrapper.AssertWasCalled(x => x.CreateSession());
+        }
+
+        [Test]
+        public void InitializeSession_ExistingSession_DoesNotCallCreateSessionOnSpotifyServices()
+        {
+            string username = "baldi";
+            string password = "123321";
+
+            _spotifyWrapper.Stub(x => x.CreateSession()).Return(sp_error.SP_ERROR_OK);
+            _spotifyWrapper.Stub(x => x.ActiveSession()).Return(true);
+
+            _musicServices.InitializeSession(username, password);
+
+            _spotifyWrapper.AssertWasNotCalled(x => x.CreateSession());
         }
 
         [Test]

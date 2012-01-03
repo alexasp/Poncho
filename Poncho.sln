@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpotifyLibrary", "SpotifyLi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{58A72D77-BCA0-4F8B-BA85-DAEFB66A04AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Poncho.vsmdi
@@ -73,15 +75,26 @@ Global
 		{F5A1F80F-47FB-46C0-A84B-88A288D89E48}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F5A1F80F-47FB-46C0-A84B-88A288D89E48}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F5A1F80F-47FB-46C0-A84B-88A288D89E48}.Release|x86.ActiveCfg = Release|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F5A1F80F-47FB-46C0-A84B-88A288D89E48} = {DE45607C-CE13-4E11-AD89-D533524A86C9}
-		{AE9AA137-7F3A-45A1-85CA-A8131810C974} = {DE45607C-CE13-4E11-AD89-D533524A86C9}
 		{AF5F2770-6BBC-4573-B9A1-8080EBC18205} = {58A72D77-BCA0-4F8B-BA85-DAEFB66A04AA}
 		{45388A88-56DA-438D-B19C-98407532D8D6} = {58A72D77-BCA0-4F8B-BA85-DAEFB66A04AA}
+		{F5A1F80F-47FB-46C0-A84B-88A288D89E48} = {DE45607C-CE13-4E11-AD89-D533524A86C9}
+		{AE9AA137-7F3A-45A1-85CA-A8131810C974} = {DE45607C-CE13-4E11-AD89-D533524A86C9}
+		{86B52A19-AAFF-489C-9CF6-125C7AC4B4B6} = {DE45607C-CE13-4E11-AD89-D533524A86C9}
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
 		Project = ".\Poncho.ndproj"

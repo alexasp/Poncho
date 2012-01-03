@@ -8,5 +8,6 @@ namespace Poncho.ViewModels.Interfaces
         void Login();
         string Username { get; set; }
         string Password { get; set; }
+        string Output { get; set; }
     }
 }

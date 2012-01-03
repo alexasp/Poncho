@@ -1,13 +1,12 @@
 using System;
-using Caliburn.Micro;
 using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Model
+namespace SpotifyService
 {
-    public class LoginManager : ILoginManager, IHandle<LoginResultMessage>
+    public class LoginManager : ILoginManager
     {
         private readonly IMusicServices _musicServices;
         private IUserFeedbackHandler _userFeedbackHandler;
@@ -30,9 +29,5 @@ namespace SpotifyService.Model
             _musicServices.InitializeSession(userName, password);
         }
 
-        public void Handle(LoginResultMessage message)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

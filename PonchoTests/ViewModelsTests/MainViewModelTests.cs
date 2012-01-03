@@ -14,10 +14,10 @@ using SpotifyService.Model.Interfaces;
 namespace PonchoTests.ViewModelsTests
 {
     [TestFixture]
-    class ShellViewModelTests
+    class MainViewModelTests
     {
         private IPlaylistManager _playListManager;
-        private IShellViewModel _shellViewModel;
+        private IMainViewModel _mainViewModel;
         private IUserFeedbackHandler _userFeedbackHandler;
         private ISearchManager _searchManager;
         private ITrackHandler _trackHandler;
@@ -29,7 +29,7 @@ namespace PonchoTests.ViewModelsTests
             _userFeedbackHandler = MockRepository.GenerateMock<IUserFeedbackHandler>();
             _searchManager = MockRepository.GenerateMock<ISearchManager>();
             _trackHandler = MockRepository.GenerateMock<ITrackHandler>();
-            _shellViewModel = new ShellViewModel(_trackHandler, _searchManager, _playListManager, _userFeedbackHandler);
+            _mainViewModel = new MainViewModel(_trackHandler, _searchManager, _playListManager, _userFeedbackHandler);
         }
 
         [Test]
@@ -39,18 +39,18 @@ namespace PonchoTests.ViewModelsTests
 
             _playListManager.Expect(x => x.SelectedPlayList = playList);
 
-            _shellViewModel.SelectedPlayList = playList;
+            _mainViewModel.SelectedPlayList = playList;
         }
 
 
         [Test]
         public void Search_ContainsSearchText_SendsSearchToSearchHandler()
         {
-            _shellViewModel.SearchText = "SomeSearch";
+            _mainViewModel.SearchText = "SomeSearch";
 
-            _searchManager.Expect(x => x.Search(_shellViewModel.SearchText));
+            _searchManager.Expect(x => x.Search(_mainViewModel.SearchText));
 
-            _shellViewModel.Search();
+            _mainViewModel.Search();
 
             _searchManager.VerifyAllExpectations();
         }
@@ -60,29 +60,29 @@ namespace PonchoTests.ViewModelsTests
         {
             _userFeedbackHandler.Expect(x => x.Display(UserFeedback.NoSearchTextEntered));
 
-            _shellViewModel.SearchText = "";
+            _mainViewModel.SearchText = "";
 
-            _shellViewModel.Search();
+            _mainViewModel.Search();
         }
 
         [Test]
         public void PlayPause_IsPlaying_SetsPlaybackStatusToPaused()
         {
-            _shellViewModel.PlaybackStatus = PlaybackStatus.Playing;
+            _mainViewModel.PlaybackStatus = PlaybackStatus.Playing;
 
-            _shellViewModel.PlayPause();
+            _mainViewModel.PlayPause();
 
-            Assert.AreEqual(PlaybackStatus.Paused, _shellViewModel.PlaybackStatus);
+            Assert.AreEqual(PlaybackStatus.Paused, _mainViewModel.PlaybackStatus);
         }
 
         [Test]
         public void PlayPause_IsPaused_SetsPlaybackStatusToPlaying()
         {
-            _shellViewModel.PlaybackStatus = PlaybackStatus.Paused;
+            _mainViewModel.PlaybackStatus = PlaybackStatus.Paused;
 
-            _shellViewModel.PlayPause();
+            _mainViewModel.PlayPause();
 
-            Assert.AreEqual(PlaybackStatus.Playing, _shellViewModel.PlaybackStatus);
+            Assert.AreEqual(PlaybackStatus.Playing, _mainViewModel.PlaybackStatus);
         }
 
         [Test]
@@ -93,11 +93,11 @@ namespace PonchoTests.ViewModelsTests
             var track = new Track(true);
             trackList.Add(track);
 
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _trackHandler.Expect(x => x.PlayTrack(track));
 
-            _shellViewModel.PlaySelectedTrack();
+            _mainViewModel.PlaySelectedTrack();
 
             _trackHandler.VerifyAllExpectations();
         }
@@ -108,11 +108,11 @@ namespace PonchoTests.ViewModelsTests
             //playable track in list
             var trackList = new List<Track>();
 
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _userFeedbackHandler.Expect(x => x.Display(UserFeedback.NoTrackSelected));
 
-            _shellViewModel.PlaySelectedTrack();
+            _mainViewModel.PlaySelectedTrack();
 
             _trackHandler.VerifyAllExpectations();
         }
@@ -125,11 +125,11 @@ namespace PonchoTests.ViewModelsTests
             var trackList = new List<Track>();
             var track = new Track(false);
             trackList.Add(track);
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _userFeedbackHandler.Expect(x => x.Display(UserFeedback.TrackNotPlayable));
 
-            _shellViewModel.PlaySelectedTrack();
+            _mainViewModel.PlaySelectedTrack();
 
             _userFeedbackHandler.VerifyAllExpectations();
         }
@@ -138,22 +138,22 @@ namespace PonchoTests.ViewModelsTests
         public void QueueTrackList_TrackPlayable_SendsTrackToTrackHandler()
         {
             var trackList = new List<Track>();
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _trackHandler.Expect(x => x.QueueTracks(trackList));
 
-            _shellViewModel.QueueTracks();
+            _mainViewModel.QueueTracks();
         }
 
         [Test]
         public void QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler()
         {
             var trackList = new List<Track>();
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _userFeedbackHandler.Expect(x => x.Display(UserFeedback.SomeTracksNotPlayable));
 
-            _shellViewModel.QueueTracks();
+            _mainViewModel.QueueTracks();
         }
 
         [Test]
@@ -162,11 +162,11 @@ namespace PonchoTests.ViewModelsTests
             var trackList = new List<Track>();
             var track1 = new Track(false);
             var track2 = new Track(true);
-            _shellViewModel.SelectedTracks = trackList;
+            _mainViewModel.SelectedTracks = trackList;
 
             _trackHandler.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));
 
-            _shellViewModel.QueueTracks();
+            _mainViewModel.QueueTracks();
         }
 
 

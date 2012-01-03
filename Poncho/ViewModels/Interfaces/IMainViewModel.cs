@@ -6,7 +6,7 @@ using SpotifyService.Model.Interfaces;
 
 namespace Poncho.ViewModels.Interfaces
 {
-    public interface IShellViewModel
+    public interface IMainViewModel
     {
         PlayList SelectedPlayList { get; set; }
         string SearchText { get; set; }

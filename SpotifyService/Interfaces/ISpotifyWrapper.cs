@@ -26,5 +26,6 @@ namespace SpotifyService.Interfaces
         event Action<sp_error> LoginResponseRetrieved;
         void LoadTrack(int trackIndex);
         void Play(bool b);
+        bool ActiveSession();
     }
 }

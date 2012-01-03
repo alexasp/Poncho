@@ -52,20 +52,19 @@ namespace Poncho
             //    //  always create a new one
             //  .InstancePerDependency();
             _logger.Info("Registering ViewModels.");
-            builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
-            builder.RegisterType<ShellViewModel>().As<IShellViewModel>();
+            builder.RegisterType<LoginViewModel>().As<ILoginViewModel>().InstancePerLifetimeScope();
+            builder.RegisterType<MainViewModel>().As<IMainViewModel>();
             _logger.Info("Registering Views.");
             builder.RegisterType<LoginView>().AsSelf();
             builder.RegisterType<ShellView>().AsSelf();
 
             builder.RegisterType<LoginManager>().As<ILoginManager>();
             builder.RegisterType<UserFeedbackHandler>().As<IUserFeedbackHandler>();
-            builder.RegisterType<MusicServices>().As<IMusicServices>();
-            builder.RegisterType<SpotifyWrapper>().As<ISpotifyWrapper>();
+            builder.RegisterType<MusicServices>().As<IMusicServices>().InstancePerLifetimeScope();
+            builder.RegisterType<SpotifyWrapper>().As<ISpotifyWrapper>().InstancePerLifetimeScope();
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<TrackHandler>().As<ITrackHandler>();
             builder.RegisterType<PlaylistManager>().As<IPlaylistManager>();
-            builder.RegisterInstance(new EventAggregator()).As<IEventAggregator>();
         }
 
         
