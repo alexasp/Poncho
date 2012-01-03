@@ -17,7 +17,7 @@ namespace Poncho.ViewModels
         private readonly ISearchManager _searchManager;
         private readonly IPlaylistManager _playListManager;
         public IUserFeedbackHandler UserFeedbackHandler { get; set; }
-        private string _title;
+        private string _title = "Poncho";
         private PlayList _selectedPlayList;
         private IUserFeedbackHandler _userFeedbackHandler;
 
@@ -29,7 +29,7 @@ namespace Poncho.ViewModels
             _playListManager = playListManager;
             _userFeedbackHandler = userFeedbackHandler;
 
-            Title = "Hello future Poncho App!";
+            Title = _title;
         }
 
         public string Title
