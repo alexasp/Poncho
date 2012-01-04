@@ -17,7 +17,7 @@ using IContainer = Autofac.IContainer;
 
 namespace Poncho
 {
-    public class Bootstrapper : Bootstrapper<ILoginViewModel>
+    public class Bootstrapper : Bootstrapper<IShellViewModel>
     {
         private readonly ILog _logger = LogManager.GetLog(typeof(Bootstrapper));
         private IContainer _container;
@@ -51,11 +51,17 @@ namespace Poncho
             //  .AsSelf()
             //    //  always create a new one
             //  .InstancePerDependency();
+
+            
+            
             _logger.Info("Registering ViewModels.");
             builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
+            builder.RegisterType<ShellViewModel>().As<IShellViewModel>();
+
             _logger.Info("Registering Views.");
             builder.RegisterType<LoginView>().AsSelf();
+            builder.RegisterType<MainView>().AsSelf();
             builder.RegisterType<ShellView>().AsSelf();
 
             builder.RegisterType<LoginManager>().As<ILoginManager>();
@@ -65,6 +71,8 @@ namespace Poncho
             builder.RegisterType<SearchManager>().As<ISearchManager>();
             builder.RegisterType<TrackHandler>().As<ITrackHandler>();
             builder.RegisterType<PlaylistManager>().As<IPlaylistManager>();
+            builder.RegisterType<TrackQueue>().As<ITrackQueue>();
+
         }
 
         

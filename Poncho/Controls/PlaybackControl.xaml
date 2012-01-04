@@ -1,10 +1,14 @@
-﻿<UserControl x:Class="Poncho.Views.PlaybackControl"
+﻿<UserControl x:Class="Poncho.Controls.PlaybackControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ValueConverters="clr-namespace:Poncho.ValueConverters"
         Height="70" Width="200">
+    <UserControl.Resources>
+        <ValueConverters:PlayingStatusConverter x:Key="PlayingStatusConverter" />
+    </UserControl.Resources>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Horizontal" >
         <Button VerticalAlignment="Center" Name="PlayPause" Height="50" Margin="5,10" Width="50">
-            <Image Source="{Binding IsPlaying, Converter={StaticResource isPlayingConverter}}"></Image>
+            <Image Source="{Binding IsPlaying, Converter={StaticResource PlayingStatusConverter}}"></Image>
         </Button>
         <Button VerticalAlignment="Center" Name="NextTrack" Height="50" Margin="5,10" Width="50">
             <Image></Image>

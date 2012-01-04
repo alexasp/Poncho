@@ -11,7 +11,7 @@ namespace Poncho.ViewModels
 {
     using Caliburn.Micro;
 
-    public class MainViewModel : PropertyChangedBase, IMainViewModel
+    public class MainViewModel : Screen, IMainViewModel
     {
         private readonly ITrackHandler _trackHandler;
         private readonly ISearchManager _searchManager;

@@ -6,21 +6,18 @@ using Poncho.ViewModels.Interfaces;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
 using SpotifyService.Messages;
-using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
 namespace Poncho.ViewModels
 {
-    public class LoginViewModel : PropertyChangedBase, ILoginViewModel
+    public class LoginViewModel : Screen, ILoginViewModel
     {
         private readonly ILoginManager _loginManager;
-        private readonly IUserFeedbackHandler _userFeedbackHandler;
 
         public LoginViewModel(ILoginManager loginManager, IUserFeedbackHandler userFeedbackHandler, IEventAggregator eventAggregator)
         {
             eventAggregator.Subscribe(this);
             _loginManager = loginManager;
-            _userFeedbackHandler = userFeedbackHandler;
             Output = "Please enter your user information.";
         }
 
