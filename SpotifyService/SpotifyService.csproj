@@ -51,7 +51,7 @@
     <Compile Include="Enums\sp_sampletype.cs" />
     <Compile Include="Interfaces\IMusicServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
-    <Compile Include="KeyManager.cs" />
+    <Compile Include="SpotifyAppKey.cs" />
     <Compile Include="Enums\UserFeedback.cs" />
     <Compile Include="Interfaces\ILoginManager.cs" />
     <Compile Include="Interfaces\IPlaylistManager.cs" />

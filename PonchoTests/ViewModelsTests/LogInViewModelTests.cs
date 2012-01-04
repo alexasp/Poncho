@@ -47,11 +47,11 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void Handle_LoginNotSuccesful_SetsOutputToLoginFailed()
+        public void Handle_BadUserNameOrPassword_SetsOutputToIndicate()
         {
             _loginViewModel.Handle(new LoginResultMessage(false, sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD));
 
-            Assert.AreEqual(_loginViewModel.Output, "Login failed.");
+            Assert.AreEqual(_loginViewModel.Output, "Bad username or password.");
         }
     }
 }

@@ -53,8 +53,8 @@ namespace SpotifyService
 
 
 
-            IntPtr appKeyPointer = Marshal.AllocHGlobal(KeyManager.ApplicationKey.Length);
-            Marshal.Copy(KeyManager.ApplicationKey, 0, appKeyPointer, KeyManager.ApplicationKey.Length);
+            IntPtr appKeyPointer = Marshal.AllocHGlobal(SpotifyAppKey.ApplicationKey.Length);
+            Marshal.Copy(SpotifyAppKey.ApplicationKey, 0, appKeyPointer, SpotifyAppKey.ApplicationKey.Length);
 
             _notifyMainThreadCallback = NotifyMainThreadCallback;
             _loginCallback = LoginCallback;
@@ -75,7 +75,7 @@ namespace SpotifyService
                 cache_location = _cacheLocation,
                 settings_location = _cacheLocation,
                 application_key = appKeyPointer,
-                application_key_size = KeyManager.ApplicationKey.Length,
+                application_key_size = SpotifyAppKey.ApplicationKey.Length,
                 user_agent = UserAgent,
                 callbacks = sessionCallbacksPtr,
                 userdata = IntPtr.Zero,

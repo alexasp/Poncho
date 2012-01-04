@@ -1,6 +1,6 @@
 ﻿namespace SpotifyService
 {
-    static class KeyManager
+    static class SpotifyAppKey
     {
         
         public static byte[] ApplicationKey = new byte[] {

@@ -52,7 +52,7 @@ namespace Poncho
             //    //  always create a new one
             //  .InstancePerDependency();
             _logger.Info("Registering ViewModels.");
-            builder.RegisterType<LoginViewModel>().As<ILoginViewModel>().InstancePerLifetimeScope();
+            builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
             _logger.Info("Registering Views.");
             builder.RegisterType<LoginView>().AsSelf();

@@ -46,13 +46,13 @@ namespace Poncho.ViewModels
             switch (message.Message)
             {
                 case sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD:
-                    Output = "Bad username or password";
+                    Output = "Bad username or password.";
                     break;
                 case sp_error.SP_ERROR_OK:
                     Output = "Login successful.";
                     break;
                 default:
-                    Output = "Login failed";
+                    Output = "Login failed.";
                     break;
             }
 
