@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Poncho.ViewModels.Interfaces;
+using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
@@ -23,6 +24,7 @@ namespace Poncho.ViewModels
         {
             _spotifyServices = spotifyServices;
 
+            PlaybackStatus = PlaybackStatus.NoActiveTrack;
             Title = _title;
         }
 
@@ -109,7 +111,22 @@ namespace Poncho.ViewModels
 
         public void QueueTracks()
         {
+            foreach (var selectedTrack in SelectedTracks)
+            {
+                if(!selectedTrack.Playable)
+                {
+                    Output = TrackNotPlayable;
+                }
+            }
               _spotifyServices.QueueTracks(SelectedTracks);
+        }
+
+        public bool CanPlayPause()
+        {
+            if (PlaybackStatus == PlaybackStatus.NoActiveTrack)
+                return false;
+
+            return true;
         }
 
         public void ActiveTracksChanged(object sender, EventArgs eventArgs)
@@ -119,9 +136,6 @@ namespace Poncho.ViewModels
             TrackList = trackHandler.ActiveTrackList;
         }
 
-        public void SearchRetrieved(SearchResult searchResults)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

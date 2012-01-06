@@ -51,6 +51,7 @@
     <Compile Include="PlaylistManagerTests.cs" />
     <Compile Include="QueueTests.cs" />
     <Compile Include="SearchManagerTests.cs" />
+    <Compile Include="SpotifyServicesTests.cs" />
     <Compile Include="TrackHandlerTests.cs" />
     <Compile Include="UserFeedbackHandlerTests.cs" />
     <Compile Include="MusicServicesTests.cs" />

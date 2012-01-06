@@ -154,14 +154,6 @@ namespace SpotifyServiceTests
             _eventAggregator.AssertWasCalled(x => x.Publish(Arg<LoginResultMessage>.Matches(y => y.Success == false)));
         }
 
-        [Test]
-        public void LoginResponseRetrieved_LoginNotSuccesful_CallsEndSessionsOnSpotifyWrapper()
-        {
-            _musicServices.LoginResponseRetrieved(sp_error.SP_ERROR_BAD_USERNAME_OR_PASSWORD);
-
-            _spotifyWrapper.AssertWasCalled(x => x.EndSession());
-        }
-
         //Is there some way to test for order as well? If there is, it's on mocks, so we're leaving this a mock for now.
         [Test]
         public void PlayTrack_CallsLoadTrackThenPlayTrackOnWrapper()
@@ -182,7 +174,7 @@ namespace SpotifyServiceTests
 
             _musicServices.SetPlaybackStatus(PlaybackStatus.Paused);
 
-            _musicServices.VerifyAllExpectations();
+            _spotifyWrapper.VerifyAllExpectations();
         }
 
         [Test]
@@ -192,7 +184,7 @@ namespace SpotifyServiceTests
 
             _musicServices.SetPlaybackStatus(PlaybackStatus.Playing);
 
-            _musicServices.VerifyAllExpectations();
+            _spotifyWrapper.VerifyAllExpectations();
         }
 
     }

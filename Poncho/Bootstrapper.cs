@@ -64,6 +64,9 @@ namespace Poncho
             builder.RegisterType<MainView>().AsSelf();
             builder.RegisterType<ShellView>().AsSelf();
 
+
+            builder.RegisterType<SpotifyServices>().As<ISpotifyServices>();
+
             builder.RegisterType<LoginManager>().As<ILoginManager>();
             builder.RegisterType<UserFeedbackHandler>().As<IUserFeedbackHandler>();
             builder.RegisterType<MusicServices>().As<IMusicServices>().InstancePerLifetimeScope();

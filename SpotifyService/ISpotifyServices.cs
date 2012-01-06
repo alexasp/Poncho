@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 
-namespace SpotifyService.Interfaces
+namespace SpotifyService
 {
     public interface ISpotifyServices
     {

@@ -101,7 +101,7 @@ namespace SpotifyServiceTests.ModelsTests
 
             //_trackListViewModel.OnSelectedPlaylistChanged();
 
-            Assert.Fail("This test needs to be changed to using an event. Perhaps there should be some central point for tracks to arrive from SearchManager and PlayListManager? Or is this class that point?");
+            Assert.Fail();
 
             //_playListManager.VerifyAllExpectations();
         }

@@ -22,9 +22,17 @@ namespace SpotifyService
             _spotifyWrapper.LoginResponseRetrieved += LoginResponseRetrieved;
         }
 
-        public void SetPlaybackStatus(PlaybackStatus paused)
+        public void SetPlaybackStatus(PlaybackStatus playbackStatus)
         {
-            throw new NotImplementedException();
+            switch (playbackStatus)
+            {
+                case PlaybackStatus.Playing:
+                    _spotifyWrapper.Play(true);
+                    break;
+                case PlaybackStatus.Paused:
+                    _spotifyWrapper.Play(false);
+                    break;
+            }
         }
 
         public void LoginResponseRetrieved(sp_error error)
@@ -53,7 +61,7 @@ namespace SpotifyService
                 ));
         }
 
-        
+
 
         public void PlayTrack(Track i)
         {
@@ -67,7 +75,7 @@ namespace SpotifyService
             {
                 sp_error error = _spotifyWrapper.CreateSession();
                 Debug.WriteLine(error);
-                if (error == (UInt32) sp_error.SP_ERROR_OK)
+                if (error == (UInt32)sp_error.SP_ERROR_OK)
                     _spotifyWrapper.RequestLogin(username, password);
             }
             else

@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Poncho.ViewModels;
 using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
+using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
@@ -94,6 +95,12 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
+        public void PlaybackStatus_InitialValueIsPlaybackStatusNoActiveTrack()
+        {
+            Assert.AreEqual(PlaybackStatus.NoActiveTrack, _mainViewModel.PlaybackStatus);
+        }
+
+        [Test]
         public void PlaySelectedTrack_TrackPlayable_SendsTrackToSpotifyServices()
         {
             //playable track in list
@@ -111,9 +118,9 @@ namespace PonchoTests.ViewModelsTests
         [Test]
         public void PlaySelectedTrack_NoTrackSelected_SetsOutputMessage()
         {
-            //playable track in list
+            //no track track in list
             var trackList = new List<Track>();
-            _mainViewModel.TrackList = trackList;
+            _mainViewModel.SelectedTracks = trackList;
             
             _mainViewModel.PlaySelectedTrack();
 
@@ -176,6 +183,25 @@ namespace PonchoTests.ViewModelsTests
             _spotifyServices.VerifyAllExpectations();
         }
 
+        [Test]
+        public void CanPlayPause_PlaybackStatusIsNoActiveTrack_ReturnsFalse()
+        {
+            _mainViewModel.PlaybackStatus = PlaybackStatus.NoActiveTrack;
+
+            var canPlayPause = _mainViewModel.CanPlayPause();
+
+            Assert.AreEqual(false, canPlayPause);
+        }
+
+        [Test]
+        public void CanPlayPause_PlaybackStatusNotNoActiveTrack_ReturnsTrue()
+        {
+            _mainViewModel.PlaybackStatus = PlaybackStatus.Playing;
+
+            var canPlayPause = _mainViewModel.CanPlayPause();
+
+            Assert.AreEqual(true, canPlayPause);
+        }
 
     }
 }

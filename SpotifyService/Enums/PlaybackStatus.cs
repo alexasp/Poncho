@@ -8,6 +8,7 @@ namespace SpotifyService.Enums
     public enum PlaybackStatus
     {
         Playing,
-        Paused
+        Paused,
+        NoActiveTrack
     }
 }

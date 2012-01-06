@@ -12,7 +12,7 @@ namespace SpotifyService.Model.Interfaces
         void QueueTracks(Track track);
         bool HasNextTrack();
         Track NextTrack();
-        void SetPlaybackStatus(PlaybackStatus isPlaying);
+        void ChangePlaybackStatus(PlaybackStatus isPlaying);
         event EventHandler ActiveTrackListListeners;
         List<Track> ActiveTrackList { get; }
     }

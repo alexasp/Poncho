@@ -18,5 +18,6 @@ namespace Poncho.ViewModels.Interfaces
         void PlayPause();
         void PlaySelectedTrack();
         void QueueTracks();
+        bool CanPlayPause();
     }
 }

@@ -64,7 +64,7 @@ namespace SpotifyService
             throw new InvalidOperationException("There was no next track.");
         }
 
-        public void SetPlaybackStatus(PlaybackStatus isPlaying)
+        public void ChangePlaybackStatus(PlaybackStatus isPlaying)
         {
             throw new NotImplementedException();
         }
