@@ -23,6 +23,7 @@ namespace SpotifyService
         internal static object Mutex = new object();
         private notify_main_thread _notifyMainThreadCallback;
         private logged_in _loginCallback;
+        private search_complete_cb _searchCallback;
         private const string DllName = "spotify.dll";
 
         public event Action SearchRetrieved;
@@ -58,13 +59,14 @@ namespace SpotifyService
 
             _notifyMainThreadCallback = NotifyMainThreadCallback;
             _loginCallback = LoginCallback;
+            _searchCallback = SearchCallback;
 
             _sessionCallbacks.notify_main_thread =
                 Marshal.GetFunctionPointerForDelegate(_notifyMainThreadCallback);
-            
             _sessionCallbacks.connection_error =
                 Marshal.GetFunctionPointerForDelegate(new connection_error(ConnectionErrorCallback));
             _sessionCallbacks.logged_in = Marshal.GetFunctionPointerForDelegate(_loginCallback);
+
             IntPtr sessionCallbacksPtr = Marshal.AllocHGlobal(Marshal.SizeOf(_sessionCallbacks));
             Marshal.StructureToPtr(_sessionCallbacks, sessionCallbacksPtr, true);
 
@@ -152,10 +154,8 @@ namespace SpotifyService
         {
             Debug.WriteLine("Creating search.");
 
-            var queryAsChar = searchText.ToCharArray();
 
-            var callbackDelegate = new SearchCallbackDelegate(SearchCallback);
-            sp_search_create(_sessionHandle, ref queryAsChar, 0, 100, 0, 100, 0, 100, Marshal.GetFunctionPointerForDelegate(callbackDelegate), new IntPtr());
+            sp_search_create(_sessionHandle, searchText, 0, 100, 0, 100, 0, 100, Marshal.GetFunctionPointerForDelegate(_searchCallback), new IntPtr());
         }
 
         public string GetSearchQuery()
@@ -213,9 +213,15 @@ namespace SpotifyService
 
         private Track GetTrackInfo(int i)
         {
-            var handle = GetTrackHandle(i);
-            var name = sp_track_name(handle);
-            return new Track((int)handle, name, true);
+            var trackHandle = GetTrackHandle(i);
+            var artistHandle = GetArtistHandle(i);
+            var albumHandle = GetAlbumHandle(i);
+
+            var name = sp_track_name(trackHandle);
+            //var artist = sp_artist_name(artistHandle);
+            //var album = sp_album_name(albumHandle);
+
+            return new Track((int)trackHandle, name, "", "", true);
         }
 
 
@@ -229,7 +235,7 @@ namespace SpotifyService
         }
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void SearchCallbackDelegate(IntPtr searchHandle, IntPtr userdataPointer);
+        private delegate void search_complete_cb(IntPtr searchHandle, IntPtr userdataPointer);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void logged_in(IntPtr sessionHandle, sp_error error);
@@ -244,7 +250,7 @@ namespace SpotifyService
         public delegate void connection_error(IntPtr sessionHandle, sp_error error);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void message_to_user(IntPtr sessionHandle, ref char[] message);
+        public delegate void message_to_user(IntPtr sessionHandle, string message);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void notify_main_thread(IntPtr sessionHandle);
@@ -281,6 +287,10 @@ namespace SpotifyService
         public delegate void offline_status_updated(IntPtr sessionHandle);
 
         [DllImport(DllName)]
+        //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
+        public static extern sp_error sp_session_create(ref sp_session_config config, out IntPtr sessionHandle);
+
+        [DllImport(DllName)]
         //(sp_error) sp_session_player_load(sp_session *session, sp_track *track);
         public static extern sp_error sp_session_player_load(IntPtr sessionHandle, IntPtr trackHandle);
 
@@ -297,12 +307,8 @@ namespace SpotifyService
         public static extern sp_error sp_session_player_prefetch(IntPtr sessionHandle, IntPtr trackHandle);
 
         [DllImport(DllName)]
-        //(sp_error) sp_session_create(const sp_session_config *config, sp_session **sess);
-        public static extern sp_error sp_session_create(ref sp_session_config config, out IntPtr sessionHandle);
-
-        [DllImport(DllName)]
         //(void) sp_session_process_events(sp_session *session, int *next_timeout);
-        public static extern sp_error sp_session_process_events(IntPtr sessionHandle, out int next_timeout);
+        public static extern sp_error sp_session_process_events(IntPtr sessionHandle, out int nextTimeout);
 
         [DllImport(DllName)]
         //(void) sp_session_release(sp_session *sess);
@@ -319,7 +325,7 @@ namespace SpotifyService
 
 
         [DllImport(DllName)]
-        public static extern void sp_search_create(IntPtr session, ref char[] query, int trackOffset,
+        public static extern void sp_search_create(IntPtr session, string query, int trackOffset,
                                                     int trackCount, int albumOffset, int albumCount,
                                                     int artistOffset, int artistCount,
                                                     IntPtr callbackDelegate, IntPtr userdataPointer);

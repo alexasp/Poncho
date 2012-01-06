@@ -1,12 +1,12 @@
-using System;
 using System.Collections.Generic;
+using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
-using SpotifyService.Model.Interfaces;
+using SpotifyService.Messages;
 
 namespace Poncho.ViewModels.Interfaces
 {
-    public interface IMainViewModel
+    public interface IMainViewModel : IHandle<SearchResultMessage>
     {
         PlayList SelectedPlayList { get; set; }
         string SearchText { get; set; }

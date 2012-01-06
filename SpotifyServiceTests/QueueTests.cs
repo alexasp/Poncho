@@ -18,7 +18,7 @@ namespace SpotifyServiceTests.ModelsTests
 
         private Track GetPlayableTrack()
         {
-            return new Track(0, "name", true);
+            return new Track(0, "name", "artist", "album", true);
         }
 
         [Test]

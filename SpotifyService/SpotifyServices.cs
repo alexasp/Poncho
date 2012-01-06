@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Model.Interfaces;
@@ -11,8 +12,9 @@ namespace SpotifyService
         private readonly ISearchManager _searchManager;
         private readonly ITrackHandler _trackHandler;
 
-        public SpotifyServices(ISearchManager searchManager, ITrackHandler trackHandler)
+        public SpotifyServices(ISearchManager searchManager, ITrackHandler trackHandler, IEventAggregator eventAggregator)
         {
+            EventAggregator = eventAggregator;
             _searchManager = searchManager;
             _trackHandler = trackHandler;
         }
@@ -39,5 +41,7 @@ namespace SpotifyService
         {
             _trackHandler.ChangePlaybackStatus(playing);
         }
+
+        public IEventAggregator EventAggregator{ get; private set; }
     }
 }

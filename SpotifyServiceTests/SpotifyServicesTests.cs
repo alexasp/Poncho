@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Caliburn.Micro;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService;
@@ -18,24 +19,26 @@ namespace SpotifyServiceTests
         private ISpotifyServices _spotifyServices;
         private ISearchManager _searchManager;
         private ITrackHandler _trackHandler;
+        private IEventAggregator _eventAggregator;
 
         [Test]
         public void Init()
         {
             _searchManager = MockRepository.GenerateStub<ISearchManager>();
             _trackHandler = MockRepository.GenerateStub<ITrackHandler>();
+            _eventAggregator = MockRepository.GenerateStub<IEventAggregator>();
 
-            _spotifyServices = new SpotifyServices(_searchManager, _trackHandler);
+            _spotifyServices = new SpotifyServices(_searchManager, _trackHandler, _eventAggregator);
         }
 
         private Track GetPlayableTrack()
         {
-            return new Track(0, "name", true);
+            return new Track(0, "name", "artist", "album", true);
         }
 
         private Track GetNotPlayableTrack()
         {
-            return new Track(0, "name", true);
+            return new Track(0, "name", "artist", "album", false);
         }
 
         [Test]

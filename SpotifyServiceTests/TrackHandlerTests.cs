@@ -28,12 +28,12 @@ namespace SpotifyServiceTests.ModelsTests
 
         private Track GetNotPlayableTrack()
         {
-            return new Track(0, "name", false);
+            return new Track(0, "name", "artist", "album", false);
         }
 
         private Track GetPlayableTrack()
         {
-            return new Track(0, "name", true);
+            return new Track(0, "name", "artist", "album", true);
         }
 
         [Test]

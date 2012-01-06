@@ -6,11 +6,17 @@ namespace SpotifyService.Cargo
         private readonly bool _playable;
         private int _handle;
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public Track(int handle, string name, bool playable)
+        public string Artist { get; private set; }
+
+        public string Album { get; private set; }
+
+        public Track(int handle, string name, string artist, string album, bool playable)
         {
             _playable = playable;
+            Album = album;
+            Artist = artist;
             Name = name;
             Handle = handle;
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 
@@ -10,5 +11,6 @@ namespace SpotifyService
         void PlayTrack(Track track);
         void QueueTracks(List<Track> trackList);
         void ChangePlaybackStatus(PlaybackStatus playing);
+        IEventAggregator EventAggregator { get; }
     }
 }

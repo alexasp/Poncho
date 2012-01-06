@@ -6,6 +6,7 @@ using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
@@ -17,12 +18,22 @@ namespace Poncho.ViewModels
     {
         private readonly ISpotifyServices _spotifyServices;
         public IUserFeedbackHandler UserFeedbackHandler { get; set; }
+        public PlaybackStatus PlaybackStatus { get; set; }
+        private List<Track> _trackList;
+        private const string TrackNotPlayable = "This track is not playable.";
+        private const string NoTrackSelected = "No track selected.";
+        private const string SearchQueryEmpty = "No search query entered.";
+        private const string SearchResultListed = "Search result listed.";
+        private const string NoTracksFound = "No tracks found.";
+        private string _searchText;
         private string _title = "Poncho";
+        private string _output;
 
 
         public MainViewModel(ISpotifyServices spotifyServices)
         {
             _spotifyServices = spotifyServices;
+            _spotifyServices.EventAggregator.Subscribe(this);
 
             PlaybackStatus = PlaybackStatus.NoActiveTrack;
             Title = _title;
@@ -41,7 +52,6 @@ namespace Poncho.ViewModels
             }
         }
 
-        private string _searchText;
         public string SearchText
         {
             get { return _searchText; }
@@ -49,17 +59,13 @@ namespace Poncho.ViewModels
         }
 
         private PlayList _selectedPlayList;
+
         public PlayList SelectedPlayList
         {
             get { return _selectedPlayList; }
             set { _selectedPlayList = value; NotifyOfPropertyChange(() => SelectedPlayList); }
         }
 
-        public PlaybackStatus PlaybackStatus { get; set; }
-        private List<Track> _trackList;
-        private const string TrackNotPlayable = "This track is not playable.";
-        private const string NoTrackSelected = "No track selected.";
-        private const string SearchQueryEmpty = "No search query entered.";
 
         public List<Track> TrackList
         {
@@ -67,7 +73,11 @@ namespace Poncho.ViewModels
             set { _trackList = value; NotifyOfPropertyChange(() => TrackList); }
         }
 
-        public string Output { get; private set; }
+        public string Output
+        {
+            get { return _output; }
+            private set { _output = value; NotifyOfPropertyChange(() => Output); }
+        }
 
         public List<Track> SelectedTracks { get; set; }
 
@@ -81,7 +91,7 @@ namespace Poncho.ViewModels
         public void Search()
         {
             Debug.WriteLine("Search attempted.");
-            if (SearchText == "")
+            if (String.IsNullOrEmpty(SearchText))
                 Output = SearchQueryEmpty;
             else
                 _spotifyServices.Search(SearchText);
@@ -137,5 +147,14 @@ namespace Poncho.ViewModels
         }
 
 
+        public void Handle(SearchResultMessage message)
+        {
+            if (message.Result.TrackList.Count > 0)
+                Output = SearchResultListed;
+            else
+                Output = NoTracksFound;
+
+            TrackList = message.Result.TrackList;
+        }
     }
 }

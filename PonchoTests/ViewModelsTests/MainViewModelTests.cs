@@ -10,6 +10,7 @@ using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
@@ -25,18 +26,19 @@ namespace PonchoTests.ViewModelsTests
         public void Init()
         {
             _spotifyServices = MockRepository.GenerateStub<ISpotifyServices>();
+            _spotifyServices.Stub(x => x.EventAggregator.Subscribe(Arg<IMainViewModel>.Is.Anything));
 
             _mainViewModel = new MainViewModel(_spotifyServices);
         }
 
         private Track GetNotPlayableTrack()
         {
-            return new Track(0, "name", false);
+            return new Track(0, "name", "artist", "album", false);
         }
 
         private Track GetPlayableTrack()
         {
-            return new Track(0, "name", true);
+            return new Track(0, "name", "artist", "album", true);
         }
 
 
@@ -201,6 +203,43 @@ namespace PonchoTests.ViewModelsTests
             var canPlayPause = _mainViewModel.CanPlayPause();
 
             Assert.AreEqual(true, canPlayPause);
+        }
+
+        [Test]
+        public void Handle_TracksFound_SetsOutputToResultReturned()
+        {
+            var track = GetPlayableTrack();
+            var trackList = new List<Track>();
+            trackList.Add(track);
+            var result = new SearchResult(trackList);
+
+            _mainViewModel.Handle   (new SearchResultMessage(result));
+
+            Assert.AreEqual("Search result listed.", _mainViewModel.Output);
+        }
+
+        [Test]
+        public void Handle_AnyResult_SetsTrackListToResultList()
+        {
+            var track = GetPlayableTrack();
+            var trackList = new List<Track>();
+            trackList.Add(track);
+            var result = new SearchResult(trackList);
+
+            _mainViewModel.Handle(new SearchResultMessage(result));
+
+            Assert.AreEqual(trackList, _mainViewModel.TrackList);
+        }
+
+        [Test]
+        public void Handle_NoTracksFound_SetsOutputToNoTracksFound()
+        {
+            var trackList = new List<Track>();
+            var result = new SearchResult(trackList);
+
+            _mainViewModel.Handle(new SearchResultMessage(result));
+
+            Assert.AreEqual("No tracks found.", _mainViewModel.Output);
         }
 
     }

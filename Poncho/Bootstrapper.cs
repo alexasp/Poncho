@@ -26,6 +26,7 @@ namespace Poncho
         {
             _logger.Info("Configuring Container.");
 
+            #region autoconfig
             //  configure container     var builder = new ContainerBuilder();
 
             //  register view models
@@ -51,9 +52,8 @@ namespace Poncho
             //  .AsSelf()
             //    //  always create a new one
             //  .InstancePerDependency();
+            #endregion
 
-            
-            
             _logger.Info("Registering ViewModels.");
             builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
