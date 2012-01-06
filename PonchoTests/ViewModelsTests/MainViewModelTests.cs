@@ -8,6 +8,7 @@ using Poncho.ViewModels.Interfaces;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
+using SpotifyService.Interfaces;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
@@ -16,21 +17,15 @@ namespace PonchoTests.ViewModelsTests
     [TestFixture]
     class MainViewModelTests
     {
-        private IPlaylistManager _playListManager;
         private IMainViewModel _mainViewModel;
-        private IUserFeedbackHandler _userFeedbackHandler;
-        private ISearchManager _searchManager;
-
-        private ITrackHandler _trackHandler;
+        private ISpotifyServices _spotifyServices;
 
         [SetUp]
         public void Init()
         {
-            _playListManager = MockRepository.GenerateMock<IPlaylistManager>();
-            _userFeedbackHandler = MockRepository.GenerateMock<IUserFeedbackHandler>();
-            _searchManager = MockRepository.GenerateMock<ISearchManager>();
-            _trackHandler = MockRepository.GenerateMock<ITrackHandler>();
-            _mainViewModel = new MainViewModel(_trackHandler, _searchManager, _playListManager, _userFeedbackHandler);
+            _spotifyServices = MockRepository.GenerateStub<ISpotifyServices>();
+
+            _mainViewModel = new MainViewModel(_spotifyServices);
         }
 
         private Track GetNotPlayableTrack()
@@ -43,37 +38,28 @@ namespace PonchoTests.ViewModelsTests
             return new Track(0, "name", true);
         }
 
-        [Test]
-        public void PropertySelectedPlaylistChanged_ValidPlaylist_SetsSelectedPlayListOnPlayListManager()
-        {
-            var playList = new PlayList();
-
-            _playListManager.Expect(x => x.SelectedPlayList = playList);
-
-            _mainViewModel.SelectedPlayList = playList;
-        }
 
 
         [Test]
-        public void Search_ContainsSearchText_SendsSearchToSearchHandler()
+        public void Search_ContainsSearchText_SendsSearchToSpotifyServices()
         {
             _mainViewModel.SearchText = "SomeSearch";
 
-            _searchManager.Expect(x => x.Search(_mainViewModel.SearchText));
+            _spotifyServices.Expect(x => x.Search(_mainViewModel.SearchText));
 
             _mainViewModel.Search();
 
-            _searchManager.VerifyAllExpectations();
+            _spotifyServices.VerifyAllExpectations();
         }
 
         [Test]
-        public void Search_ContainsNoText_MessagesUserFeedbackHandler()
+        public void Search_ContainsNoText_SetsOutputWarning()
         {
-            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.NoSearchTextEntered));
-
             _mainViewModel.SearchText = "";
 
             _mainViewModel.Search();
+
+            Assert.AreEqual("No search query entered.", _mainViewModel.Output);
         }
 
         [Test]
@@ -97,40 +83,46 @@ namespace PonchoTests.ViewModelsTests
         }
 
         [Test]
-        public void PlaySelectedTrack_TrackPlayable_SendsTrackToTrackHandler()
+        public void PlayPause_IsAny_CallsSpotifyServicesToChangeStatus()
+        {
+            _mainViewModel.PlaybackStatus = PlaybackStatus.Paused;
+            _spotifyServices.Expect(x => x.ChangePlaybackStatus(PlaybackStatus.Playing));
+
+            _mainViewModel.PlayPause();
+
+            Assert.AreEqual(PlaybackStatus.Playing, _mainViewModel.PlaybackStatus);
+        }
+
+        [Test]
+        public void PlaySelectedTrack_TrackPlayable_SendsTrackToSpotifyServices()
         {
             //playable track in list
             var trackList = new List<Track>();
             var track = GetPlayableTrack();
             trackList.Add(track);
-
             _mainViewModel.SelectedTracks = trackList;
-
-            _trackHandler.Expect(x => x.PlayTrack(track));
+            _spotifyServices.Expect(x => x.PlayTrack(track));
 
             _mainViewModel.PlaySelectedTrack();
 
-            _trackHandler.VerifyAllExpectations();
+            _spotifyServices.VerifyAllExpectations();
         }
 
         [Test]
-        public void PlaySelectedTrack_NoTrackSelected_SendsNoTrackSelectedToUserFeedbackHandler()
+        public void PlaySelectedTrack_NoTrackSelected_SetsOutputMessage()
         {
             //playable track in list
             var trackList = new List<Track>();
-
-            _mainViewModel.SelectedTracks = trackList;
-
-            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.NoTrackSelected));
-
+            _mainViewModel.TrackList = trackList;
+            
             _mainViewModel.PlaySelectedTrack();
 
-            _trackHandler.VerifyAllExpectations();
+            Assert.AreEqual("No track selected.", _mainViewModel.Output);
         }
 
 
         [Test]
-        public void PlaySelectedTrack_TrackNotPlayable_MessagesUserFeedBackHandler()
+        public void PlaySelectedTrack_TrackNotPlayable_SetsOutputMessage()
         {
             //not playable track in list
             var trackList = new List<Track>();
@@ -138,33 +130,35 @@ namespace PonchoTests.ViewModelsTests
             trackList.Add(track);
             _mainViewModel.SelectedTracks = trackList;
 
-            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.TrackNotPlayable));
-
             _mainViewModel.PlaySelectedTrack();
 
-            _userFeedbackHandler.VerifyAllExpectations();
+            Assert.AreEqual("This track is not playable.", _mainViewModel.Output);
         }
 
         [Test]
-        public void QueueTrackList_TrackPlayable_SendsTrackToTrackHandler()
+        public void QueueTrackList_TrackPlayable_SendsTrackToSpotifyServices()
         {
             var trackList = new List<Track>();
+            trackList.Add(GetPlayableTrack());
             _mainViewModel.SelectedTracks = trackList;
 
-            _trackHandler.Expect(x => x.QueueTracks(trackList));
+            _spotifyServices.Expect(x => x.QueueTracks(trackList));
 
             _mainViewModel.QueueTracks();
+
+            _spotifyServices.VerifyAllExpectations();
         }
 
         [Test]
-        public void QueueTrackList_TrackNotPlayable_MessagesUserFeedbackHandler()
+        public void QueueTrackList_TrackNotPlayable_SetsOutput()
         {
             var trackList = new List<Track>();
+            trackList.Add(GetNotPlayableTrack());
             _mainViewModel.SelectedTracks = trackList;
 
-            _userFeedbackHandler.Expect(x => x.Display(UserFeedback.SomeTracksNotPlayable));
-
             _mainViewModel.QueueTracks();
+
+            Assert.AreEqual("This track is not playable.", _mainViewModel.Output);
         }
 
         [Test]
@@ -175,9 +169,11 @@ namespace PonchoTests.ViewModelsTests
             var track2 = GetPlayableTrack();
             _mainViewModel.SelectedTracks = trackList;
 
-            _trackHandler.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));
+            _spotifyServices.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));
 
             _mainViewModel.QueueTracks();
+
+            _spotifyServices.VerifyAllExpectations();
         }
 
 

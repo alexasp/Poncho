@@ -13,6 +13,7 @@ namespace Poncho.ViewModels.Interfaces
         PlaybackStatus PlaybackStatus { get; set; }
         List<Track> SelectedTracks { get; set; }
         List<Track> TrackList { get; set; }
+        string Output { get; }
         void Search();
         void PlayPause();
         void PlaySelectedTrack();

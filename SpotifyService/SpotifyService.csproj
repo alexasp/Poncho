@@ -50,6 +50,7 @@
     <Compile Include="Enums\sp_error.cs" />
     <Compile Include="Enums\sp_sampletype.cs" />
     <Compile Include="Interfaces\IMusicServices.cs" />
+    <Compile Include="Interfaces\ISpotifyServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
     <Compile Include="SpotifyAppKey.cs" />
     <Compile Include="Enums\UserFeedback.cs" />

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Poncho.ViewModels.Interfaces;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
+using SpotifyService.Interfaces;
 using SpotifyService.Model.Enums;
 using SpotifyService.Model.Interfaces;
 
@@ -13,21 +14,14 @@ namespace Poncho.ViewModels
 
     public class MainViewModel : Screen, IMainViewModel
     {
-        private readonly ITrackHandler _trackHandler;
-        private readonly ISearchManager _searchManager;
-        private readonly IPlaylistManager _playListManager;
+        private readonly ISpotifyServices _spotifyServices;
         public IUserFeedbackHandler UserFeedbackHandler { get; set; }
         private string _title = "Poncho";
-        private PlayList _selectedPlayList;
-        private IUserFeedbackHandler _userFeedbackHandler;
 
 
-        public MainViewModel(ITrackHandler trackHandler, ISearchManager searchManager, IPlaylistManager playListManager, IUserFeedbackHandler userFeedbackHandler)
+        public MainViewModel(ISpotifyServices spotifyServices)
         {
-            _trackHandler = trackHandler;
-            _searchManager = searchManager;
-            _playListManager = playListManager;
-            _userFeedbackHandler = userFeedbackHandler;
+            _spotifyServices = spotifyServices;
 
             Title = _title;
         }
@@ -52,29 +46,31 @@ namespace Poncho.ViewModels
             set { _searchText = value; NotifyOfPropertyChange(() => SearchText);}
         }
 
+        private PlayList _selectedPlayList;
         public PlayList SelectedPlayList
         {
             get { return _selectedPlayList; }
-            set
-            {
-                _selectedPlayList = value;
-                _playListManager.SelectedPlayList = value;
-            }
+            set { _selectedPlayList = value; NotifyOfPropertyChange(() => SelectedPlayList); }
         }
 
         public PlaybackStatus PlaybackStatus { get; set; }
         private List<Track> _trackList;
+        private const string TrackNotPlayable = "This track is not playable.";
+        private const string NoTrackSelected = "No track selected.";
+        private const string SearchQueryEmpty = "No search query entered.";
+
         public List<Track> TrackList
         {
             get { return _trackList; }
             set { _trackList = value; NotifyOfPropertyChange(() => TrackList); }
         }
 
+        public string Output { get; private set; }
+
         public List<Track> SelectedTracks { get; set; }
 
         public Track SelectedTrack
         {
-            //Hm. Null makes sense in this context, doesn't it?
             get { return SelectedTracks.Count > 0 ? SelectedTracks[0] : null; }
             set { SelectedTracks.Clear(); SelectedTracks.Add(value); }
         }
@@ -84,15 +80,15 @@ namespace Poncho.ViewModels
         {
             Debug.WriteLine("Search attempted.");
             if (SearchText == "")
-                _userFeedbackHandler.Display(UserFeedback.NoSearchTextEntered);
+                Output = SearchQueryEmpty;
             else
-                _searchManager.Search(SearchText);
+                _spotifyServices.Search(SearchText);
         }
 
         public void PlayPause()
         {
             PlaybackStatus = PlaybackStatus == PlaybackStatus.Playing ? PlaybackStatus.Paused : PlaybackStatus.Playing;
-            _trackHandler.SetPlaybackStatus(PlaybackStatus);
+            _spotifyServices.ChangePlaybackStatus(PlaybackStatus);
         }
 
         public void PlaySelectedTrack()
@@ -100,24 +96,20 @@ namespace Poncho.ViewModels
             if (SelectedTracks.Count > 0)
             {
                 if (SelectedTrack.Playable)
-                    _trackHandler.PlayTrack(SelectedTrack);
+                    _spotifyServices.PlayTrack(SelectedTrack);
                 else
-                    _userFeedbackHandler.Display(UserFeedback.TrackNotPlayable);
+                    Output = TrackNotPlayable;
             }
             else
             {
-                _userFeedbackHandler.Display(UserFeedback.NoTrackSelected);
+                Output = NoTrackSelected;
             }
         }
 
 
         public void QueueTracks()
         {
-            foreach (var selectedTrack in SelectedTracks)
-            {
-                if (selectedTrack.Playable)
-                    _trackHandler.QueueTracks(selectedTrack);
-            }
+              _spotifyServices.QueueTracks(SelectedTracks);
         }
 
         public void ActiveTracksChanged(object sender, EventArgs eventArgs)
