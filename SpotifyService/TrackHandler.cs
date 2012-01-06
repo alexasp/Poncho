@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 using SpotifyService.Interfaces;
+using SpotifyService.Messages;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Model
+namespace SpotifyService
 {
-    public class TrackHandler : ITrackHandler
+    public class TrackHandler : ITrackHandler, IHandle<SearchResultMessage>
     {
         private readonly ITrackQueue _trackQueue;
         private readonly IMusicServices _musicServices;
@@ -67,11 +69,9 @@ namespace SpotifyService.Model
             throw new NotImplementedException();
         }
 
-       
-        public void SearchRetrieved(SearchResult searchResults)
+        public void Handle(SearchResultMessage message)
         {
-            ActiveTrackList = searchResults.TrackList;
-            ActiveTrackListListeners(this, new EventArgs());
+            ActiveTrackList = message.Result.TrackList;
         }
     }
 }

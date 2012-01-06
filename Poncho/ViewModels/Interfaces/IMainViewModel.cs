@@ -12,7 +12,7 @@ namespace Poncho.ViewModels.Interfaces
         string SearchText { get; set; }
         PlaybackStatus PlaybackStatus { get; set; }
         List<Track> SelectedTracks { get; set; }
-        object TrackList { get; set; }
+        List<Track> TrackList { get; set; }
         void Search();
         void PlayPause();
         void PlaySelectedTrack();

@@ -150,6 +150,8 @@ namespace SpotifyService
 
         public void CreateSearch(string searchText)
         {
+            Debug.WriteLine("Creating search.");
+
             var queryAsChar = searchText.ToCharArray();
 
             var callbackDelegate = new SearchCallbackDelegate(SearchCallback);
@@ -158,50 +160,63 @@ namespace SpotifyService
 
         public string GetSearchQuery()
         {
-            throw new NotImplementedException();
+            return sp_search_query(_searchHandle);
         }
 
         public string GetSearchDidYouMean()
         {
-            throw new NotImplementedException();
+            return sp_search_did_you_mean(_searchHandle);
         }
 
         public int GetSearchTotalTracksFound()
         {
-            throw new NotImplementedException();
+            return sp_search_total_tracks(_searchHandle);
         }
 
         public int GetSearchCountTracksRetrieved()
         {
-            throw new NotImplementedException();
+            return sp_search_num_tracks(_searchHandle);
         }
 
         public int GetSearchCountAlbumsRetrieved()
         {
-            throw new NotImplementedException();
+            return sp_search_num_albums(_searchHandle);
         }
 
-        public IntPtr GetAlbum(int index)
+        public IntPtr GetAlbumHandle(int index)
         {
-            throw new NotImplementedException();
+            return sp_search_album(_searchHandle, index);
         }
 
-        public IntPtr GetArtist(int index)
+        public IntPtr GetArtistHandle(int index)
         {
-            throw new NotImplementedException();
+            return sp_search_artist(_searchHandle, index);
         }
 
-        public IntPtr GetTrack(int index)
+        public IntPtr GetTrackHandle(int index)
         {
-            throw new NotImplementedException();
+            return sp_search_track(_searchHandle, index);
         }
 
         public List<Track> GetSearchTracks()
         {
-            throw new NotImplementedException();
+            var trackCount = GetSearchCountTracksRetrieved();
+            var trackList = new List<Track>();
+
+            for (int i = 0; i < trackCount; i++)
+            {
+                trackList.Add(GetTrackInfo(i));
+            }
+
+            return trackList;
         }
 
-
+        private Track GetTrackInfo(int i)
+        {
+            var handle = GetTrackHandle(i);
+            var name = sp_track_name(handle);
+            return new Track((int)handle, name, true);
+        }
 
 
         private void SearchCallback(IntPtr searchHandle, IntPtr userdataPointer)
@@ -315,11 +330,11 @@ namespace SpotifyService
 
         [DllImport(DllName)]
         //(const char *) sp_search_did_you_mean(sp_search *search);
-        public static extern IntPtr sp_search_did_you_mean(IntPtr searchHandle);
+        public static extern string sp_search_did_you_mean(IntPtr searchHandle);
 
         [DllImport(DllName)]
         //(const char *) sp_search_query(sp_search *search);
-        public static extern IntPtr sp_search_query(IntPtr searchHandle);
+        public static extern string sp_search_query(IntPtr searchHandle);
 
         [DllImport(DllName)]
         public static extern int sp_search_total_tracks(IntPtr searchHandle);
@@ -349,11 +364,11 @@ namespace SpotifyService
 
         [DllImport(DllName)]
         //(const char *) sp_artist_name(sp_artist *artist);
-        public static extern char sp_artist_name(IntPtr artistPointer);
+        public static extern string sp_artist_name(IntPtr artistPointer);
 
         [DllImport(DllName)]
         //(const char *) sp_album_name(sp_album *album);
-        public static extern IntPtr sp_album_name(IntPtr albumPointer);
+        public static extern string sp_album_name(IntPtr albumPointer);
 
         [DllImport(DllName)]
         //(int) sp_album_year(sp_album *album);
@@ -361,8 +376,11 @@ namespace SpotifyService
 
         [DllImport(DllName)]
         //(const char*) sp_error_message(sp_error error);
-        public static extern IntPtr sp_error_message(UInt32 errorType);
+        public static extern string sp_error_message(UInt32 errorType);
 
+        [DllImport(DllName)]
+        //(const char *) sp_track_name(sp_track *track);
+        public static extern string sp_track_name(IntPtr trackHandle);
 
         public void Dispose()
         {

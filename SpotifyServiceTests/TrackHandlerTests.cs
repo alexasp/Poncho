@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
+using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
 using SpotifyService.Model;
@@ -25,10 +26,20 @@ namespace SpotifyServiceTests.ModelsTests
             _trackHandler = new TrackHandler(_trackQueue, _musicServices);
         }
 
+        private Track GetNotPlayableTrack()
+        {
+            return new Track(0, "name", false);
+        }
+
+        private Track GetPlayableTrack()
+        {
+            return new Track(0, "name", true);
+        }
+
         [Test]
         public void PlayTrack_PlayableTrack_CallsPlayTrackOnMusicServices()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
 
             _trackHandler.PlayTrack(track);
 
@@ -40,7 +51,7 @@ namespace SpotifyServiceTests.ModelsTests
         [ExpectedException(typeof(ArgumentException))]
         public void PlayTrack_TrackNotPlayable_ThrowsInvalidArgumentException()
         {
-            var track = new Track(false);
+            var track = GetNotPlayableTrack();
 
             _trackHandler.PlayTrack(track);
         }
@@ -48,7 +59,7 @@ namespace SpotifyServiceTests.ModelsTests
         [Test]
         public void QueueTrack_TrackPlayable_AddsTrackToQueue()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
 
             _trackHandler.QueueTracks(track);
 
@@ -66,7 +77,7 @@ namespace SpotifyServiceTests.ModelsTests
         [Test]
         public void NextTrack_NextTrackAvailable_ReturnsNextTrack()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
             _trackQueue.Stub(x => x.Dequeue()).Return(track);
             _trackQueue.Stub(x => x.Length).Return(1);
 

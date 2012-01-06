@@ -39,6 +39,8 @@ namespace SpotifyService
 
         public void SearchRetrieved()
         {
+            Debug.WriteLine("Search result returned.");
+
             var searchQuery = _spotifyWrapper.GetSearchQuery();
             var didYouMeanText = _spotifyWrapper.GetSearchDidYouMean();
             var trackCount = _spotifyWrapper.GetSearchCountTracksRetrieved();

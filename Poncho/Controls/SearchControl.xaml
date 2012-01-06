@@ -1,18 +1,8 @@
 ﻿<UserControl x:Class="Poncho.Controls.SearchControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="360">
-    <Grid Height="100" Width="360">
-        <Grid Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="35" />
-                <RowDefinition Height="35" />
-            </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Height="35" Name="SearchText" VerticalAlignment="Top" Width="Auto" />
-            <Button Grid.Row="1" Content="Search" Margin="5,5,5,5" HorizontalAlignment="Right" Name="Search" Width="75" UseLayoutRounding="False" />
-        </Grid>
-        </Grid>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Name="panel" Orientation="Horizontal" Margin="5,5,5,5">
+        <TextBox MinWidth="170" Name="SearchText" VerticalAlignment="Top" />
+        <Button Content="Search" HorizontalAlignment="Right" Name="Search" MinWidth="45" UseLayoutRounding="False" />
+    </StackPanel>
 </UserControl>

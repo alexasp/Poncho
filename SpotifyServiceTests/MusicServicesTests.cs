@@ -29,6 +29,16 @@ namespace SpotifyServiceTests
             _musicServices = new MusicServices(_eventAggregator, _spotifyWrapper);
         }
 
+        private Track GetNotPlayableTrack()
+        {
+            return new Track(0, "name", false);
+        }
+
+        private Track GetPlayableTrack()
+        {
+            return new Track(0, "name", true);
+        }
+
         [Test]  
         public void InitializeSession_NoExistingSession_CallsCreateSessionOnSpotifyServices()
         {
@@ -156,7 +166,7 @@ namespace SpotifyServiceTests
         [Test]
         public void PlayTrack_CallsLoadTrackThenPlayTrackOnWrapper()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
             _spotifyWrapper.Expect(x => x.LoadTrack(track.Handle));
             _spotifyWrapper.Expect(x => x.Play(true));
 

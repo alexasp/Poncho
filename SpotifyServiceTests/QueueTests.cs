@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using NUnit.Framework;
 using SpotifyService.Cargo;
@@ -15,10 +16,15 @@ namespace SpotifyServiceTests.ModelsTests
             _trackQueue = new TrackQueue();
         }
 
+        private Track GetPlayableTrack()
+        {
+            return new Track(0, "name", true);
+        }
+
         [Test]
         public void Enqueue_ValidTrack_TrackIsQueued()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
 
             _trackQueue.Enqueue(track);
 
@@ -28,7 +34,7 @@ namespace SpotifyServiceTests.ModelsTests
         [Test]
         public void Append_ValidTrack_TrackIsAppendedToFrontOfQueue()
         {
-            var track = new Track(true);
+            var track = GetPlayableTrack();
 
             _trackQueue.Append(track);
 
@@ -40,8 +46,8 @@ namespace SpotifyServiceTests.ModelsTests
         [Test]
         public void Dequeue_NotEmpty_ReturnsFirstInQueue()
         {
-            var track1 = new Track(true);
-            var track2 = new Track(true);
+            var track1 = GetPlayableTrack();
+            var track2 = GetPlayableTrack();
 
             _trackQueue.Enqueue(track1);
             _trackQueue.Enqueue(track2);

@@ -45,7 +45,12 @@ namespace Poncho.ViewModels
             }
         }
 
-        public string SearchText { get; set; }
+        private string _searchText;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { _searchText = value; NotifyOfPropertyChange(() => SearchText);}
+        }
 
         public PlayList SelectedPlayList
         {
@@ -58,6 +63,12 @@ namespace Poncho.ViewModels
         }
 
         public PlaybackStatus PlaybackStatus { get; set; }
+        private List<Track> _trackList;
+        public List<Track> TrackList
+        {
+            get { return _trackList; }
+            set { _trackList = value; NotifyOfPropertyChange(() => TrackList); }
+        }
 
         public List<Track> SelectedTracks { get; set; }
 
@@ -68,11 +79,10 @@ namespace Poncho.ViewModels
             set { SelectedTracks.Clear(); SelectedTracks.Add(value); }
         }
 
-        public object TrackList { get; set; }
-
 
         public void Search()
         {
+            Debug.WriteLine("Search attempted.");
             if (SearchText == "")
                 _userFeedbackHandler.Display(UserFeedback.NoSearchTextEntered);
             else

@@ -20,6 +20,7 @@ namespace PonchoTests.ViewModelsTests
         private IMainViewModel _mainViewModel;
         private IUserFeedbackHandler _userFeedbackHandler;
         private ISearchManager _searchManager;
+
         private ITrackHandler _trackHandler;
 
         [SetUp]
@@ -30,6 +31,16 @@ namespace PonchoTests.ViewModelsTests
             _searchManager = MockRepository.GenerateMock<ISearchManager>();
             _trackHandler = MockRepository.GenerateMock<ITrackHandler>();
             _mainViewModel = new MainViewModel(_trackHandler, _searchManager, _playListManager, _userFeedbackHandler);
+        }
+
+        private Track GetNotPlayableTrack()
+        {
+            return new Track(0, "name", false);
+        }
+
+        private Track GetPlayableTrack()
+        {
+            return new Track(0, "name", true);
         }
 
         [Test]
@@ -90,7 +101,7 @@ namespace PonchoTests.ViewModelsTests
         {
             //playable track in list
             var trackList = new List<Track>();
-            var track = new Track(true);
+            var track = GetPlayableTrack();
             trackList.Add(track);
 
             _mainViewModel.SelectedTracks = trackList;
@@ -123,7 +134,7 @@ namespace PonchoTests.ViewModelsTests
         {
             //not playable track in list
             var trackList = new List<Track>();
-            var track = new Track(false);
+            var track = GetNotPlayableTrack();
             trackList.Add(track);
             _mainViewModel.SelectedTracks = trackList;
 
@@ -160,8 +171,8 @@ namespace PonchoTests.ViewModelsTests
         public void QueueTrackList_SomeTracksNotPlayable_QueuesPlayableTracks()
         {
             var trackList = new List<Track>();
-            var track1 = new Track(false);
-            var track2 = new Track(true);
+            var track1 = GetNotPlayableTrack();
+            var track2 = GetPlayableTrack();
             _mainViewModel.SelectedTracks = trackList;
 
             _trackHandler.Expect(x => x.QueueTracks(Arg<List<Track>>.Matches(y => y.Contains(track2) && !y.Contains(track1))));

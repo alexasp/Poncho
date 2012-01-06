@@ -18,9 +18,9 @@ namespace SpotifyService.Interfaces
         int GetSearchTotalTracksFound();
         int GetSearchCountTracksRetrieved();
         int GetSearchCountAlbumsRetrieved();
-        IntPtr GetAlbum(int index);
-        IntPtr GetArtist(int index);
-        IntPtr GetTrack(int index);
+        IntPtr GetAlbumHandle(int index);
+        IntPtr GetArtistHandle(int index);
+        IntPtr GetTrackHandle(int index);
         List<Track> GetSearchTracks();
         event Action SearchRetrieved;
         event Action<sp_error> LoginResponseRetrieved;
