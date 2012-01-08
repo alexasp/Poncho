@@ -1,14 +1,12 @@
 using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
-using SpotifyService;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
-using SpotifyService.Model;
+using SpotifyService.Managers;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyServiceTests.ModelsTests
+namespace SpotifyServiceTests.ManagerTests
 {
     [TestFixture]
     class TrackHandlerTests

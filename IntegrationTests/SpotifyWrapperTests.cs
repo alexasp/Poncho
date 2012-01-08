@@ -12,7 +12,7 @@ namespace IntegrationTests
     [TestFixture]
     public class SpotifyWrapperTests
     {
-        [Test]
+        [Test, Explicit]
         public void Login()
         {
             using (var spotifyWrapper = new SpotifyWrapper())

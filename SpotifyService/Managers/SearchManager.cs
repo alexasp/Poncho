@@ -2,12 +2,11 @@ using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Model
+namespace SpotifyService.Managers
 {
     public class SearchManager : ISearchManager
     {
         private readonly IMusicServices _musicServices;
-        private SearchResult _searchResult;
 
         public SearchManager(IMusicServices musicServices)
         {
@@ -19,11 +18,7 @@ namespace SpotifyService.Model
             LastSearch = searchResults;
         }
 
-        public SearchResult LastSearch
-        {
-            get { return _searchResult; }
-            private set { _searchResult = value; }
-        }
+        public SearchResult LastSearch { get; private set; }
 
         public void Search(string text)
         {

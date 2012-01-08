@@ -9,6 +9,8 @@ using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 using SpotifyService.Model.Interfaces;
 
+// ReSharper disable InconsistentNaming
+
 namespace SpotifyServiceTests
 {
     /// <summary>
@@ -44,7 +46,6 @@ namespace SpotifyServiceTests
         {
             string username = "baldi";
             string password = "123321";
-
             _spotifyWrapper.Stub(x => x.CreateSession()).Return(sp_error.SP_ERROR_OK);
             _spotifyWrapper.Stub(x => x.ActiveSession()).Return(false);
 

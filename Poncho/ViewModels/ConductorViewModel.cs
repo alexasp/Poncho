@@ -9,12 +9,12 @@ using SpotifyService.Messages;
 
 namespace Poncho.ViewModels
 {
-    public class ShellViewModel : Conductor<Screen>.Collection.OneActive, IShellViewModel
+    public class ConductorViewModel : Conductor<Screen>.Collection.OneActive, IConductorViewModel
     {
         private readonly ILoginViewModel _loginViewModel;
         private readonly IMainViewModel _mainViewModel;
 
-        public ShellViewModel(ILoginViewModel loginViewModel, IMainViewModel mainViewModel, IEventAggregator eventAggregator)
+        public ConductorViewModel(ILoginViewModel loginViewModel, IMainViewModel mainViewModel, IEventAggregator eventAggregator)
         {
             _loginViewModel = loginViewModel;
             _mainViewModel = mainViewModel;

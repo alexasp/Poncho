@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
@@ -20,7 +21,7 @@ namespace SpotifyService
         private sp_session_callbacks _sessionCallbacks;
         private const int SpotifyApiVersion = 9;
 
-        internal static object Mutex = new object();
+        private static readonly object Mutex = new object();
         private notify_main_thread _notifyMainThreadCallback;
         private logged_in _loginCallback;
         private search_complete_cb _searchCallback;
@@ -54,8 +55,8 @@ namespace SpotifyService
 
 
 
-            IntPtr appKeyPointer = Marshal.AllocHGlobal(SpotifyAppKey.ApplicationKey.Length);
-            Marshal.Copy(SpotifyAppKey.ApplicationKey, 0, appKeyPointer, SpotifyAppKey.ApplicationKey.Length);
+            IntPtr appKeyHandle = Marshal.AllocHGlobal(SpotifyAppKey.ApplicationKey.Length);
+            Marshal.Copy(SpotifyAppKey.ApplicationKey, 0, appKeyHandle, SpotifyAppKey.ApplicationKey.Length);
 
             _notifyMainThreadCallback = NotifyMainThreadCallback;
             _loginCallback = LoginCallback;
@@ -76,7 +77,7 @@ namespace SpotifyService
                 api_version = SpotifyApiVersion,
                 cache_location = _cacheLocation,
                 settings_location = _cacheLocation,
-                application_key = appKeyPointer,
+                application_key = appKeyHandle,
                 application_key_size = SpotifyAppKey.ApplicationKey.Length,
                 user_agent = UserAgent,
                 callbacks = sessionCallbacksPtr,
@@ -211,21 +212,34 @@ namespace SpotifyService
             return trackList;
         }
 
+        private IEnumerable<string> GetTrackArtists(IntPtr trackHandle)
+        {
+            var artistCount = GetTrackArtistCount(trackHandle);
+            for (int i = 0; i < artistCount; i++)
+            {
+                var artistHandle = sp_track_artist(trackHandle, i);
+                var artistName = sp_artist_name(artistHandle);
+                yield return artistName;
+            }
+        }
+
+        private int GetTrackArtistCount(IntPtr trackHandle)
+        {
+            return sp_track_num_artists(trackHandle);
+        }
+
         private Track GetTrackInfo(int i)
         {
             var trackHandle = GetTrackHandle(i);
-            var artistHandle = GetArtistHandle(i);
-            var albumHandle = GetAlbumHandle(i);
+            var artists = GetTrackArtists(trackHandle).Aggregate("", (left,right) => left + "," + right);
 
             var name = sp_track_name(trackHandle);
-            //var artist = sp_artist_name(artistHandle);
-            //var album = sp_album_name(albumHandle);
 
-            return new Track((int)trackHandle, name, "", "", true);
+            return new Track((int)trackHandle, name, artists, "", true);
         }
 
 
-        private void SearchCallback(IntPtr searchHandle, IntPtr userdataPointer)
+        private void SearchCallback(IntPtr searchHandle, IntPtr userdataHandle)
         {
             if (sp_search_error(searchHandle) == (UInt32)sp_error.SP_ERROR_OK)
             {
@@ -235,7 +249,7 @@ namespace SpotifyService
         }
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void search_complete_cb(IntPtr searchHandle, IntPtr userdataPointer);
+        private delegate void search_complete_cb(IntPtr searchHandle, IntPtr userdataHandle);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void logged_in(IntPtr sessionHandle, sp_error error);
@@ -328,7 +342,7 @@ namespace SpotifyService
         public static extern void sp_search_create(IntPtr session, string query, int trackOffset,
                                                     int trackCount, int albumOffset, int albumCount,
                                                     int artistOffset, int artistCount,
-                                                    IntPtr callbackDelegate, IntPtr userdataPointer);
+                                                    IntPtr callbackDelegate, IntPtr userdataHandle);
 
         [DllImport(DllName)]
         //(sp_error) sp_search_error(sp_search *search);
@@ -370,15 +384,15 @@ namespace SpotifyService
 
         [DllImport(DllName)]
         //(const char *) sp_artist_name(sp_artist *artist);
-        public static extern string sp_artist_name(IntPtr artistPointer);
+        public static extern string sp_artist_name(IntPtr artistHandle);
 
         [DllImport(DllName)]
         //(const char *) sp_album_name(sp_album *album);
-        public static extern string sp_album_name(IntPtr albumPointer);
+        public static extern string sp_album_name(IntPtr albumHandle);
 
         [DllImport(DllName)]
         //(int) sp_album_year(sp_album *album);
-        public static extern int sp_album_year(IntPtr albumPointer);
+        public static extern int sp_album_year(IntPtr albumHandle);
 
         [DllImport(DllName)]
         //(const char*) sp_error_message(sp_error error);
@@ -387,6 +401,12 @@ namespace SpotifyService
         [DllImport(DllName)]
         //(const char *) sp_track_name(sp_track *track);
         public static extern string sp_track_name(IntPtr trackHandle);
+
+        [DllImport(DllName)]
+        public static extern int sp_track_num_artists(IntPtr trackHandle);
+
+        [DllImport(DllName)]
+        public static extern IntPtr sp_track_artist(IntPtr trackHandle, int index);
 
         public void Dispose()
         {

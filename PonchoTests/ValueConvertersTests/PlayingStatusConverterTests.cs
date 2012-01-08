@@ -24,13 +24,13 @@ namespace PonchoTests.ViewModelsTests
         [Test]
         public void ValueIsTrue_ReturnsPauseImage()
         {
-            Assert.Fail("Test not implemented.");
+            Assert.Inconclusive("Test not implemented.");
         }
 
         [Test]
         public void ValueIsFalse_ReturnsPlayingImage()
         {
-            Assert.Fail("Test not implemented.");
+            Assert.Inconclusive("Test not implemented.");
         }
 
 

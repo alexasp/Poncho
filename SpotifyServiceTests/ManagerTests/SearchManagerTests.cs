@@ -3,10 +3,10 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
-using SpotifyService.Model;
+using SpotifyService.Managers;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyServiceTests.ModelsTests
+namespace SpotifyServiceTests.ManagerTests
 {
     [TestFixture]
     class SearchManagerTests

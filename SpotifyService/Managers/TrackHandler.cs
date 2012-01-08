@@ -7,7 +7,7 @@ using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService
+namespace SpotifyService.Managers
 {
     public class TrackHandler : ITrackHandler, IHandle<SearchResultMessage>
     {

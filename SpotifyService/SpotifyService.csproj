@@ -30,6 +30,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro">
       <HintPath>..\..\lib\Caliburn.Micro.dll</HintPath>
@@ -52,6 +73,10 @@
     <Compile Include="Interfaces\IMusicServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
     <Compile Include="ISpotifyServices.cs" />
+    <Compile Include="Managers\LoginManager.cs" />
+    <Compile Include="Managers\PlaylistManager.cs" />
+    <Compile Include="Managers\SearchManager.cs" />
+    <Compile Include="Managers\TrackHandler.cs" />
     <Compile Include="SpotifyAppKey.cs" />
     <Compile Include="Enums\UserFeedback.cs" />
     <Compile Include="Interfaces\ILoginManager.cs" />
@@ -61,14 +86,10 @@
     <Compile Include="Interfaces\ITrackHandler.cs" />
     <Compile Include="Interfaces\ITrackQueue.cs" />
     <Compile Include="Interfaces\IUserFeedbackHandler.cs" />
-    <Compile Include="LoginManager.cs" />
     <Compile Include="Messages\LoginResultMessage.cs" />
     <Compile Include="Messages\SearchResultMessage.cs" />
     <Compile Include="Messages\UserFeedbackMessage.cs" />
-    <Compile Include="PlaylistManager.cs" />
-    <Compile Include="SearchManager.cs" />
     <Compile Include="SpotifyServices.cs" />
-    <Compile Include="TrackHandler.cs" />
     <Compile Include="TrackQueue.cs" />
     <Compile Include="UserFeedbackHandler.cs" />
     <Compile Include="MusicServices.cs" />

@@ -2,7 +2,7 @@ using SpotifyService.Cargo;
 using SpotifyService.Interfaces;
 using SpotifyService.Model.Interfaces;
 
-namespace SpotifyService.Model
+namespace SpotifyService.Managers
 {
     public class PlaylistManager : IPlaylistManager
     {

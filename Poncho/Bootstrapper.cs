@@ -11,13 +11,14 @@ using Poncho.ViewModels.Interfaces;
 using Poncho.Views;
 using SpotifyService;
 using SpotifyService.Interfaces;
+using SpotifyService.Managers;
 using SpotifyService.Model;
 using SpotifyService.Model.Interfaces;
 using IContainer = Autofac.IContainer;
 
 namespace Poncho
 {
-    public class Bootstrapper : Bootstrapper<IShellViewModel>
+    public class Bootstrapper : Bootstrapper<IConductorViewModel>
     {
         private readonly ILog _logger = LogManager.GetLog(typeof(Bootstrapper));
         private IContainer _container;
@@ -57,16 +58,17 @@ namespace Poncho
             _logger.Info("Registering ViewModels.");
             builder.RegisterType<LoginViewModel>().As<ILoginViewModel>();
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
-            builder.RegisterType<ShellViewModel>().As<IShellViewModel>();
+            builder.RegisterType<ConductorViewModel>().As<IConductorViewModel>();
 
             _logger.Info("Registering Views.");
             builder.RegisterType<LoginView>().AsSelf();
             builder.RegisterType<MainView>().AsSelf();
-            builder.RegisterType<ShellView>().AsSelf();
+            builder.RegisterType<ConductorView>().AsSelf();
 
 
             builder.RegisterType<SpotifyServices>().As<ISpotifyServices>();
 
+            //TODO: Register and resolve these in SpotifyService.
             builder.RegisterType<LoginManager>().As<ILoginManager>();
             builder.RegisterType<UserFeedbackHandler>().As<IUserFeedbackHandler>();
             builder.RegisterType<MusicServices>().As<IMusicServices>().InstancePerLifetimeScope();
