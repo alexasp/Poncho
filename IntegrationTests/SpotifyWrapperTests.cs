@@ -22,8 +22,7 @@ namespace IntegrationTests
 
                 #region logininfo
 
-                string password = "tomater90";
-                string username = "AlexBA";
+
 
                 #endregion
 

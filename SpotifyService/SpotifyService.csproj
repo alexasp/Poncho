@@ -110,7 +110,6 @@
   <ItemGroup>
     <Content Include="api.h" />
     <None Include="Resources\spotify.dll" />
-    <None Include="Resources\libspotify.dll" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
