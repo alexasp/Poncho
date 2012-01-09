@@ -70,6 +70,7 @@
     <Compile Include="Enums\PlaybackStatus.cs" />
     <Compile Include="Enums\sp_error.cs" />
     <Compile Include="Enums\sp_sampletype.cs" />
+    <Compile Include="Interfaces\IHandle.cs" />
     <Compile Include="Interfaces\IMusicServices.cs" />
     <Compile Include="Interfaces\ISpotifyServices.cs" />
     <Compile Include="Interfaces\ISpotifyWrapper.cs" />
@@ -77,6 +78,11 @@
     <Compile Include="Managers\PlaylistManager.cs" />
     <Compile Include="Managers\SearchManager.cs" />
     <Compile Include="Managers\TrackHandler.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SpotifyAppKey.cs" />
     <Compile Include="Enums\UserFeedback.cs" />
     <Compile Include="Interfaces\ILoginManager.cs" />
@@ -103,8 +109,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="api.h" />
+    <None Include="Resources\spotify.dll" />
+    <None Include="Resources\libspotify.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

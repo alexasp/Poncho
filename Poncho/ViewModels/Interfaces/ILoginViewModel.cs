@@ -1,4 +1,4 @@
-﻿using Caliburn.Micro;
+﻿using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 
 namespace Poncho.ViewModels.Interfaces

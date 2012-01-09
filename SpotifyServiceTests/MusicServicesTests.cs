@@ -42,7 +42,7 @@ namespace SpotifyServiceTests
         }
 
         [Test]  
-        public void InitializeSession_NoExistingSession_CallsCreateSessionOnSpotifyServices()
+        public void InitializeSpotifySession_NoExistingSession_CallsCreateSessionOnSpotifyServices()
         {
             string username = "baldi";
             string password = "123321";
@@ -55,7 +55,7 @@ namespace SpotifyServiceTests
         }
 
         [Test]
-        public void InitializeSession_ExistingSession_DoesNotCallCreateSessionOnSpotifyServices()
+        public void InitializeSpotifySession_ExistingSession_DoesNotCallCreateSessionOnSpotifyServices()
         {
             string username = "baldi";
             string password = "123321";
@@ -69,7 +69,7 @@ namespace SpotifyServiceTests
         }
 
         [Test]
-        public void InitializeSession_RequestsLoginOnSpotifyServices()
+        public void InitializeSpotifySession_RequestsLoginOnSpotifyServices()
         {
             string username = "baldi";
             string password = "123321";

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
+using SpotifyService.Interfaces;
 using SpotifyService.Messages;
 
 namespace Poncho.ViewModels.Interfaces

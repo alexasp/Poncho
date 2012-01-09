@@ -9,7 +9,7 @@ using SpotifyService.Model.Interfaces;
 
 namespace SpotifyService.Managers
 {
-    public class TrackHandler : ITrackHandler, IHandle<SearchResultMessage>
+    public class TrackHandler : ITrackHandler, Caliburn.Micro.IHandle<SearchResultMessage>
     {
         private readonly ITrackQueue _trackQueue;
         private readonly IMusicServices _musicServices;

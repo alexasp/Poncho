@@ -12,7 +12,7 @@ namespace SpotifyService
     public class MusicServices : IMusicServices
     {
         private readonly IEventAggregator _eventAggregator;
-        private ISpotifyWrapper _spotifyWrapper;
+        private readonly ISpotifyWrapper _spotifyWrapper;
 
         public MusicServices(IEventAggregator eventAggregator, ISpotifyWrapper spotifyWrapper)
         {
