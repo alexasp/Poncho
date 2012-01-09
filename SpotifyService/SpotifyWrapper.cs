@@ -154,8 +154,6 @@ namespace SpotifyService
         public void CreateSearch(string searchText)
         {
             Debug.WriteLine("Creating search.");
-
-
             sp_search_create(_sessionHandle, searchText, 0, 100, 0, 100, 0, 100, Marshal.GetFunctionPointerForDelegate(_searchCallback), new IntPtr());
         }
 

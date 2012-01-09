@@ -17,10 +17,10 @@
         <ListView ItemsSource="{Binding TrackList}" Grid.Row="1" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Artist}" />
-                        <TextBlock Text="{Binding Album}" />
+                    <StackPanel Orientation="Horizontal" Width="Auto">
+                        <TextBlock Text="{Binding Name}" TextAlignment="Center" Width="Auto" />
+                        <TextBlock Text="{Binding Artist}" TextAlignment="Center" Width="Auto" />
+                        <TextBlock Text="{Binding Album}" TextAlignment="Center" Width="Auto" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

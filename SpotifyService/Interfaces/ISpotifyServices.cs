@@ -3,7 +3,7 @@ using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
 
-namespace SpotifyService
+namespace SpotifyService.Interfaces
 {
     public interface ISpotifyServices
     {
