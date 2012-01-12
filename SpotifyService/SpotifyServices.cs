@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Caliburn.Micro;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
@@ -15,6 +16,7 @@ namespace SpotifyService
 
         public SpotifyServices(ISearchManager searchManager, ITrackHandler trackHandler, IEventAggregator eventAggregator)
         {
+
             EventAggregator = eventAggregator;
             _searchManager = searchManager;
             _trackHandler = trackHandler;

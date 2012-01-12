@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Poncho.Controls
 {
@@ -11,5 +12,6 @@ namespace Poncho.Controls
         {
             InitializeComponent();
         }
+
     }
 }

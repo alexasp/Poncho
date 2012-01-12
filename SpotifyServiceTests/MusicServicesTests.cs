@@ -118,7 +118,6 @@ namespace SpotifyServiceTests
             var totalTrackCount = 120;
             var albumCount = 8;
 
-            _spotifyWrapper.Stub(x => x.GetSearchTracks()).Return(trackList);
             _spotifyWrapper.Stub(x => x.GetSearchQuery()).Return(searchText);
             _spotifyWrapper.Stub(x => x.GetSearchDidYouMean()).Return(didYouMean);
             _spotifyWrapper.Stub(x => x.GetSearchCountTracksRetrieved()).Return(trackCount);
@@ -138,6 +137,7 @@ namespace SpotifyServiceTests
                     )
                 );
         }
+
 
         [Test]
         public void LoginResponseRetrieved_LoginSuccesful_PublishesLoginResultMessageWithSuccess()

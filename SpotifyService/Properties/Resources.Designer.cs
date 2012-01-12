@@ -59,12 +59,5 @@ namespace SpotifyService.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static byte[] spotify {
-            get {
-                object obj = ResourceManager.GetObject("spotify", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

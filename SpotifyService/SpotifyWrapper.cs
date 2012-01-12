@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using SpotifyService.Cargo;
 using SpotifyService.Enums;
@@ -52,7 +53,6 @@ namespace SpotifyService
 
             _cacheLocation = "tmp";
             _settingsLocation = "tmp";
-
 
 
             IntPtr appKeyHandle = Marshal.AllocHGlobal(SpotifyAppKey.ApplicationKey.Length);

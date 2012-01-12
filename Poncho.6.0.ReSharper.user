@@ -619,57 +619,18 @@
       <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:MusicServicesTests.cs" caret="4151" fromTop="48" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:api.h" caret="43069" fromTop="0" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:SpotifyWrapper.cs" caret="8284" fromTop="8" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:LoginManagerTests.cs" caret="364" fromTop="13" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:SearchManagerTests.cs" caret="0" fromTop="0" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackControlViewModelTests.cs" caret="0" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/f:App.xaml" caret="0" fromTop="0" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:IActiveTracksListener.cs" caret="13" fromTop="0" />
       <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="546" fromTop="2" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="1947" fromTop="4" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="411" fromTop="12" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="3336" fromTop="18" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:TrackHandler.cs" caret="1943" fromTop="30" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:ITrackHandler.cs" caret="265" fromTop="8" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="4399" fromTop="19" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Views/f:ShellView.xaml" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Views/f:LogInView.xaml.cs" caret="488" fromTop="18" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="486" fromTop="14" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/f:Bootstrapper.cs" caret="135" fromTop="7" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:SearchViewModel.cs" caret="0" fromTop="0" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ILoginViewModel.cs" caret="79" fromTop="2" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/f:ScreenConductor.cs" caret="814" fromTop="31" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ISearchViewModel.cs" caret="197" fromTop="8" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/f:App.xaml.cs" caret="218" fromTop="10" />
     </RecentFiles>
     <RecentEdits>
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="399" fromTop="16" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:TrackHandler.cs" caret="1808" fromTop="19" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="3072" fromTop="24" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:TrackHandler.cs" caret="234" fromTop="8" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:TrackHandler.cs" caret="484" fromTop="13" />
       <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/d:Interfaces/f:ITrackHandler.cs" caret="507" fromTop="14" />
-      <File id="AE9AA137-7F3A-45A1-85CA-A8131810C974/f:TrackHandler.cs" caret="1940" fromTop="29" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="3355" fromTop="26" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="202" fromTop="6" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="375" fromTop="9" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="2137" fromTop="19" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="2240" fromTop="19" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="2396" fromTop="17" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="3124" fromTop="19" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="4519" fromTop="37" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="4150" fromTop="22" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="4419" fromTop="28" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="4010" fromTop="16" />
-      <File id="F5A1F80F-47FB-46C0-A84B-88A288D89E48/f:TrackHandlerTests.cs" caret="3738" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="291" fromTop="9" />
-      <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:TrackListViewModelTests.cs" caret="3489" fromTop="21" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="1651" fromTop="10" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ITrackListViewModel.cs" caret="411" fromTop="12" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:TrackListViewModel.cs" caret="1886" fromTop="31" />
       <File id="AF5F2770-6BBC-4573-B9A1-8080EBC18205/d:ViewModelsTests/f:LogInViewModelTests.cs" caret="882" fromTop="2" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:Views/f:LogInView.xaml.cs" caret="488" fromTop="18" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="0" fromTop="0" />
-      <File id="45388A88-56DA-438D-B19C-98407532D8D6/f:ScreenConductor.cs" caret="231" fromTop="10" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/f:LoginViewModel.cs" caret="226" fromTop="8" />
       <File id="45388A88-56DA-438D-B19C-98407532D8D6/d:ViewModels/d:Interfaces/f:ILoginViewModel.cs" caret="79" fromTop="2" />
     </RecentEdits>

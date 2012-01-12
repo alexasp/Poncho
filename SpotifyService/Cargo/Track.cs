@@ -4,7 +4,6 @@ namespace SpotifyService.Cargo
     public class Track
     {
         private readonly bool _playable;
-        private int _handle;
 
         public string Name { get; private set; }
 
@@ -26,14 +25,6 @@ namespace SpotifyService.Cargo
             get { return _playable; }
         }
 
-        public int Handle
-        {
-            get {
-                return _handle;
-            }
-            private set {
-                _handle = value;
-            }
-        }
+        public int Handle { get; private set; }
     }
 }

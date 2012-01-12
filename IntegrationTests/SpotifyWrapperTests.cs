@@ -20,9 +20,13 @@ namespace IntegrationTests
 
                 spotifyWrapper.CreateSession();
 
+                string password;
+                string username;
+                
                 #region logininfo
 
-
+                password = "";
+                username = "";
 
                 #endregion
 
